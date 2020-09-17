@@ -1,6 +1,5 @@
 require('dotenv').config();
 
-// const join = require('path').join;
 const express = require('express');
 const db = require('./database/mongoose');
 // const models = join(__dirname, 'app/models');
