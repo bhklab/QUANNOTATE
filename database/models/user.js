@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
+const Schema = mongoose.Schema;
 
 // user schema
-const userSchema = mongoose.Schema({
+const userSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -52,7 +53,5 @@ userSchema.pre('save', async function (next) {
     next();
 });
 
-// creates user model
-const User = mongoose.model('User', userSchema);
-
-module.exports = User;
+// creates and exports user model
+module.exports = mongoose.model('User', userSchema);
