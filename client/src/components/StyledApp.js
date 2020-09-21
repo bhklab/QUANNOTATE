@@ -2,7 +2,19 @@ import styled from 'styled-components';
 import colors from '../styles/colors';
 
 const StyledApp = styled.div`
+  
   text-align: center;
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: ${colors.white};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  .wrapper {
+    max-width: 1280px;
+  }
 
   .App-logo {
     height: 40vmin;
@@ -13,17 +25,6 @@ const StyledApp = styled.div`
     .App-logo {
       animation: App-logo-spin infinite 20s linear;
     }
-  }
-
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
   }
 
   .App-link {

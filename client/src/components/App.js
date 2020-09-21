@@ -1,8 +1,8 @@
 import React from 'react';
 import { Normalize } from 'styled-normalize';
-import logo from '../images/logo.svg';
 import StyledApp from './StyledApp';
 import GlobalStyles from '../styles/GlobalStyles';
+// import Login from '../Login'
 
 const App = () => {
   return (
@@ -11,19 +11,18 @@ const App = () => {
       <GlobalStyles />
       <StyledApp>
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <p>Header</p>
         </header>
+        <main>
+          <div className='wrapper'>
+            <h1>LabelIt</h1>
+            <p>LabelIt description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus ultrices leo. Cras scelerisque lorem nec blandit gravida. Nunc molestie suscipit dui at fermentum. Vestibulum vel risus interdum, laoreet diam at, rutrum nibh. Nullam in metus a ipsum tincidunt egestas. Cras et accumsan nisi. Vestibulum faucibus lorem vitae mi pellentesque tristique.</p>
+            {/* <Login></Login> */}
+          </div>
+        </main>
+        <footer>
+          <p>© Copyright 2020 by BHK Lab</p>
+        </footer>
       </StyledApp>
     </>
   );
