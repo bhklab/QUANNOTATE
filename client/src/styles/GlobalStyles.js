@@ -43,12 +43,15 @@ const GlobalStyles = createGlobalStyle`
     p {
       font-size: 14px;
     }
-    header {
+    header,
+    footer {
       width: 100%;
       min-height: 75px;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    header {
       background-color: ${colors.dark_grey};
     }
 `;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Normalize } from 'styled-normalize';
 import StyledApp from './StyledApp';
 import GlobalStyles from '../styles/GlobalStyles';
-// import Login from '../Login'
+import Login from './Login/Login';
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
           <div className='wrapper'>
             <h1>LabelIt</h1>
             <p>LabelIt description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus ultrices leo. Cras scelerisque lorem nec blandit gravida. Nunc molestie suscipit dui at fermentum. Vestibulum vel risus interdum, laoreet diam at, rutrum nibh. Nullam in metus a ipsum tincidunt egestas. Cras et accumsan nisi. Vestibulum faucibus lorem vitae mi pellentesque tristique.</p>
-            {/* <Login></Login> */}
+            <Login/>
           </div>
         </main>
         <footer>
