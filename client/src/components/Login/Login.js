@@ -18,47 +18,38 @@ const styles = {
   root: {
     marginTop: 0,
     '& label': {
-      color: colors.purple,
+      color: colors.white,
+    },
+    '&:hover label': {
+      color: colors.blue,
     },
     '& label.Mui-focused': {
       color: colors.purple,
     },
-    '& textarea::placeholder': {
-      color: 'black',
-    },
-    '& .MuiInput-underline:after': {
-      borderBottom: `2px solid ${colors.pink}`,
-      },
-    '& .MuiInput-underline:before': {
-    borderBottom: `2px solid ${colors.pink}`,
-      },
-    '& .MuiInput-underline:hover:before': {
-    borderBottom: `2px solid ${colors.white}`,
-      },
-    '& .MuiOutlinedInput-root': {
-    '& fieldset': {
-      borderColor: colors.white,
-        },
-    '&:hover fieldset': {
-      borderColor: colors.blue,
-        },
-    '&.Mui-focused fieldset': {
-      borderColor: colors.purple,
-        },
-      },
-    input: {
+    // overrides white styles on autofill
+    '& input': {
+      color: `${colors.white} !important`,
       "&:-webkit-autofill": {
-        WebkitBoxShadow: "0 0 0 1000px black inset"
-      }
-    }
+        WebkitBoxShadow: `0 0 0 1000px ${colors.black} inset`,
+        WebkitTextFillColor: colors.white,
+        FontSize: 'calc(10px + 2vmin)'
+      },
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: colors.white,
+      },
+      '&:hover fieldset': {
+        borderColor: colors.blue,
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: colors.purple,
+      },
+    },
   },
 }
 
-const CustomTextField = withStyles(styles)(props => {
-  const { classes, ...other } = props;
-  console.log(classes);
-  return <TextField inputProps={{ className: classes.root }} {...other} />;
-});
+const CustomTextField = withStyles(styles)(TextField);
 
 const Login = () => {
 
