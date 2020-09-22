@@ -1,13 +1,76 @@
-import React from 'react';
-import StyledLogin from './StyledLogin'
+import React, { useState } from 'react';
+import TextField from '@material-ui/core/TextField';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import StyledLogin from './StyledLogin';
+import colors from '../../styles/colors';
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+  },
+}));
+
+const styles = { 
+  root: {
+    marginTop: 0,
+    '& label': {
+      color: colors.purple,
+    },
+    '& label.Mui-focused': {
+      color: colors.purple,
+    },
+    '& textarea::placeholder': {
+      color: 'black',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottom: `2px solid ${colors.pink}`,
+      },
+    '& .MuiInput-underline:before': {
+    borderBottom: `2px solid ${colors.pink}`,
+      },
+    '& .MuiInput-underline:hover:before': {
+    borderBottom: `2px solid ${colors.white}`,
+      },
+    '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: colors.white,
+        },
+    '&:hover fieldset': {
+      borderColor: colors.blue,
+        },
+    '&.Mui-focused fieldset': {
+      borderColor: colors.purple,
+        },
+      },
+    input: {
+      "&:-webkit-autofill": {
+        WebkitBoxShadow: "0 0 0 1000px black inset"
+      }
+    }
+  },
+}
+
+const CustomTextField = withStyles(styles)(props => {
+  const { classes, ...other } = props;
+  console.log(classes);
+  return <TextField inputProps={{ className: classes.root }} {...other} />;
+});
 
 const Login = () => {
 
-  const handleUserChange = () => {
-    console.log("handleUserChange");
-  }
-  const handlePasswordChange = () => {
-    console.log("handlePasswordChange");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("")
+
+  const classes = useStyles();
+
+  const handleInputChange = (e, type) => {
+    const { value } = e.target
+    if (type === 'email') setEmail(value)
+    if (type === 'password') setPassword(value)
   }
 
   const handleSubmit = (e) => {
@@ -16,21 +79,22 @@ const Login = () => {
   }
 
   return (
-    <StyledLogin onSubmit={handleSubmit}>
-      <input 
-        type="text"
+    <StyledLogin className={classes.root} onSubmit={handleSubmit}>
+      <CustomTextField
         required
-        id="email"
-        name="email"
-        placeholder="Enter your email"
-        onChange={handleUserChange}
+        label="Email"
+        type="email"
+        variant="outlined"
+        value={email}
+        onChange={e => handleInputChange(e, 'email')}
       />
-      <input
-        type="text"
-        id="password"
-        name="password"
-        placeholder="Enter your password"
-        onChange={handlePasswordChange}
+      <CustomTextField
+        required
+        label="Password"
+        type="password"
+        variant="outlined"
+        value={password}
+        onChange={e => handleInputChange(e, 'password')}
       />
       <button
         type="submit"

@@ -9,7 +9,7 @@ export default styled.form`
   max-width: 400px;
   padding: 10px;
   margin: 10px;
-  input {
+  div {
     margin-bottom: 20px;
   }
 `;
