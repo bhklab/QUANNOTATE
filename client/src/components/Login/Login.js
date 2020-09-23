@@ -41,11 +41,18 @@ const Login = () => {
         value={password}
         onChange={e => handleInputChange(e, 'password')}
       />
-      <button
-        type="submit"
-      >
-        Sign In
-      </button>
+      <div className='button-container'>
+        <a>Forgot password?</a>
+      </div>
+      <div className='button-container submit-container'>
+        <a>New user?</a>
+        <button
+          type="submit"
+        >
+          Next
+        </button>
+      </div>
+      
     </StyledLogin>
   )
 }

@@ -11,12 +11,38 @@ const StyledLogin = styled.form`
   max-width: 400px;
   padding: 10px;
   margin: 10px;
-  div {
-    margin-bottom: 20px;
+  width: 25ch;
+  a {
+    color: ${colors.blue};
+    &:hover {
+      color: ${colors.purple};
+    }
   }
   button {
     padding: 18.5px 14px;
     border-radius: 4px;
+    border: 1px solid ${colors.white};
+    font-size: 1.25rem;
+    &:hover {
+      color: ${colors.black};
+      background: ${colors.purple};
+      border: 1px solid ${colors.purple};
+    }
+  }
+  .button-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    a {
+      font-size: 0.875rem;
+    }
+  }
+  .submit-container {
+    padding: 20px 0 10px;
+    a {
+      padding: 18.5px 14px 18.5px 0;
+      font-size: 1.25rem;
+    }
   }
 `;
 
