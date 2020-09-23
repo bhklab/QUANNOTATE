@@ -10,8 +10,8 @@ const App = () => {
       <Normalize />
       <GlobalStyles />
       <StyledApp>
-        <header className="App-header">
-          <p>Header</p>
+        <header>
+          <p>LabelIt</p>
         </header>
         <main>
           <div className='wrapper'>

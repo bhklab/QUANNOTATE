@@ -46,13 +46,20 @@ const GlobalStyles = createGlobalStyle`
     header,
     footer {
       width: 100%;
-      min-height: 75px;
+      // min-height: 75px;
       display: flex;
+      padding: 10px;
+    }
+    footer {
       justify-content: center;
       align-items: center;
     }
     header {
       background-color: ${colors.dark_grey};
+      p {
+        font-size: 1.25rem;
+        color: ${colors.blue};
+      }
     }
     button {
       background: none;
@@ -62,6 +69,9 @@ const GlobalStyles = createGlobalStyle`
 	    font: inherit;
 	    cursor: pointer;
 	    outline: inherit;
+    }
+    h1 {
+      color: ${colors.blue};
     }
 `;
 

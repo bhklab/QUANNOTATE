@@ -14,9 +14,9 @@ const StyledLogin = styled.form`
   width: 25ch;
   a {
     color: ${colors.blue};
-    &:hover {
-      color: ${colors.purple};
-    }
+    // &:hover {
+    //   color: ${colors.purple};
+    // }
   }
   button {
     padding: 18.5px 14px;
@@ -25,8 +25,8 @@ const StyledLogin = styled.form`
     font-size: 1.25rem;
     &:hover {
       color: ${colors.black};
-      background: ${colors.purple};
-      border: 1px solid ${colors.purple};
+      background: ${colors.blue};
+      border: 1px solid ${colors.blue};
     }
   }
   .button-container {
@@ -53,7 +53,8 @@ const styles = {
       color: colors.white,
     },
     '&:hover label': {
-      color: colors.purple,
+      // color: colors.purple,
+      color: colors.blue,
     },
     '& label.Mui-focused': {
       color: colors.blue,
@@ -62,6 +63,7 @@ const styles = {
     '& input': {
       color: `${colors.white}`,
       WebkitTextFillColor: colors.white,
+      CaretColor: `${colors.blue}`,
       "&:-webkit-autofill": {
         WebkitBoxShadow: `0 0 0 1000px ${colors.black} inset`,
         WebkitTextFillColor: colors.white,
@@ -73,14 +75,17 @@ const styles = {
         borderColor: colors.white,
       },
       '&:hover fieldset': {
-        borderColor: colors.purple,
+        // borderColor: colors.purple,
+        borderColor: colors.blue,
       },
       '&.Mui-focused fieldset': {
         borderColor: colors.blue,
       },
       "&:hover input": {
-        color: `${colors.purple}`,
-        WebkitTextFillColor: colors.purple,
+        // color: `${colors.purple}`,
+        color: `${colors.blue}`,
+        // WebkitTextFillColor: colors.purple,
+        WebkitTextFillColor: colors.blue,
       },
       "&.Mui-focused input": {
         color: `${colors.blue}`,
