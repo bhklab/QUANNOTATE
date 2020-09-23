@@ -1,55 +1,6 @@
 import React, { useState } from 'react';
-import TextField from '@material-ui/core/TextField';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import StyledLogin from './StyledLogin';
-import colors from '../../styles/colors';
-
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
-}));
-
-const styles = { 
-  root: {
-    marginTop: 0,
-    '& label': {
-      color: colors.white,
-    },
-    '&:hover label': {
-      color: colors.blue,
-    },
-    '& label.Mui-focused': {
-      color: colors.purple,
-    },
-    // overrides white styles on autofill
-    '& input': {
-      color: `${colors.white} !important`,
-      "&:-webkit-autofill": {
-        WebkitBoxShadow: `0 0 0 1000px ${colors.black} inset`,
-        WebkitTextFillColor: colors.white,
-        FontSize: 'calc(10px + 2vmin)'
-      },
-    },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: colors.white,
-      },
-      '&:hover fieldset': {
-        borderColor: colors.blue,
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: colors.purple,
-      },
-    },
-  },
-}
-
-const CustomTextField = withStyles(styles)(TextField);
+import useStyles from './useStyles';
+import { StyledLogin, CustomTextField } from './StyledLogin';
 
 const Login = () => {
 
@@ -70,7 +21,10 @@ const Login = () => {
   }
 
   return (
-    <StyledLogin className={classes.root} onSubmit={handleSubmit}>
+    <StyledLogin 
+      className={classes.root}
+      onSubmit={handleSubmit}
+    >
       <CustomTextField
         required
         label="Email"

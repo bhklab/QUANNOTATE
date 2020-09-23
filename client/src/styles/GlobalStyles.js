@@ -54,6 +54,15 @@ const GlobalStyles = createGlobalStyle`
     header {
       background-color: ${colors.dark_grey};
     }
+    button {
+      background: none;
+	    color: inherit;
+	    border: none;
+	    padding: 0;
+	    font: inherit;
+	    cursor: pointer;
+	    outline: inherit;
+    }
 `;
 
 export default GlobalStyles;
