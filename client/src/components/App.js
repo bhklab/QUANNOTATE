@@ -3,6 +3,7 @@ import { Normalize } from 'styled-normalize';
 import StyledApp from './StyledApp';
 import GlobalStyles from '../styles/GlobalStyles';
 import Login from './Login/Login';
+import Header from './UtilComponenets/Header'
 
 const App = () => {
   return (
@@ -10,9 +11,7 @@ const App = () => {
       <Normalize />
       <GlobalStyles />
       <StyledApp>
-        <header>
-          <p>LabelIt</p>
-        </header>
+        <Header/>
         <main>
           <div className='wrapper'>
             <h1>LabelIt</h1>
