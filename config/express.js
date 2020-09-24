@@ -9,7 +9,7 @@ module.exports = function (app) {
     app.use(bodyParser.json());
     // Enables CORS
     app.use(cors());
-    app.use(express.static(join(__dirname, 'client/build')));
+    app.use(express.static(join(__dirname, '../client/build')));
     // this will set/use our api to initial path of /api.
     app.use('/api', router);
     // renders react files if request doesn't go to the api
