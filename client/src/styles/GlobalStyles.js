@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import colors from './colors';
-import backgroundImg from '../images/texture-background.jpg';
+import backgroundImg from '../images/background.png';
 
 
 const GlobalStyles = createGlobalStyle`
@@ -29,16 +29,14 @@ const GlobalStyles = createGlobalStyle`
     }
 
     #root {
-      // background: linear-gradient(
-      // to right top,
-      // rgba(0, 0, 0, 0.85),
-      // rgba(0, 0, 0, 0.85)
-      // ),url('${backgroundImg}');
-      // background-image: url('${backgroundImg}');
-      // background-size: 100% 100%;
-      // background-repeat: no-repeat;
-      // background-position: left top;
-      background-color: ${colors.black}
+      background: linear-gradient(
+      to right top,
+      ${colors.black_trans},
+      ${colors.black_trans}
+      ),url('${backgroundImg}');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: left top;
     }
     p {
       font-size: 14px;
