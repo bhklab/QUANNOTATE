@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { StyledForm, CustomTextField } from '../UtilComponenets/StyledForm/StyledForm';
 import useStyles from '../UtilComponenets/StyledForm/useStyles';
@@ -7,19 +8,32 @@ const Signup = () => {
   
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [password1, setPassword1] = useState("");
-  const [password2, setPassword2] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
   const [error, setError] = useState(null);
   const classes = useStyles();
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log("handleSubmit");
-    if (password1 !== password2) {
+    if (password !== passwordConfirm) {
       setError("Password are not matching")
-    } else {
-      console.log("Matching passswords");
+      return
     }
+    if (!username || !password || !passwordConfirm || !email) {
+      setError("All fields must be filled")
+      return
+    }
+    const user = {
+      username,
+      password,
+      email
+    }
+    axios.post(`/api/user/register`, { user })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
   }
 
   return (
@@ -52,8 +66,8 @@ const Signup = () => {
           label="Password"
           type="password"
           variant="outlined"
-          value={password1}
-          onChange={e => setPassword1(e.target.value)}
+          value={password}
+          onChange={e => setPassword(e.target.value)}
           autoComplete={false}
         />
         <CustomTextField
@@ -61,8 +75,8 @@ const Signup = () => {
           label="Confirm Password"
           type="password"
           variant="outlined"
-          value={password2}
-          onChange={e => setPassword2(e.target.value)}
+          value={passwordConfirm}
+          onChange={e => setPasswordConfirm(e.target.value)}
           autoComplete={false}
         />
         <div className='button-container submit-container'>
