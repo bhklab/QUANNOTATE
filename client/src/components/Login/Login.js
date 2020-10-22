@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import useStyles from './useStyles';
-import { StyledLogin, CustomTextField } from './StyledLogin';
+import { Link } from 'react-router-dom';
+import useStyles from '../UtilComponenets/StyledForm/useStyles';
+import { StyledForm, CustomTextField } from '../UtilComponenets/StyledForm/StyledForm';
 
 
 const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
-
   const classes = useStyles();
 
   const handleInputChange = (e, type) => {
@@ -25,7 +25,7 @@ const Login = () => {
     <>
       <h1>LabelIt</h1>
       <p>LabelIt description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus ultrices leo. Cras scelerisque lorem nec blandit gravida. Nunc molestie suscipit dui at fermentum. Vestibulum vel risus interdum, laoreet diam at, rutrum nibh. Nullam in metus a ipsum tincidunt egestas. Cras et accumsan nisi. Vestibulum faucibus lorem vitae mi pellentesque tristique.</p>
-      <StyledLogin
+      <StyledForm
         className={classes.root}
         onSubmit={handleSubmit}
       >
@@ -46,17 +46,17 @@ const Login = () => {
           onChange={e => handleInputChange(e, 'password')}
         />
         <div className='button-container'>
-          <a>Forgot password?</a>
+          <Link to='/signup'>Forgot password?</Link>
         </div>
         <div className='button-container submit-container'>
-          <a>New user?</a>
+          <Link to='/signup'>New user?</Link>
           <button
             type="submit"
           >
             Next
           </button>
         </div>
-      </StyledLogin>
+      </StyledForm>
     </>
   )
 }

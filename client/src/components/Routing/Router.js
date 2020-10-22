@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AuthContext from '../../context/authContext';
 import Login from '../Login/Login'
-import Header from '../UtilComponenets/Header';
-import Footer from '../UtilComponenets/Footer';
+import Signup from '../Signup/Signup'
+import Header from '../UtilComponenets/Header/Header';
+import Footer from '../UtilComponenets/Footer/Footer';
 
 const Router = () => {
   const [authState, setAuthState] = useState({ authenticated: false })
@@ -15,6 +16,7 @@ const Router = () => {
           <BrowserRouter>
             <Switch>
               <Route exact path='/' component={Login} />
+              <Route exact path='/signup' component={Signup} />
             </Switch>
           </BrowserRouter>
         </div>
