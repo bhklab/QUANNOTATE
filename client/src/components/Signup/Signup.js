@@ -20,6 +20,14 @@ const Signup = () => {
       setError("Password are not matching")
       return
     }
+    if (password.length < 8) {
+      setError('Password has to be at least 8 characters long');
+      return
+    }
+    if (!password.match(/\d/) || password.match(/[a-zA-Z]/)) {
+      setError('Password must contain at least one letter and one number')
+      return
+    }
     if (!username || !password || !passwordConfirm || !email) {
       setError("All fields must be filled")
       return
@@ -29,7 +37,7 @@ const Signup = () => {
       password,
       email
     }
-    axios.post(`/api/user/register`, { user })
+    axios.post(`/api/user/register`, ({ user }))
       .then(res => {
         console.log(res);
         console.log(res.data);

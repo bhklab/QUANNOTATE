@@ -3,13 +3,14 @@ const jwt = require('jsonwebtoken');
 const User = require('../database/models/user');
 
 async function registerUser(req, res) {
+    console.log(req.body);
     const { user } = req.body;
     const { username, password, email } = user;
     try {
         User.findOne({email}).then((user) => {
             console.log('MongoDB lookup', user);
             if (user) {
-                return res.status(400).json({error: 'User is already registered'});
+                return res.status(400).json({ error: 'User is already registered'});
             } else {
                 const newUser = new User({
                     username,
@@ -17,8 +18,11 @@ async function registerUser(req, res) {
                     password
                 });
                 newUser.save(function (err) {
-                    console.log(err);
-                    if (err) res.status(500).json({error: err});
+                    if (err) {
+                        console.log(err);
+                        res.status(400).json({ error: err });
+                        return;
+                    } 
                     return res.status(200).json({ message: 'User saved', newUser });
                 });
             }
@@ -26,7 +30,7 @@ async function registerUser(req, res) {
     } catch (error) {
         console.log('Error during registration');
         console.log(error);
-        res.status(500).json({ message: 'Something went worng' });
+        res.status(500).json({ error: 'Something went worng' });
     }
 }
 
