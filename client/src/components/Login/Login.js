@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import useStyles from '../UtilComponenets/StyledForm/useStyles';
 import { StyledForm, CustomTextField } from '../UtilComponenets/StyledForm/StyledForm';
@@ -6,8 +7,9 @@ import { StyledForm, CustomTextField } from '../UtilComponenets/StyledForm/Style
 
 const Login = () => {
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("")
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
+  const [ error, setError ] = useState("");
   const classes = useStyles();
 
   const handleInputChange = (e, type) => {
@@ -18,7 +20,18 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("handleSubmit");
+    const user = {
+      email,
+      password
+    }
+    axios.post(`/api/user/authenticate`, { user })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   return (

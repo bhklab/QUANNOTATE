@@ -1,14 +1,22 @@
-const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../database/models/user');
 const generateErrorObject = require('../utils/generateErrorObject');
 
-async function registerUser(req, res) {
+async function authenticateUser(req, res) {
     console.log(req.body);
-    const { user } = req.body;
-    const { username, password, email } = user;
-    res.status(500);
+    res.status(200).json({message: 'Success'});
+}
+
+async function registerUser(req, res) {
     try {
+        const { user } = req.body;
+        if (!user) {
+            res.status(400).json({ error: generateErrorObject('User information is missing', 'generic') });
+        }
+        const { username, password, email } = user;
+        if (!username || !password || !email) {
+            res.status(400).json({ error: generateErrorObject('Some fields are missing', 'generic') });
+        }
         User.findOne({email}).then((user) => {
             console.log('MongoDB lookup', user);
             if (user) {
@@ -38,5 +46,6 @@ async function registerUser(req, res) {
 }
 
 module.exports = {
-    registerUser
+    registerUser,
+    authenticateUser
 };

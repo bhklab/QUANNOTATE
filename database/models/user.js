@@ -54,10 +54,15 @@ userSchema.methods.isPasswordMatch = async function (password) {
 };
 
 // hashes password with bcryptjs
-userSchema.pre('save', async function (next) {
+userSchema.pre('save', function (next) {
     const user = this;
     if (user.isModified('password')) {
-        user.password = await bcrypt.hash(user.password, 8);
+        // generates salt (a random value that is used in hashing function and
+        // prevents database rainbow table attacks)
+        // it is recommended to have it at least 12
+        // ideally hashing process should take ~ 250 milliseconds, the number of rounds should be based on that
+        const salt = bcrypt.genSaltSync(12);
+        user.password = bcrypt.hashSync(user.password, salt);
     }
     next();
 });
