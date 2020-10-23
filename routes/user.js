@@ -7,12 +7,13 @@ async function registerUser(req, res) {
     console.log(req.body);
     const { user } = req.body;
     const { username, password, email } = user;
+    res.status(500);
     try {
         User.findOne({email}).then((user) => {
             console.log('MongoDB lookup', user);
             if (user) {
                 const message = 'User with this email is already registered';
-                return res.status(400).json({ error: generateErrorObject(message) });
+                return res.status(400).json({ error: generateErrorObject(message, 'email') });
             } else {
                 const newUser = new User({
                     username,
@@ -32,7 +33,7 @@ async function registerUser(req, res) {
     } catch (error) {
         console.log('Error during registration');
         console.log(error);
-        res.status(500).json({ error: 'Something went worng' });
+        res.status(500).json({ error: generateErrorObject('Something went wrong', 'generic') });
     }
 }
 

@@ -41,6 +41,13 @@ const StyledForm = styled.form`
       font-size: 1.25rem;
     }
   }
+  .error-message {
+    margin: 2px 0 0;
+    padding: 0;
+    text-align: left;
+    color: red;
+    width: 100%;
+  }
 `;
 
 const styles = {

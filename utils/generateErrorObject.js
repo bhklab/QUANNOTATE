@@ -1,7 +1,7 @@
 // creates an error object ofr API response
-const generateErrorObject = (message) => ({
+const generateErrorObject = (message, property) => ({
     errors: {
-        email: {
+        [property]: {
             message
         },
     }, 

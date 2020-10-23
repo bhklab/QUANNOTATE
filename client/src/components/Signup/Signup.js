@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -16,28 +17,63 @@ const Signup = () => {
   // validates filled form
   const validateForm = () => {
     if (password !== passwordConfirm) {
-      return "Password are not matching"
+      const message = "Password are not matching"
+      return { password: { message }, passwordConfirm: { message } }
     }
     if (password.length < 8) {
-      return 'Password has to be at least 8 characters long'
+      return { 
+        password: {
+          message: 'Passwords has to be at least 8 characters long'
+        }
+      }
     }
-    if (!password.match(/\d/) || password.match(/[a-zA-Z]/)) {
-      return 'Password must contain at least one letter and one number'
+    if (!password.match(/\d/) || !password.match(/[a-zA-Z]/)) {
+      return {
+        password: {
+          message: 'Passwords must contain at least one letter and one number'
+        }
+      }
     }
     if (!username || !password || !passwordConfirm || !email) {
-      return "All fields must be filled"
+      const message = "All fields must be filled"
+      return { 
+        username: { message }, password: { message }, email: { message }, passwordConfirm: { message }
+      }
     }
     return null
   }
 
+  // updates ui when user types fills out the form
+  const handleInput = (e, type) => {
+    const { value } = e.target
+    switch (type) {
+      case 'username':
+        setUsername(value)
+        break;
+      case 'email':
+        setEmail(value)
+        break;
+      case 'password':
+        setPassword(value)
+        break
+      case 'passwordConfirm':
+        setPasswordConfirm(value)
+        break;
+    }
+    // removes error message on typing
+    if (error) setError(null)
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    // const err = validateForm()
-    // if (err) {
-    //   setError(err)
-    //   return
-    // }
-
+    // user must address error message before submitting the request
+    if (error) return
+    // checks if all data is correct
+    const err = validateForm()
+    if (err) {
+      setError(err)
+      return
+    }
     const user = {
       username,
       password,
@@ -47,6 +83,15 @@ const Signup = () => {
       .then(res => {
         console.log(res);
         console.log(res.data);
+      })
+      .catch(err => {
+        console.log(typeof err, err);
+        if (err.response.data.error && err.response.data.error.errors) {
+          setError(err.response.data.error.errors)
+        } else {
+          setError({ generic: { message: 'Something went wrong' } })
+        }
+        console.log('Error', Object.entries(err).forEach(el => console.log(el)));
       })
   }
 
@@ -63,7 +108,9 @@ const Signup = () => {
           type="text"
           variant="outlined"
           value={username}
-          onChange={e => setUsername(e.target.value)}
+          error={error && error.username}
+          helperText={(error && error.username && error.username.message) && error.username.message}
+          onChange={e => handleInput(e, 'username')}
           autoComplete={false}
         />
         <CustomTextField
@@ -72,7 +119,9 @@ const Signup = () => {
           type="email"
           variant="outlined"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          error={error && error.email}
+          helperText={(error && error.email && error.email.message) && error.email.message}
+          onChange={e => handleInput(e, 'email')}
           autoComplete={false}
         />
         <CustomTextField
@@ -81,7 +130,9 @@ const Signup = () => {
           type="password"
           variant="outlined"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          error={error && error.password}
+          helperText={(error && error.password && error.password.message) && error.password.message}
+          onChange={e => handleInput(e, 'password')}
           autoComplete={false}
         />
         <CustomTextField
@@ -90,9 +141,12 @@ const Signup = () => {
           type="password"
           variant="outlined"
           value={passwordConfirm}
-          onChange={e => setPasswordConfirm(e.target.value)}
+          error={error && error.passwordConfirm}
+          helperText={(error && error.passwordConfirm && error.passwordConfirm.message) && error.passwordConfirm.message}
+          onChange={e => handleInput(e, 'passwordConfirm')}
           autoComplete={false}
         />
+        {(error && error.generic && error.generic.message) ? (<p className='error-message'>{error.generic.message}</p>) : null}
         <div className='button-container submit-container'>
           <Link to='/'>Sign in instead</Link>
           <button
