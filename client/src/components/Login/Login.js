@@ -14,12 +14,21 @@ const Login = () => {
 
   const handleInputChange = (e, type) => {
     const { value } = e.target
+    setError(null)
     if (type === 'email') setEmail(value)
     if (type === 'password') setPassword(value)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (!email) {
+      setError({email: { message: "Please provide email address"} })
+      return
+    }
+    if (!password) {
+      setError({ password: { message: "Please provide password" } })
+      return
+    }
     const user = {
       email,
       password
@@ -27,10 +36,14 @@ const Login = () => {
     axios.post(`/api/user/authenticate`, { user })
       .then(res => {
         console.log(res);
-        console.log(res.data);
       })
       .catch(err => {
         console.log(err);
+        if (err.response.data.error && err.response.data.error.errors) {
+          setError(err.response.data.error.errors)
+        } else {
+          setError({ generic: { message: 'Something went wrong' } })
+        }
       })
   }
 
@@ -48,6 +61,8 @@ const Login = () => {
           type="email"
           variant="outlined"
           value={email}
+          error={error && error.email}
+          helperText={(error && error.email && error.email.message) && error.email.message}
           onChange={e => handleInputChange(e, 'email')}
         />
         <CustomTextField
@@ -56,8 +71,11 @@ const Login = () => {
           type="password"
           variant="outlined"
           value={password}
+          error={error && error.password}
+          helperText={(error && error.password && error.password.message) && error.password.message}
           onChange={e => handleInputChange(e, 'password')}
         />
+        {(error && error.generic && error.generic.message) ? (<p className='error-message'>{error.generic.message}</p>) : null}
         <div className='button-container'>
           <Link to='/signup'>Forgot password?</Link>
         </div>

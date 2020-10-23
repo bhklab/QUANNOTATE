@@ -85,13 +85,12 @@ const Signup = () => {
         console.log(res.data);
       })
       .catch(err => {
-        console.log(typeof err, err);
+        console.log(err);
         if (err.response.data.error && err.response.data.error.errors) {
           setError(err.response.data.error.errors)
         } else {
           setError({ generic: { message: 'Something went wrong' } })
         }
-        console.log('Error', Object.entries(err).forEach(el => console.log(el)));
       })
   }
 

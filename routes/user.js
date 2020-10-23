@@ -3,7 +3,6 @@ const User = require('../database/models/user');
 const generateErrorObject = require('../utils/generateErrorObject');
 
 async function authenticateUser(req, res) {
-    console.log('User authentication route');
     try {
         const { user } = req.body;
         if (!user) {
@@ -13,13 +12,24 @@ async function authenticateUser(req, res) {
         if (!password || !email) {
             res.status(400).json({ error: generateErrorObject('Some fields are missing', 'generic') });
         }
+        // finds user by email address
         User.findOne({ email }).then((user) => {
             if (!user) {
                 res.status(400).json({ error: generateErrorObject('There is no user with this email address', 'email')});
                 return;
             }
+            // check if user provided correct provided
+            user.isPasswordMatch(password).then(result => {
+                if (result) {
+                    res.status(200).json({ message: 'You are logged in' });
+                } else {
+                    res.status(400).json({ error: generateErrorObject('Wrong password', 'password')});
+                }
+            }).catch(err => {
+                console.log('Error while comparing hash and password', err);
+                res.status(500).json({ error: generateErrorObject('Something went wrong', 'generic') });
+            });
         });
-        res.status(200).json({ message: 'Success' });
     } catch (error) {
         console.log('Error during authentication');
         console.log(error);
@@ -37,8 +47,8 @@ async function registerUser(req, res) {
         if (!username || !password || !email) {
             res.status(400).json({ error: generateErrorObject('Some fields are missing', 'generic') });
         }
+        // checks if user with this email address was already created
         User.findOne({email}).then((user) => {
-            console.log('MongoDB lookup', user);
             if (user) {
                 const message = 'User with this email is already registered';
                 return res.status(400).json({ error: generateErrorObject(message, 'email') });
@@ -48,6 +58,7 @@ async function registerUser(req, res) {
                     email,
                     password
                 });
+                // attempts to save new user
                 newUser.save(function (err) {
                     if (err) {
                         console.log(err);
