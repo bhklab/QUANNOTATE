@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 // user schema
 const userSchema = new Schema({
-    name: {
+    username: {
         type: String,
         required: true,
         trim: true,
@@ -16,23 +16,32 @@ const userSchema = new Schema({
         unique: true,
         trim: true,
         lowercase: true,
-        validate(value) {
-            if (!validator.isEmail(value)) {
-                throw new Error('Invalid email');
-            }
-        },
+        validate: {
+            validator: (value) => {
+                return validator.isEmail(value);
+            },
+            message: 'Invalid email'
+        }
     },
     password: {
         type: String,
         required: true,
         trim: true,
-        minlength: 8,
-        validate(value) {
-            if (!value.match(/\d/) || !value.match(/[a-zA-Z]/)) {
-                throw new Error('Password must contain at least one letter and one number');
-            }
-        },
-    }
+        validate: [
+            {
+                validator: (value) => {
+                    return value.length >= 8;
+                },
+                message: 'Password has to be at least 8 characters long'
+            },
+            {
+                validator: (value) => {
+                    return value.match(/\d/) && value.match(/[a-zA-Z]/);
+                },
+                message: 'Password must contain at least one letter and one number'
+            },
+        ],
+    },
 },
 {
     timestamps: true,

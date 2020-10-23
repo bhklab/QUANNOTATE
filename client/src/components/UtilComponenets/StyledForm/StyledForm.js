@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import colors from '../../styles/colors';
+import colors from '../../../styles/colors';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 
-const StyledLogin = styled.form`
+const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,12 +14,9 @@ const StyledLogin = styled.form`
   width: 25ch;
   a {
     color: ${colors.blue};
-    // &:hover {
-    //   color: ${colors.purple};
-    // }
   }
   button {
-    padding: 18.5px 14px;
+    padding: 18.5px 20px;
     border-radius: 4px;
     border: 1px solid ${colors.white};
     font-size: 1.25rem;
@@ -53,7 +50,6 @@ const styles = {
       color: colors.white,
     },
     '&:hover label': {
-      // color: colors.purple,
       color: colors.blue,
     },
     '& label.Mui-focused': {
@@ -75,16 +71,13 @@ const styles = {
         borderColor: colors.white,
       },
       '&:hover fieldset': {
-        // borderColor: colors.purple,
         borderColor: colors.blue,
       },
       '&.Mui-focused fieldset': {
         borderColor: colors.blue,
       },
       "&:hover input": {
-        // color: `${colors.purple}`,
         color: `${colors.blue}`,
-        // WebkitTextFillColor: colors.purple,
         WebkitTextFillColor: colors.blue,
       },
       "&.Mui-focused input": {
@@ -102,4 +95,4 @@ const CustomTextField = withStyles(styles)(TextField);
 
 
 
-export { StyledLogin, CustomTextField };
+export { StyledForm, CustomTextField };
