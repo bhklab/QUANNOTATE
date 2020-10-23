@@ -3,8 +3,28 @@ const User = require('../database/models/user');
 const generateErrorObject = require('../utils/generateErrorObject');
 
 async function authenticateUser(req, res) {
-    console.log(req.body);
-    res.status(200).json({message: 'Success'});
+    console.log('User authentication route');
+    try {
+        const { user } = req.body;
+        if (!user) {
+            res.status(400).json({ error: generateErrorObject('User information is missing', 'generic') });
+        }
+        const { password, email } = user;
+        if (!password || !email) {
+            res.status(400).json({ error: generateErrorObject('Some fields are missing', 'generic') });
+        }
+        User.findOne({ email }).then((user) => {
+            if (!user) {
+                res.status(400).json({ error: generateErrorObject('There is no user with this email address', 'email')});
+                return;
+            }
+        });
+        res.status(200).json({ message: 'Success' });
+    } catch (error) {
+        console.log('Error during authentication');
+        console.log(error);
+        res.status(500).json({ error: generateErrorObject('Something went wrong', 'generic') });
+    }
 }
 
 async function registerUser(req, res) {
