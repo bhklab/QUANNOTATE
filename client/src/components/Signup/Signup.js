@@ -13,25 +13,31 @@ const Signup = () => {
   const [error, setError] = useState(null);
   const classes = useStyles();
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log("handleSubmit");
+  // validates filled form
+  const validateForm = () => {
     if (password !== passwordConfirm) {
-      setError("Password are not matching")
-      return
+      return "Password are not matching"
     }
     if (password.length < 8) {
-      setError('Password has to be at least 8 characters long');
-      return
+      return 'Password has to be at least 8 characters long'
     }
     if (!password.match(/\d/) || password.match(/[a-zA-Z]/)) {
-      setError('Password must contain at least one letter and one number')
-      return
+      return 'Password must contain at least one letter and one number'
     }
     if (!username || !password || !passwordConfirm || !email) {
-      setError("All fields must be filled")
-      return
+      return "All fields must be filled"
     }
+    return null
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // const err = validateForm()
+    // if (err) {
+    //   setError(err)
+    //   return
+    // }
+
     const user = {
       username,
       password,

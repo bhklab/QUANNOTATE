@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../database/models/user');
+const generateErrorObject = require('../utils/generateErrorObject');
 
 async function registerUser(req, res) {
     console.log(req.body);
@@ -10,7 +11,8 @@ async function registerUser(req, res) {
         User.findOne({email}).then((user) => {
             console.log('MongoDB lookup', user);
             if (user) {
-                return res.status(400).json({ error: 'User is already registered'});
+                const message = 'User with this email is already registered';
+                return res.status(400).json({ error: generateErrorObject(message) });
             } else {
                 const newUser = new User({
                     username,
