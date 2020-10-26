@@ -1,12 +1,13 @@
 /* eslint-disable default-case */
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { StyledForm, CustomTextField } from '../UtilComponenets/StyledForm/StyledForm';
 import useStyles from '../UtilComponenets/StyledForm/useStyles';
+import AuthContext from '../../context/authContext';
 
 const Signup = () => {
-  
+  const { setAuthState, authState } = useContext(AuthContext)
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -82,6 +83,7 @@ const Signup = () => {
     axios.post(`/api/user/register`, ({ user }))
       .then(res => {
         console.log(res);
+        setAuthState({ ...authState, authenticated: true })
       })
       .catch(err => {
         console.log(err);

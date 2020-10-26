@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import useStyles from '../UtilComponenets/StyledForm/useStyles';
 import { StyledForm, CustomTextField } from '../UtilComponenets/StyledForm/StyledForm';
+import AuthContext from '../../context/authContext';
 
 
 const Login = () => {
-
+  const { setAuthState, authState } = useContext(AuthContext)
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
   const [ error, setError ] = useState("");
@@ -36,6 +37,7 @@ const Login = () => {
     axios.post(`/api/user/authenticate`, { user })
       .then(res => {
         console.log(res);
+        setAuthState({ ...authState, authenticated: true})
       })
       .catch(err => {
         console.log(err);
