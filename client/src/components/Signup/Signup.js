@@ -82,7 +82,6 @@ const Signup = () => {
     axios.post(`/api/user/register`, ({ user }))
       .then(res => {
         console.log(res);
-        console.log(res.data);
       })
       .catch(err => {
         console.log(err);
@@ -147,7 +146,7 @@ const Signup = () => {
         />
         {(error && error.generic && error.generic.message) ? (<p className='error-message'>{error.generic.message}</p>) : null}
         <div className='button-container submit-container'>
-          <Link to='/'>Sign in instead</Link>
+          <Link to='/login'>Sign in instead</Link>
           <button
             type="submit"
           >
