@@ -36,8 +36,8 @@ const Login = () => {
     }
     axios.post(`/api/user/authenticate`, { user })
       .then(res => {
-        console.log(res);
-        setAuthState({ ...authState, authenticated: true})
+        const { username, authenticated } = res.data
+        setAuthState({ ...authState, username, authenticated })
       })
       .catch(err => {
         console.log(err);

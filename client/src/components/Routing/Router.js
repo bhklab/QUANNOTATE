@@ -10,17 +10,22 @@ import Footer from '../UtilComponenets/Footer/Footer';
 import CustomRoute from './CustomRoute';
 
 const Router = () => {
-  const [authState, setAuthState] = useState({ authenticated: false })
+  const [authState, setAuthState] = useState({ authenticated: false, username: null, isAuthChecked: false })
+  // checks if client is already logged in
   useEffect(() => {
-    axios.get('/api/user/checkToken')
+    axios.get('/api/user/checkToken', { withCredentials: true })
       .then(res => {
-        console.log(res);
+        const { username, authenticated } = res.data
+        setAuthState({ username, authenticated, isAuthChecked: true })
       })
       .catch(err => {
         console.log(err);
+        setAuthState({ authenticated: false, username: null, isAuthChecked: true })
       })
   }, [])
-  return (
+  // only gives access to react-router after jwt cookie was checked
+  // this prevents multiple redirects and keeps the url unchanged
+  return authState.isAuthChecked ? (
     <AuthContext.Provider value={{ authState, setAuthState }}>
       <Header />
       <main>
@@ -36,7 +41,7 @@ const Router = () => {
       </main>
       <Footer />
     </AuthContext.Provider>
-  )
+  ) : null
 }
 
 export default Router

@@ -26,7 +26,7 @@ async function authenticateUser(req, res) {
             user.isPasswordMatch(password).then(result => {
                 if (result) {
                     //expiresIn is being set in seconds
-                    const jwtToken = jwt.sign({ username: email }, process.env.JWT_KEY, { expiresIn: expirationTime });
+                    const jwtToken = jwt.sign({ username, email }, process.env.JWT_KEY, { expiresIn: expirationTime });
                     // maxAge is being set in milliseconds
                     res.cookie('token', jwtToken, { maxAge: expirationTime * 1000, httpOnly: true }).json({ message: 'You are logged in', authenticated: true, username });
                 } else {
@@ -87,7 +87,6 @@ async function registerUser(req, res) {
 }
 
 async function checkToken(req, res) {
-    console.log(req.cookies);
     try {
         const { cookies } = req;
         if (!cookies || !cookies.token) {
