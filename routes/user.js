@@ -2,6 +2,9 @@ const jwt = require('jsonwebtoken');
 const User = require('../database/models/user');
 const generateErrorObject = require('../utils/generateErrorObject');
 
+// sets expiration time for jwt tokens and cookies
+const expirationTime = 60 * 60; // 1 hour
+
 async function authenticateUser(req, res) {
     try {
         const { user } = req.body;
@@ -18,10 +21,14 @@ async function authenticateUser(req, res) {
                 res.status(400).json({ error: generateErrorObject('There is no user with this email address', 'email')});
                 return;
             }
+            const { username } = user;
             // check if user provided correct provided
             user.isPasswordMatch(password).then(result => {
                 if (result) {
-                    res.status(200).json({ message: 'You are logged in' });
+                    //expiresIn is being set in seconds
+                    const jwtToken = jwt.sign({ username: email }, process.env.JWT_KEY, { expiresIn: expirationTime });
+                    // maxAge is being set in milliseconds
+                    res.cookie('token', jwtToken, { maxAge: expirationTime * 1000, httpOnly: true }).json({ message: 'You are logged in', authenticated: true, username });
                 } else {
                     res.status(400).json({ error: generateErrorObject('Wrong password', 'password')});
                 }
@@ -64,8 +71,11 @@ async function registerUser(req, res) {
                         console.log(err);
                         res.status(400).json({ error: err });
                         return;
-                    } 
-                    return res.status(200).json({ message: 'User saved', newUser });
+                    }
+                    //expiresIn is being set in seconds
+                    const jwtToken = jwt.sign({ username: email }, process.env.JWT_KEY, { expiresIn: expirationTime });
+                    // maxAge is being set in milliseconds
+                    res.cookie('token', jwtToken, { maxAge: expirationTime * 1000, httpOnly: true }).json({ message: 'User saved', authenticated: true, username });
                 });
             }
         });
@@ -76,7 +86,31 @@ async function registerUser(req, res) {
     }
 }
 
+async function checkToken(req, res) {
+    console.log(req.cookies);
+    try {
+        const { cookies } = req;
+        if (!cookies || !cookies.token) {
+            res.status(200).json({ message: 'User is not logged in', authenticated: false, });
+        } else {
+            jwt.verify(cookies.token, process.env.JWT_KEY, function (err, decoded) {
+                if (err) {
+                    res.status(400).json({ authenticated: false, error: generateErrorObject('token couldn\'t be verified' , 'generic') });
+                } else {
+                    res.status(200).json({ authenticated: true, username: decoded.username, message: 'User is logged in'});
+                }
+            });
+        }
+
+    } catch (error) {
+        console.log('Error during token verification');
+        console.log(error);
+        res.status(500).json({ error: generateErrorObject('Something went wrong', 'generic') });
+    }
+}
+
 module.exports = {
     registerUser,
-    authenticateUser
+    authenticateUser,
+    checkToken
 };

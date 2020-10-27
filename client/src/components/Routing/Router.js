@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { BrowserRouter, Switch } from 'react-router-dom';
 import AuthContext from '../../context/authContext';
 import Login from '../Login/Login'
@@ -10,6 +11,15 @@ import CustomRoute from './CustomRoute';
 
 const Router = () => {
   const [authState, setAuthState] = useState({ authenticated: false })
+  useEffect(() => {
+    axios.get('/api/user/checkToken')
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [])
   return (
     <AuthContext.Provider value={{ authState, setAuthState }}>
       <Header />
