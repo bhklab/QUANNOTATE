@@ -5,7 +5,7 @@ const generateErrorObject = require('../utils/generateErrorObject');
 // sets expiration time for jwt tokens and cookies
 const expirationTime = 60 * 60; // 1 hour
 
-async function authenticateUser(req, res) {
+function authenticateUser(req, res) {
     try {
         const { user } = req.body;
         if (!user) {
@@ -44,7 +44,7 @@ async function authenticateUser(req, res) {
     }
 }
 
-async function registerUser(req, res) {
+function registerUser(req, res) {
     try {
         const { user } = req.body;
         if (!user) {
@@ -86,7 +86,7 @@ async function registerUser(req, res) {
     }
 }
 
-async function checkToken(req, res) {
+function checkToken(req, res) {
     try {
         const { cookies } = req;
         if (!cookies || !cookies.token) {
@@ -108,8 +108,14 @@ async function checkToken(req, res) {
     }
 }
 
+function logoutUser(req, res) {
+    // const token = jwt.sign({ username: req.params.username }, 'orcestraauthenticationtokenstring', { expiresIn: '0' });
+    res.cookie('token', '', { expires: new Date() }).status(200).json({message: 'User successfully logged out'});
+}
+
 module.exports = {
     registerUser,
     authenticateUser,
-    checkToken
+    checkToken,
+    logoutUser
 };

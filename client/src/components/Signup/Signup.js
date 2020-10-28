@@ -111,7 +111,6 @@ const Signup = () => {
           error={error && error.username}
           helperText={(error && error.username && error.username.message) && error.username.message}
           onChange={e => handleInput(e, 'username')}
-          autoComplete={false}
         />
         <CustomTextField
           required
@@ -122,7 +121,6 @@ const Signup = () => {
           error={error && error.email}
           helperText={(error && error.email && error.email.message) && error.email.message}
           onChange={e => handleInput(e, 'email')}
-          autoComplete={false}
         />
         <CustomTextField
           required
@@ -133,7 +131,6 @@ const Signup = () => {
           error={error && error.password}
           helperText={(error && error.password && error.password.message) && error.password.message}
           onChange={e => handleInput(e, 'password')}
-          autoComplete={false}
         />
         <CustomTextField
           required
@@ -144,7 +141,6 @@ const Signup = () => {
           error={error && error.passwordConfirm}
           helperText={(error && error.passwordConfirm && error.passwordConfirm.message) && error.passwordConfirm.message}
           onChange={e => handleInput(e, 'passwordConfirm')}
-          autoComplete={false}
         />
         {(error && error.generic && error.generic.message) ? (<p className='error-message'>{error.generic.message}</p>) : null}
         <div className='button-container submit-container'>
