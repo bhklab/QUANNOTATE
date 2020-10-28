@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BrowserRouter, Switch } from 'react-router-dom';
@@ -10,17 +11,17 @@ import Footer from '../UtilComponenets/Footer/Footer';
 import CustomRoute from './CustomRoute';
 
 const Router = () => {
-  const [authState, setAuthState] = useState({ authenticated: false, username: null, isAuthChecked: false })
+  const [authState, setAuthState] = useState({ authenticated: false, username: null, email: null, isAuthChecked: false })
   // checks if client is already logged in
   useEffect(() => {
     axios.get('/api/user/checkToken', { withCredentials: true })
       .then(res => {
-        const { username, authenticated } = res.data
-        setAuthState({ username, authenticated, isAuthChecked: true })
+        const { username, authenticated, email } = res.data
+        setAuthState({ username, authenticated, email, isAuthChecked: true })
       })
       .catch(err => {
         console.log(err);
-        setAuthState({ authenticated: false, username: null, isAuthChecked: true })
+        setAuthState({ ...authState, isAuthChecked: true })
       })
   }, [])
   // only gives access to react-router after jwt cookie was checked

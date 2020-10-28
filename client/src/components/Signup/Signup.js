@@ -82,8 +82,8 @@ const Signup = () => {
     }
     axios.post(`/api/user/register`, ({ user }))
       .then(res => {
-        const { username, authenticated } = res.data 
-        setAuthState({ ...authState, username, authenticated })
+        const { username, authenticated, email } = res.data 
+        setAuthState({ ...authState, email, username, authenticated })
       })
       .catch(err => {
         console.log(err);

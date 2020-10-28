@@ -28,7 +28,7 @@ async function authenticateUser(req, res) {
                     //expiresIn is being set in seconds
                     const jwtToken = jwt.sign({ username, email }, process.env.JWT_KEY, { expiresIn: expirationTime });
                     // maxAge is being set in milliseconds
-                    res.cookie('token', jwtToken, { maxAge: expirationTime * 1000, httpOnly: true }).json({ message: 'You are logged in', authenticated: true, username });
+                    res.cookie('token', jwtToken, { maxAge: expirationTime * 1000, httpOnly: true }).json({ message: 'You are logged in', authenticated: true, username, email });
                 } else {
                     res.status(400).json({ error: generateErrorObject('Wrong password', 'password')});
                 }
@@ -73,9 +73,9 @@ async function registerUser(req, res) {
                         return;
                     }
                     //expiresIn is being set in seconds
-                    const jwtToken = jwt.sign({ username: email }, process.env.JWT_KEY, { expiresIn: expirationTime });
+                    const jwtToken = jwt.sign({ username, email }, process.env.JWT_KEY, { expiresIn: expirationTime });
                     // maxAge is being set in milliseconds
-                    res.cookie('token', jwtToken, { maxAge: expirationTime * 1000, httpOnly: true }).json({ message: 'User saved', authenticated: true, username });
+                    res.cookie('token', jwtToken, { maxAge: expirationTime * 1000, httpOnly: true }).json({ message: 'User saved', authenticated: true, username, email });
                 });
             }
         });

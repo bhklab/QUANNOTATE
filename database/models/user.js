@@ -16,12 +16,13 @@ const userSchema = new Schema({
         unique: true,
         trim: true,
         lowercase: true,
-        validate: {
-            validator: (value) => {
-                return validator.isEmail(value);
-            },
+        validate: [{
+            validator: (value) => validator.isEmail(value),
             message: 'Invalid email'
-        }
+        }, {
+            validator: (value) => value.match(/@uhn\.ca$/) || value.match(/@uhnresearch\.ca$/),
+            message: 'Only @uhn.ca and @uhnresearch.ca emails are allowed'
+        }]
     },
     password: {
         type: String,
