@@ -10,7 +10,7 @@ const Login = () => {
   const { setAuthState, authState } = useContext(AuthContext)
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
-  const [ error, setError ] = useState("");
+  const [ error, setError ] = useState(null);
   const classes = useStyles();
 
   const handleInputChange = (e, type) => {
@@ -48,7 +48,6 @@ const Login = () => {
         }
       })
   }
-
   return (
     <>
       <h1>LabelIt</h1>

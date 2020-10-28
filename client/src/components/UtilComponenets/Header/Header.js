@@ -20,15 +20,17 @@ const Header = () => {
 
   return authenticated ? (
     <StyledHeader>
-      <h4>LabelIt</h4>
+      <div className='logo'>
+        <h4>LabelIt</h4>
+      </div>
       <div className='account-container'>
-        <div>
+        <div className='user'>
           <p>Hello, {username}</p>
           <p>{email}</p>
         </div>
         <button
           onClick={onLogout}
-        >Logout</button>
+        >Sign Out</button>
       </div>
     </StyledHeader>
   ) : (

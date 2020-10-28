@@ -96,7 +96,8 @@ function checkToken(req, res) {
                 if (err) {
                     res.status(400).json({ authenticated: false, error: generateErrorObject('token couldn\'t be verified' , 'generic') });
                 } else {
-                    res.status(200).json({ authenticated: true, username: decoded.username, message: 'User is logged in'});
+                    const { username, email } = decoded;
+                    res.status(200).json({ authenticated: true, username, email, message: 'User is logged in'});
                 }
             });
         }
