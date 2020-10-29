@@ -1,16 +1,18 @@
-version: '3'
+version: '3.3'
 services:
+  mongo:
+    image: "mongo:latest"
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes: 
+     - db_data: "~/mongo/data:/data/db"
   web:
     image: denistk/labelitjs:latest
     build: .
     command: "npm start"
+    restart: always
     ports:
-      - "5000:5000"
+      - "5000:80"
     depends_on:
       - "mongo"
-  mongo:
-    image: "mongo:latest"
-    ports:
-      - "27017:27017"
-    volumes: 
-      - "~/mongo/data:/data/db"
