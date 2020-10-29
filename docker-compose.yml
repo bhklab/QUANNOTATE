@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: labelit-js
+    image: denistk/labelitjs:latest
     build: .
     command: "npm start"
     ports:
