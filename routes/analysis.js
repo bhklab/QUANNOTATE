@@ -1,3 +1,5 @@
+const Analysis = require('../database/models/user');
+
 function getImages(req, res) {
     res.status(200).json({ message: 'Success' });
 }
