@@ -1,7 +1,7 @@
 const User = require('./user');
-const Subset = require('./subset');
+const Analysis = require('./analysis');
 
 module.exports = {
     User,
-    Subset
+    Analysis
 };

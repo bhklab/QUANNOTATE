@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "eslint": "^6.6.0",
+    "mongoose-seed": "^0.6.0",
     "nodemon": "^2.0.4"
   }
 }

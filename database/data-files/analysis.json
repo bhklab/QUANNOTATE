@@ -1,0 +1,103 @@
+[
+  {
+    "model": "Analysis",
+    "documents": [
+      {
+        "name": "breast",
+        "title": "Are CTVp contours guideline compliant?",
+        "available": true,
+        "text": "Breast",
+        "options": [
+          {
+            "text": "Whole nasopharynx",
+            "dataType": "boolean"
+          },
+          {
+            "text": "Posterior nasal cavity ≥5mm from choana",
+            "dataType": "boolean"
+          },
+          {
+            "text": "Posterior maxillary sinuses from posterior wall",
+            "dataType": "boolean"
+          },
+          {
+            "text": "R foramen ovale",
+            "dataType": "boolean"
+          },
+          {
+            "text": "R foramen rotundum",
+            "dataType": "boolean"
+          },
+          {
+            "text": "R foramen lacerum",
+            "dataType": "boolean"
+          },
+          {
+            "text": "R petrous apex",
+            "dataType": "boolean"
+          },
+          {
+            "text": "R cavernous sinus",
+            "dataType": "boolean"
+          },
+          {
+            "text": "R pterygoid fossae",
+            "dataType": "boolean"
+          },
+          {
+            "text": "R parapharyngeal space",
+            "dataType": "boolean"
+          },
+          {
+            "text": "L foramen ovale",
+            "dataType": "boolean"
+          },
+          {
+            "text": "L foramen rotundum",
+            "dataType": "boolean"
+          },
+          {
+            "text": "L foramen lacerum",
+            "dataType": "boolean"
+          },
+          {
+            "text": "L petrous apex",
+            "dataType": "boolean"
+          },
+          {
+            "text": "L cavernous sinus",
+            "dataType": "boolean"
+          },
+          {
+            "text": "L pterygoid fossae",
+            "dataType": "boolean"
+          },
+          {
+            "text": "L parapharyngeal space",
+            "dataType": "boolean"
+          },
+          {
+            "text": "Inferior 1/2 of sphenoid sinus",
+            "dataType": "boolean"
+          },
+          {
+            "text": "Whole sphenoid sinus",
+            "dataType": "boolean"
+          },
+          {
+            "text": "Anterior 1/3 clivus",
+            "dataType": "boolean"
+          },
+          {
+            "text": "Whole clivus",
+            "dataType": "boolean"
+          },
+          {
+            "text": "Check if bad contour",
+            "dataType": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+]

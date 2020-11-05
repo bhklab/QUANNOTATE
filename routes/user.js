@@ -110,7 +110,6 @@ function checkToken(req, res) {
 }
 
 function logoutUser(req, res) {
-    // const token = jwt.sign({ username: req.params.username }, 'orcestraauthenticationtokenstring', { expiresIn: '0' });
     res.cookie('token', '', { expires: new Date() }).status(200).json({message: 'User successfully logged out'});
 }
 

@@ -1,6 +1,9 @@
 #ignoring the node module folder and package lock.
 node_modules/
 
+#ignoring images folder
+images/
+
 # ds store and env. variables.
 .DS_Store
 .env
