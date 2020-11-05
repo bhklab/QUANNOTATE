@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { registerUser, authenticateUser, checkToken, logoutUser } = require('./user');
 const { getImages, getAnalysisSummary } = require('./analysis');
-const { requireAuthentication } = require('./user');
+const { requireAuthentication } = require('./middleware');
 
 // user routes
 router.get('/user/checkToken', checkToken);
