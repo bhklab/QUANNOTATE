@@ -25,7 +25,8 @@ const analysisSchema = new Schema({
     options: {
         type: [{
             text: { type: String, required: true, trim: true },
-            dataType: { type: String, required: true, trim: true },
+            dataType: { type: String, enum: ['checkbox', 'dropdown', 'text'], required: true, trim: true },
+            options: { type: Array, required: false }
         }]
     },
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
