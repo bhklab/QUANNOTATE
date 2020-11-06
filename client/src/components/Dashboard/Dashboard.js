@@ -8,7 +8,7 @@ const Dashboard = () => {
   const [ analysisData, setAnalysisData ] = useState([]); 
 
   useEffect(() => {
-    axios.get('/api/analysis/summary')
+    axios.get('/api/analysis')
     .then(res => {
       console.log(res.data);
       setAnalysisData(res.data)
@@ -22,13 +22,16 @@ const Dashboard = () => {
     <StyledDashboard>
       {analysisData.map((analysis, i) => {
         return (
-          <Link key={i} to={`/analysis?type=${analysis.name}`}>
+          <Link key={i} to={`/analysis/${analysis.name}`}>
             <div className="section">
               <p>{analysis.text}</p>
             </div>
           </Link>
         )
       })}
+      <div className="section">
+        <p>Coming Soon...</p>
+      </div>
     </StyledDashboard>
   ) : null
 }

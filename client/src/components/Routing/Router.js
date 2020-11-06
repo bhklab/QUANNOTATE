@@ -38,7 +38,7 @@ const Router = () => {
                 <CustomRoute exact path="/" privateRoute={true} component={Dashboard} />
                 <CustomRoute exact path='/login' privateRoute={false} component={Login} />
                 <CustomRoute exact path='/signup' privateRoute={false} component={Signup} />
-                <CustomRoute path='/analysis' privateRoute={true} component={AnalysisComponent} />
+                <CustomRoute path='/analysis/:type' privateRoute={true} component={AnalysisComponent} />
               </Switch>
           </div>
         </main>

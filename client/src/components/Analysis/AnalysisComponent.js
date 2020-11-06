@@ -1,18 +1,21 @@
 /* eslint-disable default-case */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from "react-router-dom";
 
 const AnalysisComponent = () => {
-  // useEffect(() => {
-  //   axios.get('/api/analysis/summary')
-  //     .then(res => {
-  //       console.log(res.data);
-  //       setAnalysisData(res.data)
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     })
-  // }, [])
+  // retrieves type parameter from react router
+  const { type } = useParams()
+
+  useEffect(() => {
+    axios.get(`/api/analysis/${type}`)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [type])
 
   return (
     <div>Analysis Component</div>

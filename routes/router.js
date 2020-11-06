@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { registerUser, authenticateUser, checkToken, logoutUser } = require('./user');
-const { getImages, getAnalysisSummary } = require('./analysis');
+const { getLabelImages, getAnalysisSummary, registerLabels } = require('./analysis');
 const { requireAuthentication } = require('./middleware');
 
 // user routes
@@ -11,7 +11,8 @@ router.post('/user/authenticate', authenticateUser);
 router.post('/user/register', registerUser);
 
 // analysis routes (all routes are private)
-router.get('/analysis/summary', requireAuthentication, getAnalysisSummary);
-router.get('/analysis/getImages', requireAuthentication, getImages);
+router.get('/analysis', requireAuthentication, getAnalysisSummary);
+router.get('/analysis/:type', requireAuthentication, getLabelImages);
+router.post('/analysis/label', requireAuthentication, getAnalysisSummary);
 
 module.exports = router;
