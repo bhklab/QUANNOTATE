@@ -30,20 +30,20 @@ const Router = () => {
   // this prevents multiple redirects and keeps the url unchanged
   return authState.isAuthChecked ? (
     <AuthContext.Provider value={{ authState, setAuthState }}>
-      <Header />
-      <main>
-        <div className='wrapper'>
-          <BrowserRouter>
-            <Switch>
-              <CustomRoute exact path="/" privateRoute={true} component={Dashboard} />
-              <CustomRoute exact path='/login' privateRoute={false} component={Login} />
-              <CustomRoute exact path='/signup' privateRoute={false} component={Signup} />
-              <CustomRoute path='/analysis' privateRoute={true} component={AnalysisComponent} />
-            </Switch>
-          </BrowserRouter>
-        </div>
-      </main>
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <main>
+          <div className='wrapper'>
+              <Switch>
+                <CustomRoute exact path="/" privateRoute={true} component={Dashboard} />
+                <CustomRoute exact path='/login' privateRoute={false} component={Login} />
+                <CustomRoute exact path='/signup' privateRoute={false} component={Signup} />
+                <CustomRoute path='/analysis' privateRoute={true} component={AnalysisComponent} />
+              </Switch>
+          </div>
+        </main>
+        <Footer />
+      </BrowserRouter>
     </AuthContext.Provider>
   ) : null
 }

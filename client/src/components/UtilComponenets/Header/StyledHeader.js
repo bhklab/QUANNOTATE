@@ -27,7 +27,8 @@ const StyledHeader = styled.header`
 
   h4 {
     margin: 0;
-    color: ${colors.blue}
+    color: ${colors.blue};
+    font-size: 32px;
   }
   .account-container,
   .user,
@@ -42,6 +43,12 @@ const StyledHeader = styled.header`
     flex-direction: column;
     justify-content: center;
   }
+  @media only screen and (max-width: 374px) {
+    .user {
+      display: none;
+    }
+  }
+
 `;
 
 export default StyledHeader

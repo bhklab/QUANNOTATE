@@ -20,7 +20,7 @@ const StyledDashboard = styled.div`
     border-radius: 4px;
     border: 2px solid ${colors.white};
     background-color: ${colors.black_trans};
-
+    padding: 5px;
     p {
       font-size: calc(2vw + 10px);
       color: ${colors.white}

@@ -20,9 +20,9 @@ const Dashboard = () => {
 
   return analysisData.length > 0 ? (
     <StyledDashboard>
-      {analysisData.map(analysis => {
+      {analysisData.map((analysis, i) => {
         return (
-          <Link to={`/analysis?type=${analysis.name}`}>
+          <Link key={i} to={`/analysis?type=${analysis.name}`}>
             <div className="section">
               <p>{analysis.text}</p>
             </div>

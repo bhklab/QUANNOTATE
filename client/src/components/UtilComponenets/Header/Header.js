@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import AuthContext from '../../../context/authContext';
 import StyledHeader from './StyledHeader';
@@ -20,9 +21,11 @@ const Header = () => {
 
   return authenticated ? (
     <StyledHeader>
-      <div className='logo'>
-        <h4>LabelIt</h4>
-      </div>
+      <Link to='/'>
+        <div className='logo'>
+          <h4>LabelIt</h4>
+        </div>
+      </Link>
       <div className='account-container'>
         <div className='user'>
           <p>Hello, {username}</p>
