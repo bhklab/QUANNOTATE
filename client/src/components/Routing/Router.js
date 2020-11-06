@@ -2,13 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BrowserRouter, Switch } from 'react-router-dom';
-import AuthContext from '../../context/authContext';
+import CustomRoute from './CustomRoute';
 import Login from '../Login/Login'
 import Signup from '../Signup/Signup'
 import Dashboard from '../Dashboard/Dashboard';
+import AnalysisComponent from '../Analysis/AnalysisComponent'
 import Header from '../UtilComponenets/Header/Header';
 import Footer from '../UtilComponenets/Footer/Footer';
-import CustomRoute from './CustomRoute';
+import AuthContext from '../../context/authContext';
+
 
 const Router = () => {
   const [authState, setAuthState] = useState({ authenticated: false, username: null, email: null, isAuthChecked: false })
@@ -36,6 +38,7 @@ const Router = () => {
               <CustomRoute exact path="/" privateRoute={true} component={Dashboard} />
               <CustomRoute exact path='/login' privateRoute={false} component={Login} />
               <CustomRoute exact path='/signup' privateRoute={false} component={Signup} />
+              <CustomRoute path='/analysis' privateRoute={true} component={AnalysisComponent} />
             </Switch>
           </BrowserRouter>
         </div>
