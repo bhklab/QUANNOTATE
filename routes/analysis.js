@@ -1,33 +1,37 @@
 const Analysis = require('../database/models/analysis');
 const generateErrorObject = require('../utils/generateErrorObject');
+const path = require('path');
 const fs = require('fs');
+const util = require('util');
+const readFile = util.promisify(fs.readFile);
 
-function getLabelImages(req, res) {
+async function getLabelImages(req, res) {
     const { type } = req.params;
     if (!type) {
         res.status(400).json({ error: 'Request must contain analysis type'});
+        return;
     }
-    console.log('request params', req.params);
-    
-    const fileNames = fs.readdirSync(`/images/${type}`, ['**.png']);
-    res.status(200).json({ message: 'Success' });
-
-    // const data = {};
-
-    // fileNames.forEach(function (filename) {
-    //     filepath = path.join(__dirname, '../../uploads/output') + '/' + filename;
-
-    //     fs.readFile(path.join(__dirname, '../../uploads/output') + '/' + filename, function (err, content) {
-    //         if (!err) {
-    //             console.log(content);
-    //         }
-    //     });
-    // });
-
-    //res.sendFile(path.join(__dirname,'../../uploads/output/', fileNames[0]));
-
-    // response.data = fileNames;
-    // res.json(response);
+    const dirpath = path.join(__dirname, `../images/${type}`);
+    // reads all files in the folder
+    fs.readdir(dirpath, function (err, filenames) {
+        if (err) {
+            console.log('error ', err);
+            res.status(500).json({ error: generateErrorObject(`Analysis type ${type} doesn't exist`, 'generic') });
+            return;
+        }
+        // creates an array of promises
+        const files = filenames.map(function (filename) {
+            const filepath = `${dirpath}/${filename}`;
+            return readFile(filepath);
+        });
+        // sends reponse once all images has been read
+        Promise.all(files).then(images => {
+            res.status(200).send(images);
+        }).catch(error => {
+            console.log(error);
+            res.status(400).json({ message: 'Error retieiving CT scans' });
+        });
+    });
 }
 
 async function getAnalysisSummary(req, res) {
