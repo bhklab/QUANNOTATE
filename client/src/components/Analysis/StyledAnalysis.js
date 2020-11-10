@@ -9,24 +9,56 @@ const StyledAnalysis = styled.div`
   border: 2px solid ${colors.black};
   border-radius: 4px;
 
+  p {
+    text-align: left;
+  }
+
   .analysis-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .player-container {
     max-width: 450px;
-    width: 50%;
+    width: 100%;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
   }
+
   .option-container {
     flex-grow: 1;
+    margin-left: 2vw;
+  }
+
+  .slider {
+    display: flex;
+    width: 100%;
+  }
+
+  .controls {
+    display: flex;
     margin-left: 10px;
   }
 
+  .patients-id p {
+    background-color: ${colors.blue};
+    padding: 5px;
+    border-radius: 4px;
+    display:inline-block;
+    font-size: 1rem;
+  } 
+
   .scan {
     width: 100%;
-    height: 100%;
-    min-width: 300px
+    height: 450px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 

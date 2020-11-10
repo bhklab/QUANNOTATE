@@ -3,6 +3,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
 import StyledAnalysis from './StyledAnalysis';
+import StyledSlider from './StyledSlider';
+import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded';
+import PauseRoundedIcon from '@material-ui/icons/PauseRounded';
+import colors from '../../styles/colors';
+
 
 // helper funstions that accepts array buffer and produce byte64 string to be rendered as an image in the browser
 const convertBufferToBase64String = (buffer) => btoa(
@@ -44,7 +49,31 @@ const AnalysisComponent = () => {
       <h3>Analysis Component (should be replaced by API text)</h3>
       <div className='analysis-container'>
         <div className='player-container'>
-          <img className="scan" alt='CT scan' src={`data:image/png;base64,${images[selectedImage]}`} />
+          <div className="scan">
+            <img  alt='CT scan' src={`data:image/png;base64,${images[selectedImage]}`} />
+          </div>
+          <div className='patients-id'>
+            <p>ID: Patient's ID that comes from API</p>
+          </div>
+          <div className="slider">
+            <StyledSlider
+              value={selectedImage + 1}
+              min={1}
+              max={images.length}
+              valueLabelDisplay="auto"
+              onChange={(e, value) => setSelectedImage(value - 1)}
+            />
+            <div className='controls'>
+              <PlayArrowRoundedIcon
+                style={{ color: colors.blue }}
+                onClick={() => console.log('Start playing')}
+              />
+              <PauseRoundedIcon
+                style={{ color: colors.blue }}
+                onClick={() => console.log('Pause')}
+              />
+            </div>
+          </div>
         </div>
         <div className='option-container'>
           <p>Option 1</p>
