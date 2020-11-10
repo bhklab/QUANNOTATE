@@ -41,10 +41,12 @@ const GlobalStyles = createGlobalStyle`
     p {
       font-size: 14px;
     }
+    main {
+      width: 100%;
+    }
     header,
     footer {
       width: 100%;
-      // min-height: 75px;
       display: flex;
       padding: 10px;
     }

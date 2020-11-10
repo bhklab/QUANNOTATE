@@ -13,7 +13,8 @@ const StyledApp = styled.div`
   justify-content: space-between;
 
   .wrapper {
-    margin: 0 10%;
+    margin: 0 auto;
+    padding: 10px;
     max-width: 1280px;
     display: flex;
     flex-direction: column;
