@@ -39,11 +39,6 @@ const StyledAnalysis = styled.div`
     width: 100%;
   }
 
-  .controls {
-    display: flex;
-    margin-left: 10px;
-  }
-
   .patients-id p {
     background-color: ${colors.blue};
     padding: 5px;

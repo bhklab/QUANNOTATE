@@ -4,7 +4,8 @@ import colors from '../../../styles/colors';
 
 const StyledSlider = withStyles({
   root: {
-    color: colors.blue
+    color: colors.blue,
+    padding: '17px 0'
   },
 })(Slider);
 
