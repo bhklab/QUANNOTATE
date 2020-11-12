@@ -27,7 +27,6 @@ const PlayerComponent = (props) => {
   const [ selectedImage, setSelectedImage ] = useState(0);
   const [ playing, setPlaying ] = useState(false);
   const classes = useStyles();
-
   let play
   if (playing) {
     if (selectedImage + 1 === images.length) {
@@ -35,20 +34,14 @@ const PlayerComponent = (props) => {
       play = setTimeout(
         () => {
           setSelectedImage(0)
-        },
-        80
-      )
+        }, 80)
     } else {
       play = setTimeout(
         () => {
-          console.log('Inside loop', playing, selectedImage);
           setSelectedImage(selectedImage + 1)
-        },
-        80
-      )
+        }, 80)
     }
   }
-  console.log(playing, selectedImage);
 
   const playImages = () => {
     setPlaying(true)
@@ -59,10 +52,13 @@ const PlayerComponent = (props) => {
   }
 
   const handleSliderChange = (value) => {
-    console.log('Event');
     clearTimeout(play)
-    setSelectedImage(value - 1)
-    setPlaying(false)
+    const isCurrentlyPlaying = playing
+    if (isCurrentlyPlaying) setPlaying(false)
+    setTimeout(() => {
+      setSelectedImage(value - 1)
+      setPlaying(isCurrentlyPlaying)
+    }, 80)
   }
 
   return (<div className='player-container'>
