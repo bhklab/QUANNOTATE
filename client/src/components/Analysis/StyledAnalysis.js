@@ -50,6 +50,8 @@ const StyledAnalysis = styled.div`
   .scan {
     width: 100%;
     height: 450px;
+    border: 2px solid ${colors.blue};
+    border-radius: 4px;
     img {
       width: 100%;
       height: 100%;
