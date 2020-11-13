@@ -7,15 +7,15 @@ import PlayerComponent from './PlayerComponent/PlayerComponent';
 import LabelComponent from './LabelComponent/LabelComponent'
 
 const AnalysisComponent = () => {
-  const [ title, setTitle ] = useState('Loading...')
+  const [ analysisInfo, setAnalyisInfo ] = useState({ title: 'Loading...', options: [], loaded: false})
   // retrieves type parameter from react router
   const { type } = useParams()
-  // gets images from the server and transforms them into a readble state
+  // gets images from the server and transforms them into a readable state
   useEffect(() => {
     axios.get(`/api/analysis/${type}`)
       .then(res => {
-        console.log(res.data);
-        setTitle(res.data[0].title);
+        const { title, options } = res.data[0];
+        setAnalyisInfo({ title, options, loaded: true})
       })
       .catch(err => {
         console.log(err);
@@ -24,10 +24,12 @@ const AnalysisComponent = () => {
 
   return (
     <StyledAnalysis>
-      <h3>{title}</h3>
+      <h3>{analysisInfo.title}</h3>
       <div className='analysis-container'>
         <PlayerComponent />
-        <LabelComponent />
+        {analysisInfo.loaded ? <LabelComponent 
+          options={analysisInfo.options}
+        /> : null}
       </div>
     </StyledAnalysis>
 
