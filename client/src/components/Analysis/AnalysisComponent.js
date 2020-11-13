@@ -7,13 +7,27 @@ import PlayerComponent from './PlayerComponent/PlayerComponent';
 import LabelComponent from './LabelComponent/LabelComponent'
 
 const AnalysisComponent = () => {
+  const [ title, setTitle ] = useState('Loading...')
+  // retrieves type parameter from react router
+  const { type } = useParams()
+  // gets images from the server and transforms them into a readble state
+  useEffect(() => {
+    axios.get(`/api/analysis/${type}`)
+      .then(res => {
+        console.log(res.data);
+        setTitle(res.data[0].title);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [type])
 
   return (
     <StyledAnalysis>
-      <h3>Analysis Component (should be replaced by API text)</h3>
+      <h3>{title}</h3>
       <div className='analysis-container'>
-        <PlayerComponent/>
-        <LabelComponent/>
+        <PlayerComponent />
+        <LabelComponent />
       </div>
     </StyledAnalysis>
 

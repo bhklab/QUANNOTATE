@@ -49,7 +49,7 @@ const PlayerComponent = (props) => {
 
   // gets images from the server and transforms them into a readble state
   useEffect(() => {
-    axios.get(`/api/analysis/${type}`)
+    axios.get(`/api/analysis/${type}/images`)
       .then(res => {
         const responseImages = [];
         // processes image buffers to be rendered on the page

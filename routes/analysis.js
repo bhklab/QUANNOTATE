@@ -5,7 +5,39 @@ const fs = require('fs');
 const util = require('util');
 const readFile = util.promisify(fs.readFile);
 
-async function getLabelImages(req, res) {
+async function getAnalysisSummary(req, res) {
+    try {
+        const allAnalyses = await Analysis.find().select('name text');
+        res.status(200).json(allAnalyses);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: generateErrorObject('Couldn\'t retrieve analysis data', 'generic') });
+    }
+}
+
+async function getAnalysisInfo(req, res) {
+    const { type } = req.params;
+    if (!type) {
+        res.status(400).json({ error: 'Request must contain analysis type' });
+        return;
+    }
+    try {
+        const allAnalyses = await Analysis.find({ name: type });
+        if (allAnalyses.length === 0) {
+            res.status(400).json({ error: `No analysis documents have been found for ${type}`});
+            return;
+        }
+        res.status(200).json(allAnalyses);
+    } catch {
+        res.status(500).json({ error: generateErrorObject('Couldn\'t retrieve analysis data', 'generic') });
+    }
+    
+
+
+    res.status(200).json({ message: 'Success' });
+}
+
+function getLabelImages(req, res) {
     const { type } = req.params;
     if (!type) {
         res.status(400).json({ error: 'Request must contain analysis type'});
@@ -44,24 +76,13 @@ async function getLabelImages(req, res) {
     });
 }
 
-async function getAnalysisSummary(req, res) {
-    try {
-        console.log('Here');
-        const allAnalyses = await Analysis.find().select('name text');
-        console.log(allAnalyses);
-        res.status(200).json(allAnalyses);
-    } catch(err) {
-        console.log(err);
-        res.status(500).json({ error: generateErrorObject('Couldn\'t retrieve analysis data', 'generic') });
-    }
-}
-
 function registerLabels(req, res) {
     res.status(200).json({ message: 'Labels have been registered'});
 }
 
 module.exports = {
-    getLabelImages,
     getAnalysisSummary,
+    getAnalysisInfo,
+    getLabelImages,
     registerLabels
 };
