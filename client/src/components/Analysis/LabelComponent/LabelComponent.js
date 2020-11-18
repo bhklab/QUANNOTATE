@@ -63,36 +63,46 @@ const LabelComponent = (props) => {
       switch (option.dataType) {
         case 'checkbox':
           return (
-            <FormControlLabel
-              label={option.text}
-              key={i}
-              control={
-                <StyledCheckBox
-                  checked={selection[i]}
-                  onChange={(e) => updateLabel(e, option.dataType, i)} 
-                  name={option.text}
-                />}
-            />)
+            <div className='label-element'>
+              <FormControlLabel
+                className={classes.label}
+                label={option.text}
+                key={i}
+                control={
+                  <StyledCheckBox
+                    checked={selection[i]}
+                    onChange={(e) => updateLabel(e, option.dataType, i)} 
+                    name={option.text}
+                  />}
+              />
+            </div>)
         case 'dropdown':
           return (
-            <FormControl 
-              variant="outlined" 
-              className={classes.formControl}
-              key={i}
-            >
-              <InputLabel id="demo-simple-select-outlined-label">{option.text}</InputLabel>
-              <Select
-                value={selection[i]}
-                onChange={(e) => updateLabel(e, option.dataType, i)} 
-                label={option.text}
+            <div className='label-element'>
+              <FormControl 
+                variant="outlined" 
+                className={classes.formControl}
+                key={i}
               >
-                {option.options.map(suboption => {
-                  return (
-                    <MenuItem value={suboption}>{suboption}</MenuItem>
-                  )
-                })}
-              </Select>
-            </FormControl>
+                <InputLabel>{option.text}</InputLabel>
+                <Select
+                  value={selection[i]}
+                  onChange={(e) => updateLabel(e, option.dataType, i)} 
+                  label={option.text}
+                >
+                  {option.options.map((suboption, index) => {
+                    return (
+                      <MenuItem 
+                        key={`${i}-${index}`} 
+                        value={suboption}
+                      >
+                        {suboption}
+                      </MenuItem>
+                    )
+                  })}
+                </Select>
+              </FormControl>
+            </div>
           )
         case 'text':
           break;

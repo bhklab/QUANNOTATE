@@ -6,6 +6,7 @@ import colors from '../../../styles/colors';
 const StyledCheckBox = withStyles({
   root: {
     color: colors.blue,
+    width: '100%'
   },
   checked: {},
 })((props) => <Checkbox color="default" {...props} />);
