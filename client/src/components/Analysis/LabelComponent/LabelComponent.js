@@ -63,7 +63,6 @@ const LabelComponent = (props) => {
       switch (option.dataType) {
         case 'checkbox':
           return (
-            <div className='label-element'>
               <FormControlLabel
                 className={classes.label}
                 label={option.text}
@@ -74,11 +73,9 @@ const LabelComponent = (props) => {
                     onChange={(e) => updateLabel(e, option.dataType, i)} 
                     name={option.text}
                   />}
-              />
-            </div>)
+              />)
         case 'dropdown':
           return (
-            <div className='label-element'>
               <FormControl 
                 variant="outlined" 
                 className={classes.formControl}
@@ -102,7 +99,6 @@ const LabelComponent = (props) => {
                   })}
                 </Select>
               </FormControl>
-            </div>
           )
         case 'text':
           break;

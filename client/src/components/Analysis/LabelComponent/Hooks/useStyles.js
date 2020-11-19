@@ -3,12 +3,15 @@ import colors from '../../../../styles/colors';
 
 const useStyles = makeStyles((theme) => ({
   label: {
-    // width: '100%',
+    marginBottom: '15px'
   },
   formControl: {
     width: '100%',
+    marginBottom: '15px',
+    maxWidth: 450,
     '& label': {
       color: colors.white,
+      fullWidth: true,
     },
     '&:hover label': {
       color: colors.blue,
@@ -25,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
         color: colors.blue
       },
       '& fieldset': {
-        borderColor: colors.white,
+        borderColor: colors.blue,
       },
       '&:hover fieldset': {
         borderColor: colors.blue,
