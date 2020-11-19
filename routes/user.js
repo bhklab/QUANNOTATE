@@ -101,7 +101,6 @@ function checkToken(req, res) {
                 }
             });
         }
-
     } catch (error) {
         console.log('Error during token verification');
         console.log(error);

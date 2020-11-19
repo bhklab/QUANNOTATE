@@ -4,6 +4,7 @@
     "documents": [
       {
         "name": "ctvp",
+        "dataset": "neck",
         "title": "Are CTVp contours guideline compliant?",
         "available": true,
         "text": "CTVp",
@@ -100,6 +101,7 @@
       },
       {
         "name": "breast",
+        "dataset": "breast",
         "title": "Are Breast contours guideline compliant?",
         "available": true,
         "text": "Breast",
@@ -126,6 +128,7 @@
       },
       {
         "name": "neck_levels",
+        "dataset": "neck",
         "title": "What Neck Levels are Contoured?",
         "available": true,
         "text": "Neck Levels",

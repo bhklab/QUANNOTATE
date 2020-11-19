@@ -2,9 +2,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import colors from '../../../../styles/colors';
 
 const useStyles = makeStyles((theme) => ({
-  label: {
-    marginBottom: 10
-  },
+  // label: {
+  //   marginBottom: 10
+  // },
   textarea: {
     marginBottom: 10,
     '& label': {
@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     width: '100%',
     marginBottom: 10,
+    marginTop: 10,
     maxWidth: 450,
     '& label': {
       color: colors.white,

@@ -22,6 +22,11 @@ const analysisSchema = new Schema({
         required: true,
         trim: true
     },
+    dataset: {
+        type: String,
+        required: true,
+        trim: true
+    },
     options: {
         type: [{
             text: { type: String, required: true, trim: true },
