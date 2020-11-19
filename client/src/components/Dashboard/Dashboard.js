@@ -10,7 +10,6 @@ const Dashboard = () => {
   useEffect(() => {
     axios.get('/api/analysis')
     .then(res => {
-      console.log(res.data);
       setAnalysisData(res.data)
     })
     .catch(err => {

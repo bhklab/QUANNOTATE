@@ -6,7 +6,9 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import TextField from '@material-ui/core/TextField';
 import StyledCheckBox from './StyledCheckBox';
+import StyledButton from './StyledButton';
 import useStyles from './Hooks/useStyles';
 
 // prepopulates selection state in the component when options appear/change
@@ -34,9 +36,6 @@ const LabelComponent = (props) => {
   const { options } = props;
   const [ selection, setSelection ] = useState(createSelectionSet(options));
   const classes = useStyles();
-
-  console.log(options);
-
   useEffect(() => {
     setSelection(createSelectionSet(options))
   }, [options])
@@ -52,6 +51,7 @@ const LabelComponent = (props) => {
         setSelection({ ...selection, [index]: value})
         break;
       case 'text':
+        setSelection({ ...selection, [index]: value})
         break;
       default:
         break;
@@ -101,7 +101,15 @@ const LabelComponent = (props) => {
               </FormControl>
           )
         case 'text':
-          break;
+          return (
+            <TextField
+              className={ classes.textarea }
+              id="comments-field"
+              multiline={true}
+              label={ option.text }
+              // variant="outlined"
+            />
+          )
         default:
           return null;
       }
@@ -116,7 +124,7 @@ const LabelComponent = (props) => {
   return (
     <div className='option-container'>
       {generateOptions(options)}
-      <button type='submit'>Submit Labels</button>
+      <StyledButton type='submit'>Submit Labels</StyledButton>
     </div>
   )
 } 

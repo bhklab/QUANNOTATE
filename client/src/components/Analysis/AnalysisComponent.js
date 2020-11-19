@@ -15,7 +15,7 @@ const AnalysisComponent = () => {
     axios.get(`/api/analysis/${type}`)
       .then(res => {
         const { title, options } = res.data[0];
-        setAnalyisInfo({ title, options, loaded: true})
+        setAnalyisInfo({ title, options: [...options, { dataType: "text", text: "Any comments?"}], loaded: true})
       })
       .catch(err => {
         console.log(err);

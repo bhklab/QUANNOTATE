@@ -5,13 +5,11 @@ const useStyles = makeStyles((theme) => ({
   label: {
     marginBottom: '15px'
   },
-  formControl: {
-    width: '100%',
+  textarea: {
     marginBottom: '15px',
-    maxWidth: 450,
     '& label': {
       color: colors.white,
-      fullWidth: true,
+      fontSize: '1rem'
     },
     '&:hover label': {
       color: colors.blue,
@@ -19,13 +17,47 @@ const useStyles = makeStyles((theme) => ({
     '& label.Mui-focused': {
       color: colors.blue,
     },
+    '& .MuiInputBase-root': {
+      // padding: 10
+      '&:before': {
+        borderBottom: `1px solid ${colors.white}`
+      },
+      '&:after': {
+        borderBottom: `1px solid ${colors.white}`
+      },
+      '&:hover:before': {
+        borderBottom: `1px solid ${colors.blue}`
+      },
+      '&:hover:after': {
+        borderBottom: `1px solid ${colors.blue}`
+      },
+      '& textarea': {
+        color: colors.white,
+        fontSize: '1rem',
+        letterSpacing: 1
+      }
+    }
+  },
+  formControl: {
+    width: '100%',
+    marginBottom: '15px',
+    maxWidth: 450,
+    '& label': {
+      color: colors.white,
+    },
+    '&:hover label': {
+      color: colors.blue,
+    },
+    '& label.Mui-focused': {
+      color: colors.white,
+    },
     '& .MuiOutlinedInput-root': {
       color: colors.white,
       '&:hover': {
-        color: colors.blue
+        color: colors.white
       },
       '&.Mui-focused': {
-        color: colors.blue
+        color: colors.white
       },
       '& fieldset': {
         borderColor: colors.blue,

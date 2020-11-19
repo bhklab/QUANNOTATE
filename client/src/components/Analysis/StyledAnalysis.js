@@ -32,6 +32,8 @@ const StyledAnalysis = styled.div`
   .option-container {
     flex-grow: 1;
     margin-left: 2vw;
+    display: flex;
+    flex-direction: column;
   }
 
   .slider {
