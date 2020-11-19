@@ -3,10 +3,10 @@ import colors from '../../../../styles/colors';
 
 const useStyles = makeStyles((theme) => ({
   label: {
-    marginBottom: '15px'
+    marginBottom: 10
   },
   textarea: {
-    marginBottom: '15px',
+    marginBottom: 10,
     '& label': {
       color: colors.white,
       fontSize: '1rem'
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl: {
     width: '100%',
-    marginBottom: '15px',
+    marginBottom: 10,
     maxWidth: 450,
     '& label': {
       color: colors.white,

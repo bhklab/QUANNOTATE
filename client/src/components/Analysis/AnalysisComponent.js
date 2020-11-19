@@ -4,10 +4,12 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 import StyledAnalysis from './StyledAnalysis';
 import PlayerComponent from './PlayerComponent/PlayerComponent';
-import LabelComponent from './LabelComponent/LabelComponent'
+import LabelComponent from './LabelComponent/LabelComponent';
+import AnalysisContext from '../../context/analysisContext';
 
 const AnalysisComponent = () => {
-  const [ analysisInfo, setAnalyisInfo ] = useState({ title: 'Loading...', options: [], loaded: false})
+  const [ analysisInfo, setAnalyisInfo ] = useState({ title: 'Loading...', options: [], loaded: false });
+  const [ error, setError ] = useState(null)
   // retrieves type parameter from react router
   const { type } = useParams()
   // gets images from the server and transforms them into a readable state
@@ -19,20 +21,26 @@ const AnalysisComponent = () => {
       })
       .catch(err => {
         console.log(err);
+        setError(err)
       })
   }, [type])
 
   return (
-    <StyledAnalysis>
-      <h3>{analysisInfo.title}</h3>
-      <div className='analysis-container'>
-        <PlayerComponent />
-        {analysisInfo.loaded ? <LabelComponent 
-          options={analysisInfo.options}
-        /> : null}
-      </div>
-    </StyledAnalysis>
-
+    <AnalysisContext.Provider value={{ error, setError }}>
+      <StyledAnalysis>
+        {!error ? (
+          <>
+            <h3>{analysisInfo.title}</h3>
+            <div className='analysis-container'>
+              <PlayerComponent />
+              {analysisInfo.loaded ? <LabelComponent
+                options={analysisInfo.options}
+              /> : null}
+            </div>
+          </>
+        ) : <h3>An error occured, please try again later</h3>}
+      </StyledAnalysis>
+    </AnalysisContext.Provider>
   )
 }
 

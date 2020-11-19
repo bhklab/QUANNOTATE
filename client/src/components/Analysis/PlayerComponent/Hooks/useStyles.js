@@ -8,11 +8,11 @@ const useStyles = makeStyles((theme) => ({
     '& div > svg': {
       color: colors.blue,
       "&:hover": {
-        color: colors.purple,
+        color: colors.white,
       }
     },
     '& .playing > svg': {
-      color: colors.purple
+      color: colors.white
     }
   },
 }));

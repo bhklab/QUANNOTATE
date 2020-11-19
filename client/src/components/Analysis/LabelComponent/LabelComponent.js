@@ -107,7 +107,7 @@ const LabelComponent = (props) => {
               id="comments-field"
               multiline={true}
               label={ option.text }
-              // variant="outlined"
+              key={i}
             />
           )
         default:
@@ -121,10 +121,16 @@ const LabelComponent = (props) => {
     )
   }
 
+  // sends user labels to the server
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // submit logic goes here
+  }
+
   return (
     <div className='option-container'>
       {generateOptions(options)}
-      <StyledButton type='submit'>Submit Labels</StyledButton>
+      <StyledButton type='submit' onSubmit={handleSubmit}>Submit Labels</StyledButton>
     </div>
   )
 } 

@@ -2,6 +2,7 @@ import colors from '../../../styles/colors';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
+  margin-top: 15px;
   align-self: start;
   font-size: 1rem;
   padding: 10px 5px;

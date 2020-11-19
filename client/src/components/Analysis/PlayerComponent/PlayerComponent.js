@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect, useContext } from 'react';
 import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded';
 import PauseRoundedIcon from '@material-ui/icons/PauseRounded';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
 import StyledSlider from './StyledSlider';
 import useStyles from './Hooks/useStyles';
+import AnalysisContext from '../../../context/analysisContext';
 
 // helper funstions that accepts array buffer and produce byte64 string to be rendered as an image in the browser
 const convertBufferToBase64String = (buffer) => btoa(
@@ -13,10 +15,11 @@ const convertBufferToBase64String = (buffer) => btoa(
 );
 
 const PlayerComponent = (props) => {
+  const { setError } = useContext(AnalysisContext);
   // retrieves type parameter from react router
   const { type } = useParams()
-  const [images, setImages] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [ images, setImages ] = useState(null)
+  const [ loading, setLoading ] = useState(true)
   const [ selectedImage, setSelectedImage ] = useState(0);
   const [ playing, setPlaying ] = useState(false);
   const classes = useStyles();
@@ -62,10 +65,10 @@ const PlayerComponent = (props) => {
       })
       .catch(err => {
         console.log(err);
+        setError(err)
       })
   }, [type])
 
-  
   if (loading) {
     return (<div>Loading images...</div>)
   }
