@@ -24,7 +24,8 @@ const analysisSchema = new Schema({
     },
     dataset: { 
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Dataset'
+        ref: 'Dataset',
+        required: true,
     },
     options: {
         type: [{

@@ -8,7 +8,10 @@ const datasetSchema = new Schema({
         required: true,
         trim: true,
     },
-    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+    createdBy: { 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }
 });
 
 // creates and exports subset model

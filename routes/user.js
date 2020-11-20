@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const User = require('../database/models/user');
+const { User } = require('../database/models/index');
 const generateErrorObject = require('../utils/generateErrorObject');
 
 // sets expiration time for jwt tokens and cookies

@@ -1,5 +1,4 @@
-const Analysis = require('../database/models/analysis');
-const Dataset = require('../database/models/dataset');
+const { Analysis } = require('../database/models/index');
 const generateErrorObject = require('../utils/generateErrorObject');
 const path = require('path');
 const fs = require('fs');
