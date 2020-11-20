@@ -14,31 +14,48 @@ const AnalysisComponent = () => {
   const { type } = useParams()
   // gets images from the server and transforms them into a readable state
   useEffect(() => {
-    axios.get(`/api/analysis/${type}`)
-      .then(res => {
-        const { title, options } = res.data[0];
-        setAnalyisInfo({ title, options: [...options, { dataType: "text", text: "Any comments?"}], loaded: true})
-      })
-      .catch(err => {
+    const fetchData = async () => {
+      try {
+        const analysisResponse = await axios.get(`/api/analysis/${type}`)
+        const { analysis } = analysisResponse.data
+        console.log(analysis);
+        const patientResponse = await axios.get(`/api/analysis/patient?dataset_id=${analysis.dataset._id}`)
+        console.log(patientResponse);
+        // setAnalyisInfo({ title, options: [...options, { dataType: "text", text: "Any comments?" }], loaded: true })
+      } catch (err) {
         console.log(err);
         setError(err)
-      })
+      }     
+    }
+    fetchData()
   }, [type])
+
+  if (error) {
+    return (
+      <StyledAnalysis>
+        <h3>An error occured, please try again later</h3>
+      </StyledAnalysis>
+    )
+  }
+
+  if (!analysisInfo.loaded) {
+    return (
+      <StyledAnalysis>
+        <h3>Loading...</h3>
+      </StyledAnalysis>
+    )
+  }
 
   return (
     <AnalysisContext.Provider value={{ error, setError }}>
       <StyledAnalysis>
-        {!error ? (
-          <>
-            <h3>{analysisInfo.title}</h3>
-            <div className='analysis-container'>
-              <PlayerComponent />
-              {analysisInfo.loaded ? <LabelComponent
-                options={analysisInfo.options}
-              /> : null}
-            </div>
-          </>
-        ) : <h3>An error occured, please try again later</h3>}
+        <h3>{analysisInfo.title}</h3>
+        <div className='analysis-container'>
+          <PlayerComponent />
+          {analysisInfo.loaded ? <LabelComponent
+            options={analysisInfo.options}
+          /> : null}
+        </div>
       </StyledAnalysis>
     </AnalysisContext.Provider>
   )

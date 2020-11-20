@@ -1,4 +1,4 @@
-const { Analysis } = require('../database/models/index');
+const { Analysis, Patient } = require('../database/models/index');
 const generateErrorObject = require('../utils/generateErrorObject');
 const path = require('path');
 const fs = require('fs');
@@ -22,15 +22,22 @@ async function getAnalysisInfo(req, res) {
         return;
     }
     try {
-        const allAnalyses = await Analysis.find({ name: type });
-        if (allAnalyses.length === 0) {
+        const analysis = await Analysis.findOne({ name: type }).populate('dataset');
+        const patient = await Patient.findOne({ dataset_id: analysis.dataset._id });
+        if (analysis.length === 0) {
             res.status(400).json({ error: `No analysis documents have been found for ${type}`});
             return;
         }
-        res.status(200).json(allAnalyses);
+        res.status(200).json({ analysis, patient });
     } catch {
         res.status(500).json({ error: generateErrorObject('Couldn\'t retrieve analysis data', 'generic') });
     }
+}
+
+async function getPatient(req, res) {
+    const { dataset_id } = req.query;
+    console.log(dataset_id);
+    res.status(200).json({ Message: 'Success' });
 }
 
 async function getLabelImages(req, res) {
@@ -70,7 +77,7 @@ async function getLabelImages(req, res) {
                 res.status(200).send(images);
             }).catch(error => {
                 console.log(error);
-                res.status(400).json({ message: 'Error retieiving CT scans' });
+                res.status(400).json({ message: 'Error retrieving CT scans' });
             });
         });
     } catch {
@@ -86,5 +93,6 @@ module.exports = {
     getAnalysisSummary,
     getAnalysisInfo,
     getLabelImages,
+    getPatient,
     registerLabels
 };
