@@ -7,6 +7,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
+// component imports
 import StyledCheckBox from './StyledCheckBox';
 import StyledButton from './StyledButton';
 import useStyles from './Hooks/useStyles';
@@ -42,7 +43,6 @@ const LabelComponent = (props) => {
   // handles user selection
   const updateLabel = (e, dataType, index) => {
     const { value } = e.target 
-    console.log(value, dataType, index);
     switch (dataType) {
       case 'checkbox':
         setSelection({ ...selection, [index]: !selection[index]});
@@ -72,7 +72,8 @@ const LabelComponent = (props) => {
                     checked={selection[i]}
                     onChange={(e) => updateLabel(e, option.dataType, i)} 
                     name={option.text}
-                  />}
+                  />
+                }
               />)
         case 'dropdown':
           return (
@@ -107,6 +108,8 @@ const LabelComponent = (props) => {
               id="comments-field"
               multiline={true}
               label={ option.text }
+              value={selection[i]}
+              onChange={(e) => updateLabel(e, option.dataType, i)}
               key={i}
             />
           )

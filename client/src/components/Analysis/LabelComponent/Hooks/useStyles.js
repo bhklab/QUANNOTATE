@@ -2,9 +2,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import colors from '../../../../styles/colors';
 
 const useStyles = makeStyles((theme) => ({
-  // label: {
-  //   marginBottom: 10
-  // },
+  label: {
+    color: colors.white,
+    transition: 'all 0.25s ease-in',
+    '&:hover': {
+      color: colors.blue,
+    }
+  },
   textarea: {
     marginBottom: 10,
     '& label': {
