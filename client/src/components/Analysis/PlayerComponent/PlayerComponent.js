@@ -14,8 +14,9 @@ const convertBufferToBase64String = (buffer) => btoa(
     .reduce((data, byte) => data + String.fromCharCode(byte), '')
 );
 
-const PlayerComponent = (props) => {
-  const { setError } = useContext(AnalysisContext);
+const PlayerComponent = () => {
+  const { analysisInfo, setError } = useContext(AnalysisContext);
+  const { patient } = analysisInfo;
   // retrieves type parameter from react router
   const { type } = useParams()
   const [ images, setImages ] = useState(null)
@@ -51,7 +52,7 @@ const PlayerComponent = (props) => {
   }
   // gets images from the server and transforms them into a readble state
   useEffect(() => {
-    axios.get(`/api/analysis/${type}/images`)
+    axios.get(`/api/analysis/${type}/images?patient_id=${patient.name}`)
       .then(res => {
         const responseImages = [];
         // processes image buffers to be rendered on the page
@@ -80,7 +81,7 @@ const PlayerComponent = (props) => {
         <img alt='CT scan' src={`data:image/png;base64,${images[selectedImage]}`} />
       </div>
       <div className='patients-id'>
-        <p>ID: Patient's ID that comes from API</p>
+        <p>ID: {patient.name}</p>
       </div>
       <div className="slider">
         <StyledSlider

@@ -23,12 +23,11 @@ async function getAnalysisInfo(req, res) {
     }
     try {
         const analysis = await Analysis.findOne({ name: type }).populate('dataset');
-        const patient = await Patient.findOne({ dataset_id: analysis.dataset._id });
-        if (analysis.length === 0) {
+        if (!analysis) {
             res.status(400).json({ error: `No analysis documents have been found for ${type}`});
             return;
         }
-        res.status(200).json({ analysis, patient });
+        res.status(200).json(analysis);
     } catch {
         res.status(500).json({ error: generateErrorObject('Couldn\'t retrieve analysis data', 'generic') });
     }
@@ -36,20 +35,38 @@ async function getAnalysisInfo(req, res) {
 
 async function getPatient(req, res) {
     const { dataset_id } = req.query;
-    console.log(dataset_id);
-    res.status(200).json({ Message: 'Success' });
+    if (!dataset_id) {
+        res.status(400).json({ error: 'Request is missing "dataset_id" query parameter' });
+        return;
+    }
+    try {
+        const patient = await Patient.findOne({ dataset_id }).select('patient');
+        console.log(patient);
+        if (!patient) {
+            res.status(400).json({ error: `No patient have been found for ${dataset_id}` });
+            return;
+        }
+        res.status(200).json(patient);
+    } catch {
+        res.status(500).json({ error: generateErrorObject('Couldn\'t retrieve patient data', 'generic') });
+    }
 }
 
 async function getLabelImages(req, res) {
     const { type } = req.params;
+    const { patient_id } = req.query;
     if (!type) {
         res.status(400).json({ error: 'Request must contain analysis type'});
+        return;
+    }
+    if (!patient_id) {
+        res.status(400).json({ error: 'Request must contain patient_id parameter' });
         return;
     }
     try {
         // finds dataset value of the requested analysis
         const { dataset } = await Analysis.findOne({ name: type }).populate('dataset').select('dataset');
-        const dirpath = path.join(__dirname, `../images/${dataset.name}`);
+        const dirpath = path.join(__dirname, `../images/${dataset.name}/${patient_id}`);
         // reads all files in the folder
         fs.readdir(dirpath, function (err, filenames) {
             if (err) {

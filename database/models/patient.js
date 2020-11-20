@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 // dataset schema
 const patientSchema = new Schema({
-    patient_id: {
-        type: Number,
+    patient: {
+        type: String,
         required: true,
     },
     dataset_id: { 

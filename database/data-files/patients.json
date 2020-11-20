@@ -1,1 +1,2168 @@
-[{"_id":"0094330_L","patient_id":"0094330_L","dataset_id":"neck","labels":[]},{"_id":"0132406_R","patient_id":"0132406_R","dataset_id":"neck","labels":[]},{"_id":"0167966_L","patient_id":"0167966_L","dataset_id":"neck","labels":[]},{"_id":"0216315_L","patient_id":"0216315_L","dataset_id":"neck","labels":[]},{"_id":"0223108_L","patient_id":"0223108_L","dataset_id":"neck","labels":[]},{"_id":"0233867_R","patient_id":"0233867_R","dataset_id":"neck","labels":[]},{"_id":"0234460_R","patient_id":"0234460_R","dataset_id":"neck","labels":[]},{"_id":"0453386_R","patient_id":"0453386_R","dataset_id":"neck","labels":[]},{"_id":"0468967_R","patient_id":"0468967_R","dataset_id":"neck","labels":[]},{"_id":"0486314_L","patient_id":"0486314_L","dataset_id":"neck","labels":[]},{"_id":"0496166_L","patient_id":"0496166_L","dataset_id":"neck","labels":[]},{"_id":"0500348_L","patient_id":"0500348_L","dataset_id":"neck","labels":[]},{"_id":"0511345_L","patient_id":"0511345_L","dataset_id":"neck","labels":[]},{"_id":"0515842_R","patient_id":"0515842_R","dataset_id":"neck","labels":[]},{"_id":"0606745_R","patient_id":"0606745_R","dataset_id":"neck","labels":[]},{"_id":"0640328_L","patient_id":"0640328_L","dataset_id":"neck","labels":[]},{"_id":"0646734_L","patient_id":"0646734_L","dataset_id":"neck","labels":[]},{"_id":"0649574_L","patient_id":"0649574_L","dataset_id":"neck","labels":[]},{"_id":"0663581_L","patient_id":"0663581_L","dataset_id":"neck","labels":[]},{"_id":"0663581_R","patient_id":"0663581_R","dataset_id":"neck","labels":[]},{"_id":"0672279_R","patient_id":"0672279_R","dataset_id":"neck","labels":[]},{"_id":"0681637_L","patient_id":"0681637_L","dataset_id":"neck","labels":[]},{"_id":"0686925_R","patient_id":"0686925_R","dataset_id":"neck","labels":[]},{"_id":"0698895_R","patient_id":"0698895_R","dataset_id":"neck","labels":[]},{"_id":"0704540_L","patient_id":"0704540_L","dataset_id":"neck","labels":[]},{"_id":"0707021_L","patient_id":"0707021_L","dataset_id":"neck","labels":[]},{"_id":"0711411_R","patient_id":"0711411_R","dataset_id":"neck","labels":[]},{"_id":"0712562_R","patient_id":"0712562_R","dataset_id":"neck","labels":[]},{"_id":"0720993_L","patient_id":"0720993_L","dataset_id":"neck","labels":[]},{"_id":"0732668_R","patient_id":"0732668_R","dataset_id":"neck","labels":[]},{"_id":"0744966_L","patient_id":"0744966_L","dataset_id":"neck","labels":[]},{"_id":"0749223_L","patient_id":"0749223_L","dataset_id":"neck","labels":[]},{"_id":"0754753_L","patient_id":"0754753_L","dataset_id":"neck","labels":[]},{"_id":"0757220_L","patient_id":"0757220_L","dataset_id":"neck","labels":[]},{"_id":"0757220_R","patient_id":"0757220_R","dataset_id":"neck","labels":[]},{"_id":"0772311_L","patient_id":"0772311_L","dataset_id":"neck","labels":[]},{"_id":"0774900_R","patient_id":"0774900_R","dataset_id":"neck","labels":[]},{"_id":"0776915_L","patient_id":"0776915_L","dataset_id":"neck","labels":[]},{"_id":"0786967_L","patient_id":"0786967_L","dataset_id":"neck","labels":[]},{"_id":"0790088_L","patient_id":"0790088_L","dataset_id":"neck","labels":[]},{"_id":"0807582_R","patient_id":"0807582_R","dataset_id":"neck","labels":[]},{"_id":"0810457_R","patient_id":"0810457_R","dataset_id":"neck","labels":[]},{"_id":"0812274_R","patient_id":"0812274_R","dataset_id":"neck","labels":[]},{"_id":"0813584_L","patient_id":"0813584_L","dataset_id":"neck","labels":[]},{"_id":"0813584_R","patient_id":"0813584_R","dataset_id":"neck","labels":[]},{"_id":"0816576_L","patient_id":"0816576_L","dataset_id":"neck","labels":[]},{"_id":"0819852_R","patient_id":"0819852_R","dataset_id":"neck","labels":[]},{"_id":"0821911_L","patient_id":"0821911_L","dataset_id":"neck","labels":[]},{"_id":"0829984_L","patient_id":"0829984_L","dataset_id":"neck","labels":[]},{"_id":"0832226_L","patient_id":"0832226_L","dataset_id":"neck","labels":[]},{"_id":"0832226_R","patient_id":"0832226_R","dataset_id":"neck","labels":[]},{"_id":"0840893_R","patient_id":"0840893_R","dataset_id":"neck","labels":[]},{"_id":"0843500_R","patient_id":"0843500_R","dataset_id":"neck","labels":[]},{"_id":"0853778_L","patient_id":"0853778_L","dataset_id":"neck","labels":[]},{"_id":"0857091_L","patient_id":"0857091_L","dataset_id":"neck","labels":[]},{"_id":"0860007_R","patient_id":"0860007_R","dataset_id":"neck","labels":[]},{"_id":"0872230_L","patient_id":"0872230_L","dataset_id":"neck","labels":[]},{"_id":"0876702_L","patient_id":"0876702_L","dataset_id":"neck","labels":[]},{"_id":"0878521_L","patient_id":"0878521_L","dataset_id":"neck","labels":[]},{"_id":"0976744_L","patient_id":"0976744_L","dataset_id":"neck","labels":[]},{"_id":"0976948_R","patient_id":"0976948_R","dataset_id":"neck","labels":[]},{"_id":"0996720_R","patient_id":"0996720_R","dataset_id":"neck","labels":[]},{"_id":"0998871_R","patient_id":"0998871_R","dataset_id":"neck","labels":[]},{"_id":"1004347_R","patient_id":"1004347_R","dataset_id":"neck","labels":[]},{"_id":"1014835_L","patient_id":"1014835_L","dataset_id":"neck","labels":[]},{"_id":"1020304_R","patient_id":"1020304_R","dataset_id":"neck","labels":[]},{"_id":"1021338_R","patient_id":"1021338_R","dataset_id":"neck","labels":[]},{"_id":"1021400_R","patient_id":"1021400_R","dataset_id":"neck","labels":[]},{"_id":"1027913_L","patient_id":"1027913_L","dataset_id":"neck","labels":[]},{"_id":"1029520_L","patient_id":"1029520_L","dataset_id":"neck","labels":[]},{"_id":"1039958_L","patient_id":"1039958_L","dataset_id":"neck","labels":[]},{"_id":"1040867_L","patient_id":"1040867_L","dataset_id":"neck","labels":[]},{"_id":"1040867_R","patient_id":"1040867_R","dataset_id":"neck","labels":[]},{"_id":"1072005_L","patient_id":"1072005_L","dataset_id":"neck","labels":[]},{"_id":"1093276_L","patient_id":"1093276_L","dataset_id":"neck","labels":[]},{"_id":"1097312_R","patient_id":"1097312_R","dataset_id":"neck","labels":[]},{"_id":"1110465_R","patient_id":"1110465_R","dataset_id":"neck","labels":[]},{"_id":"1118346_L","patient_id":"1118346_L","dataset_id":"neck","labels":[]},{"_id":"1118972_L","patient_id":"1118972_L","dataset_id":"neck","labels":[]},{"_id":"1129987_L","patient_id":"1129987_L","dataset_id":"neck","labels":[]},{"_id":"1136487_L","patient_id":"1136487_L","dataset_id":"neck","labels":[]},{"_id":"1140005_R","patient_id":"1140005_R","dataset_id":"neck","labels":[]},{"_id":"1140747_L","patient_id":"1140747_L","dataset_id":"neck","labels":[]},{"_id":"1142011_L","patient_id":"1142011_L","dataset_id":"neck","labels":[]},{"_id":"1142162_R","patient_id":"1142162_R","dataset_id":"neck","labels":[]},{"_id":"1173902_L","patient_id":"1173902_L","dataset_id":"neck","labels":[]},{"_id":"1173902_R","patient_id":"1173902_R","dataset_id":"neck","labels":[]},{"_id":"1182807_L","patient_id":"1182807_L","dataset_id":"neck","labels":[]},{"_id":"1187128_L","patient_id":"1187128_L","dataset_id":"neck","labels":[]},{"_id":"1189404_L","patient_id":"1189404_L","dataset_id":"neck","labels":[]},{"_id":"1189404_R","patient_id":"1189404_R","dataset_id":"neck","labels":[]},{"_id":"1201293_R","patient_id":"1201293_R","dataset_id":"neck","labels":[]},{"_id":"1202367_L","patient_id":"1202367_L","dataset_id":"neck","labels":[]},{"_id":"1204075_L","patient_id":"1204075_L","dataset_id":"neck","labels":[]},{"_id":"1204353_L","patient_id":"1204353_L","dataset_id":"neck","labels":[]},{"_id":"1225504_R","patient_id":"1225504_R","dataset_id":"neck","labels":[]},{"_id":"1229335_R","patient_id":"1229335_R","dataset_id":"neck","labels":[]},{"_id":"1230487_R","patient_id":"1230487_R","dataset_id":"neck","labels":[]},{"_id":"1258469_L","patient_id":"1258469_L","dataset_id":"neck","labels":[]},{"_id":"1259894_L","patient_id":"1259894_L","dataset_id":"neck","labels":[]},{"_id":"1260859_R","patient_id":"1260859_R","dataset_id":"neck","labels":[]},{"_id":"1270592_L","patient_id":"1270592_L","dataset_id":"neck","labels":[]},{"_id":"1270592_R","patient_id":"1270592_R","dataset_id":"neck","labels":[]},{"_id":"1272262_L","patient_id":"1272262_L","dataset_id":"neck","labels":[]},{"_id":"1273959_L","patient_id":"1273959_L","dataset_id":"neck","labels":[]},{"_id":"1307724_L","patient_id":"1307724_L","dataset_id":"neck","labels":[]},{"_id":"1307724_R","patient_id":"1307724_R","dataset_id":"neck","labels":[]},{"_id":"1313295_L","patient_id":"1313295_L","dataset_id":"neck","labels":[]},{"_id":"1314359_R","patient_id":"1314359_R","dataset_id":"neck","labels":[]},{"_id":"2019705_L","patient_id":"2019705_L","dataset_id":"neck","labels":[]},{"_id":"2019705_R","patient_id":"2019705_R","dataset_id":"neck","labels":[]},{"_id":"2021824_L","patient_id":"2021824_L","dataset_id":"neck","labels":[]},{"_id":"2026876_L","patient_id":"2026876_L","dataset_id":"neck","labels":[]},{"_id":"2027557_L","patient_id":"2027557_L","dataset_id":"neck","labels":[]},{"_id":"2033564_L","patient_id":"2033564_L","dataset_id":"neck","labels":[]},{"_id":"2033564_R","patient_id":"2033564_R","dataset_id":"neck","labels":[]},{"_id":"2044350_R","patient_id":"2044350_R","dataset_id":"neck","labels":[]},{"_id":"2051755_R","patient_id":"2051755_R","dataset_id":"neck","labels":[]},{"_id":"2055894_R","patient_id":"2055894_R","dataset_id":"neck","labels":[]},{"_id":"2061723_L","patient_id":"2061723_L","dataset_id":"neck","labels":[]},{"_id":"2063484_L","patient_id":"2063484_L","dataset_id":"neck","labels":[]},{"_id":"2065918_R","patient_id":"2065918_R","dataset_id":"neck","labels":[]},{"_id":"2073629_L","patient_id":"2073629_L","dataset_id":"neck","labels":[]},{"_id":"2073648_L","patient_id":"2073648_L","dataset_id":"neck","labels":[]},{"_id":"2102679_L","patient_id":"2102679_L","dataset_id":"neck","labels":[]},{"_id":"2105590_R","patient_id":"2105590_R","dataset_id":"neck","labels":[]},{"_id":"2107459_R","patient_id":"2107459_R","dataset_id":"neck","labels":[]},{"_id":"2113191_R","patient_id":"2113191_R","dataset_id":"neck","labels":[]},{"_id":"2119095_R","patient_id":"2119095_R","dataset_id":"neck","labels":[]},{"_id":"2124269_L","patient_id":"2124269_L","dataset_id":"neck","labels":[]},{"_id":"2130616_L","patient_id":"2130616_L","dataset_id":"neck","labels":[]},{"_id":"2166789_R","patient_id":"2166789_R","dataset_id":"neck","labels":[]},{"_id":"2169838_R","patient_id":"2169838_R","dataset_id":"neck","labels":[]},{"_id":"2174861_R","patient_id":"2174861_R","dataset_id":"neck","labels":[]},{"_id":"2174888_R","patient_id":"2174888_R","dataset_id":"neck","labels":[]},{"_id":"2180859_L","patient_id":"2180859_L","dataset_id":"neck","labels":[]},{"_id":"2181114_R","patient_id":"2181114_R","dataset_id":"neck","labels":[]},{"_id":"2186962_L","patient_id":"2186962_L","dataset_id":"neck","labels":[]},{"_id":"2238058_L","patient_id":"2238058_L","dataset_id":"neck","labels":[]},{"_id":"2238058_R","patient_id":"2238058_R","dataset_id":"neck","labels":[]},{"_id":"2240980_L","patient_id":"2240980_L","dataset_id":"neck","labels":[]},{"_id":"2246829_L","patient_id":"2246829_L","dataset_id":"neck","labels":[]},{"_id":"2425234_L","patient_id":"2425234_L","dataset_id":"neck","labels":[]},{"_id":"2431101_R","patient_id":"2431101_R","dataset_id":"neck","labels":[]},{"_id":"2453864_L","patient_id":"2453864_L","dataset_id":"neck","labels":[]},{"_id":"2455156_L","patient_id":"2455156_L","dataset_id":"neck","labels":[]},{"_id":"2698743_R","patient_id":"2698743_R","dataset_id":"neck","labels":[]},{"_id":"2719135_L","patient_id":"2719135_L","dataset_id":"neck","labels":[]},{"_id":"2724042_L","patient_id":"2724042_L","dataset_id":"neck","labels":[]},{"_id":"2724042_R","patient_id":"2724042_R","dataset_id":"neck","labels":[]},{"_id":"2724193_L","patient_id":"2724193_L","dataset_id":"neck","labels":[]},{"_id":"2730274_R","patient_id":"2730274_R","dataset_id":"neck","labels":[]},{"_id":"2866836_L","patient_id":"2866836_L","dataset_id":"neck","labels":[]},{"_id":"2895982_L","patient_id":"2895982_L","dataset_id":"neck","labels":[]},{"_id":"2904273_L","patient_id":"2904273_L","dataset_id":"neck","labels":[]},{"_id":"2942893_R","patient_id":"2942893_R","dataset_id":"neck","labels":[]},{"_id":"2950051_R","patient_id":"2950051_R","dataset_id":"neck","labels":[]},{"_id":"2951624_L","patient_id":"2951624_L","dataset_id":"neck","labels":[]},{"_id":"2951650_L","patient_id":"2951650_L","dataset_id":"neck","labels":[]},{"_id":"2952617_R","patient_id":"2952617_R","dataset_id":"neck","labels":[]},{"_id":"2962315_L","patient_id":"2962315_L","dataset_id":"neck","labels":[]},{"_id":"2962315_R","patient_id":"2962315_R","dataset_id":"neck","labels":[]},{"_id":"2963208_L","patient_id":"2963208_L","dataset_id":"neck","labels":[]},{"_id":"2966748_L","patient_id":"2966748_L","dataset_id":"neck","labels":[]},{"_id":"3001614_R","patient_id":"3001614_R","dataset_id":"neck","labels":[]},{"_id":"3005654_R","patient_id":"3005654_R","dataset_id":"neck","labels":[]},{"_id":"3008765_L","patient_id":"3008765_L","dataset_id":"neck","labels":[]},{"_id":"3010370_R","patient_id":"3010370_R","dataset_id":"neck","labels":[]},{"_id":"3015835_R","patient_id":"3015835_R","dataset_id":"neck","labels":[]},{"_id":"3020906_R","patient_id":"3020906_R","dataset_id":"neck","labels":[]},{"_id":"3022885_L","patient_id":"3022885_L","dataset_id":"neck","labels":[]},{"_id":"3024329_L","patient_id":"3024329_L","dataset_id":"neck","labels":[]},{"_id":"3110238_L","patient_id":"3110238_L","dataset_id":"neck","labels":[]},{"_id":"3110238_R","patient_id":"3110238_R","dataset_id":"neck","labels":[]},{"_id":"3111706_R","patient_id":"3111706_R","dataset_id":"neck","labels":[]},{"_id":"3119270_L","patient_id":"3119270_L","dataset_id":"neck","labels":[]},{"_id":"3119281_L","patient_id":"3119281_L","dataset_id":"neck","labels":[]},{"_id":"3130383_R","patient_id":"3130383_R","dataset_id":"neck","labels":[]},{"_id":"3139608_L","patient_id":"3139608_L","dataset_id":"neck","labels":[]},{"_id":"3139608_R","patient_id":"3139608_R","dataset_id":"neck","labels":[]},{"_id":"3225797_R","patient_id":"3225797_R","dataset_id":"neck","labels":[]},{"_id":"3226843_L","patient_id":"3226843_L","dataset_id":"neck","labels":[]},{"_id":"3226843_R","patient_id":"3226843_R","dataset_id":"neck","labels":[]},{"_id":"3227185_R","patient_id":"3227185_R","dataset_id":"neck","labels":[]},{"_id":"3230402_R","patient_id":"3230402_R","dataset_id":"neck","labels":[]},{"_id":"3232164_R","patient_id":"3232164_R","dataset_id":"neck","labels":[]},{"_id":"3233153_R","patient_id":"3233153_R","dataset_id":"neck","labels":[]},{"_id":"3233360_L","patient_id":"3233360_L","dataset_id":"neck","labels":[]},{"_id":"3259249_R","patient_id":"3259249_R","dataset_id":"neck","labels":[]},{"_id":"3259465_R","patient_id":"3259465_R","dataset_id":"neck","labels":[]},{"_id":"3261048_R","patient_id":"3261048_R","dataset_id":"neck","labels":[]},{"_id":"3263639_L","patient_id":"3263639_L","dataset_id":"neck","labels":[]},{"_id":"3263639_R","patient_id":"3263639_R","dataset_id":"neck","labels":[]},{"_id":"3266142_R","patient_id":"3266142_R","dataset_id":"neck","labels":[]},{"_id":"3267477_R","patient_id":"3267477_R","dataset_id":"neck","labels":[]},{"_id":"3267560_L","patient_id":"3267560_L","dataset_id":"neck","labels":[]},{"_id":"3267560_R","patient_id":"3267560_R","dataset_id":"neck","labels":[]},{"_id":"3268446_R","patient_id":"3268446_R","dataset_id":"neck","labels":[]},{"_id":"3289675_L","patient_id":"3289675_L","dataset_id":"neck","labels":[]},{"_id":"3291657_L","patient_id":"3291657_L","dataset_id":"neck","labels":[]},{"_id":"3294018_L","patient_id":"3294018_L","dataset_id":"neck","labels":[]},{"_id":"3294168_R","patient_id":"3294168_R","dataset_id":"neck","labels":[]},{"_id":"3348879_L","patient_id":"3348879_L","dataset_id":"neck","labels":[]},{"_id":"3355595_L","patient_id":"3355595_L","dataset_id":"neck","labels":[]},{"_id":"3365700_L","patient_id":"3365700_L","dataset_id":"neck","labels":[]},{"_id":"3391149_R","patient_id":"3391149_R","dataset_id":"neck","labels":[]},{"_id":"3658465_L","patient_id":"3658465_L","dataset_id":"neck","labels":[]},{"_id":"3660093_L","patient_id":"3660093_L","dataset_id":"neck","labels":[]},{"_id":"3699836_R","patient_id":"3699836_R","dataset_id":"neck","labels":[]},{"_id":"3701516_L","patient_id":"3701516_L","dataset_id":"neck","labels":[]},{"_id":"3702702_R","patient_id":"3702702_R","dataset_id":"neck","labels":[]},{"_id":"3703974_L","patient_id":"3703974_L","dataset_id":"neck","labels":[]},{"_id":"3761928_R","patient_id":"3761928_R","dataset_id":"neck","labels":[]},{"_id":"3762508_L","patient_id":"3762508_L","dataset_id":"neck","labels":[]},{"_id":"3763072_L","patient_id":"3763072_L","dataset_id":"neck","labels":[]},{"_id":"3763489_L","patient_id":"3763489_L","dataset_id":"neck","labels":[]},{"_id":"3801248_L","patient_id":"3801248_L","dataset_id":"neck","labels":[]},{"_id":"3801566_R","patient_id":"3801566_R","dataset_id":"neck","labels":[]},{"_id":"3802964_L","patient_id":"3802964_L","dataset_id":"neck","labels":[]},{"_id":"3811942_R","patient_id":"3811942_R","dataset_id":"neck","labels":[]},{"_id":"3814539_R","patient_id":"3814539_R","dataset_id":"neck","labels":[]},{"_id":"3818384_R","patient_id":"3818384_R","dataset_id":"neck","labels":[]},{"_id":"3819009_R","patient_id":"3819009_R","dataset_id":"neck","labels":[]},{"_id":"3819414_R","patient_id":"3819414_R","dataset_id":"neck","labels":[]},{"_id":"3836612_L","patient_id":"3836612_L","dataset_id":"neck","labels":[]},{"_id":"3836621_R","patient_id":"3836621_R","dataset_id":"neck","labels":[]},{"_id":"3838536_R","patient_id":"3838536_R","dataset_id":"neck","labels":[]},{"_id":"3838770_R","patient_id":"3838770_R","dataset_id":"neck","labels":[]},{"_id":"3844179_L","patient_id":"3844179_L","dataset_id":"neck","labels":[]},{"_id":"3844954_L","patient_id":"3844954_L","dataset_id":"neck","labels":[]},{"_id":"3846886_R","patient_id":"3846886_R","dataset_id":"neck","labels":[]},{"_id":"3858712_R","patient_id":"3858712_R","dataset_id":"neck","labels":[]},{"_id":"3860996_L","patient_id":"3860996_L","dataset_id":"neck","labels":[]},{"_id":"3862086_R","patient_id":"3862086_R","dataset_id":"neck","labels":[]},{"_id":"3902626_L","patient_id":"3902626_L","dataset_id":"neck","labels":[]},{"_id":"3903467_L","patient_id":"3903467_L","dataset_id":"neck","labels":[]},{"_id":"3905085_L","patient_id":"3905085_L","dataset_id":"neck","labels":[]},{"_id":"3905213_L","patient_id":"3905213_L","dataset_id":"neck","labels":[]},{"_id":"3905513_L","patient_id":"3905513_L","dataset_id":"neck","labels":[]},{"_id":"3906873_R","patient_id":"3906873_R","dataset_id":"neck","labels":[]},{"_id":"3906957_L","patient_id":"3906957_L","dataset_id":"neck","labels":[]},{"_id":"3918726_R","patient_id":"3918726_R","dataset_id":"neck","labels":[]},{"_id":"3919165_R","patient_id":"3919165_R","dataset_id":"neck","labels":[]},{"_id":"3920256_R","patient_id":"3920256_R","dataset_id":"neck","labels":[]},{"_id":"3979873_L","patient_id":"3979873_L","dataset_id":"neck","labels":[]},{"_id":"3980071_L","patient_id":"3980071_L","dataset_id":"neck","labels":[]},{"_id":"3980078_L","patient_id":"3980078_L","dataset_id":"neck","labels":[]},{"_id":"3980525_L","patient_id":"3980525_L","dataset_id":"neck","labels":[]},{"_id":"3980875_L","patient_id":"3980875_L","dataset_id":"neck","labels":[]},{"_id":"3981172_L","patient_id":"3981172_L","dataset_id":"neck","labels":[]},{"_id":"3982250_L","patient_id":"3982250_L","dataset_id":"neck","labels":[]},{"_id":"3982250_R","patient_id":"3982250_R","dataset_id":"neck","labels":[]},{"_id":"3982906_R","patient_id":"3982906_R","dataset_id":"neck","labels":[]},{"_id":"4000370_R","patient_id":"4000370_R","dataset_id":"neck","labels":[]},{"_id":"4001246_L","patient_id":"4001246_L","dataset_id":"neck","labels":[]},{"_id":"4001303_R","patient_id":"4001303_R","dataset_id":"neck","labels":[]},{"_id":"4002186_L","patient_id":"4002186_L","dataset_id":"neck","labels":[]},{"_id":"4031886_L","patient_id":"4031886_L","dataset_id":"neck","labels":[]},{"_id":"4032922_L","patient_id":"4032922_L","dataset_id":"neck","labels":[]},{"_id":"4033157_R","patient_id":"4033157_R","dataset_id":"neck","labels":[]},{"_id":"4036044_R","patient_id":"4036044_R","dataset_id":"neck","labels":[]},{"_id":"4037884_R","patient_id":"4037884_R","dataset_id":"neck","labels":[]},{"_id":"4038406_L","patient_id":"4038406_L","dataset_id":"neck","labels":[]},{"_id":"4038406_R","patient_id":"4038406_R","dataset_id":"neck","labels":[]},{"_id":"4067424_L","patient_id":"4067424_L","dataset_id":"neck","labels":[]},{"_id":"4069934_L","patient_id":"4069934_L","dataset_id":"neck","labels":[]},{"_id":"4069935_L","patient_id":"4069935_L","dataset_id":"neck","labels":[]},{"_id":"4069935_R","patient_id":"4069935_R","dataset_id":"neck","labels":[]},{"_id":"4070440_L","patient_id":"4070440_L","dataset_id":"neck","labels":[]},{"_id":"4070800_L","patient_id":"4070800_L","dataset_id":"neck","labels":[]},{"_id":"4070993_L","patient_id":"4070993_L","dataset_id":"neck","labels":[]},{"_id":"4070993_R","patient_id":"4070993_R","dataset_id":"neck","labels":[]},{"_id":"4071082_L","patient_id":"4071082_L","dataset_id":"neck","labels":[]},{"_id":"4071112_L","patient_id":"4071112_L","dataset_id":"neck","labels":[]},{"_id":"4071112_R","patient_id":"4071112_R","dataset_id":"neck","labels":[]},{"_id":"4071467_L","patient_id":"4071467_L","dataset_id":"neck","labels":[]},{"_id":"4072675_L","patient_id":"4072675_L","dataset_id":"neck","labels":[]},{"_id":"4072675_R","patient_id":"4072675_R","dataset_id":"neck","labels":[]},{"_id":"4097139_L","patient_id":"4097139_L","dataset_id":"neck","labels":[]},{"_id":"4097139_R","patient_id":"4097139_R","dataset_id":"neck","labels":[]},{"_id":"4097346_R","patient_id":"4097346_R","dataset_id":"neck","labels":[]},{"_id":"4097371_L","patient_id":"4097371_L","dataset_id":"neck","labels":[]},{"_id":"4097400_L","patient_id":"4097400_L","dataset_id":"neck","labels":[]},{"_id":"4097400_R","patient_id":"4097400_R","dataset_id":"neck","labels":[]},{"_id":"4098223_R","patient_id":"4098223_R","dataset_id":"neck","labels":[]},{"_id":"4098326_R","patient_id":"4098326_R","dataset_id":"neck","labels":[]},{"_id":"4099801_L","patient_id":"4099801_L","dataset_id":"neck","labels":[]},{"_id":"4101056_R","patient_id":"4101056_R","dataset_id":"neck","labels":[]},{"_id":"4123353_L","patient_id":"4123353_L","dataset_id":"neck","labels":[]},{"_id":"4123353_R","patient_id":"4123353_R","dataset_id":"neck","labels":[]},{"_id":"4124046_L","patient_id":"4124046_L","dataset_id":"neck","labels":[]},{"_id":"4124699_R","patient_id":"4124699_R","dataset_id":"neck","labels":[]},{"_id":"4126099_R","patient_id":"4126099_R","dataset_id":"neck","labels":[]},{"_id":"4126289_L","patient_id":"4126289_L","dataset_id":"neck","labels":[]},{"_id":"4126289_R","patient_id":"4126289_R","dataset_id":"neck","labels":[]},{"_id":"4126529_L","patient_id":"4126529_L","dataset_id":"neck","labels":[]},{"_id":"4137465_L","patient_id":"4137465_L","dataset_id":"neck","labels":[]},{"_id":"4138354_L","patient_id":"4138354_L","dataset_id":"neck","labels":[]},{"_id":"4138373_L","patient_id":"4138373_L","dataset_id":"neck","labels":[]},{"_id":"4138373_R","patient_id":"4138373_R","dataset_id":"neck","labels":[]},{"_id":"4138382_L","patient_id":"4138382_L","dataset_id":"neck","labels":[]},{"_id":"4231898_R","patient_id":"4231898_R","dataset_id":"neck","labels":[]},{"_id":"4232190_L","patient_id":"4232190_L","dataset_id":"neck","labels":[]},{"_id":"4232772_R","patient_id":"4232772_R","dataset_id":"neck","labels":[]},{"_id":"4232786_R","patient_id":"4232786_R","dataset_id":"neck","labels":[]},{"_id":"4232938_L","patient_id":"4232938_L","dataset_id":"neck","labels":[]},{"_id":"4233917_L","patient_id":"4233917_L","dataset_id":"neck","labels":[]},{"_id":"4233917_R","patient_id":"4233917_R","dataset_id":"neck","labels":[]},{"_id":"4234557_R","patient_id":"4234557_R","dataset_id":"neck","labels":[]},{"_id":"4241691_L","patient_id":"4241691_L","dataset_id":"neck","labels":[]},{"_id":"4242526_L","patient_id":"4242526_L","dataset_id":"neck","labels":[]},{"_id":"4243994_R","patient_id":"4243994_R","dataset_id":"neck","labels":[]},{"_id":"4244659_R","patient_id":"4244659_R","dataset_id":"neck","labels":[]},{"_id":"4259725_R","patient_id":"4259725_R","dataset_id":"neck","labels":[]},{"_id":"4261131_L","patient_id":"4261131_L","dataset_id":"neck","labels":[]},{"_id":"4262643_L","patient_id":"4262643_L","dataset_id":"neck","labels":[]},{"_id":"4263080_L","patient_id":"4263080_L","dataset_id":"neck","labels":[]},{"_id":"4263080_R","patient_id":"4263080_R","dataset_id":"neck","labels":[]},{"_id":"4266961_L","patient_id":"4266961_L","dataset_id":"neck","labels":[]},{"_id":"4273132_R","patient_id":"4273132_R","dataset_id":"neck","labels":[]},{"_id":"4286362_R","patient_id":"4286362_R","dataset_id":"neck","labels":[]},{"_id":"4286367_L","patient_id":"4286367_L","dataset_id":"neck","labels":[]},{"_id":"4286654_L","patient_id":"4286654_L","dataset_id":"neck","labels":[]},{"_id":"4290947_L","patient_id":"4290947_L","dataset_id":"neck","labels":[]},{"_id":"4291028_L","patient_id":"4291028_L","dataset_id":"neck","labels":[]},{"_id":"4291839_L","patient_id":"4291839_L","dataset_id":"neck","labels":[]},{"_id":"4327437_L","patient_id":"4327437_L","dataset_id":"neck","labels":[]},{"_id":"4329162_L","patient_id":"4329162_L","dataset_id":"neck","labels":[]},{"_id":"4329308_R","patient_id":"4329308_R","dataset_id":"neck","labels":[]},{"_id":"4330155_L","patient_id":"4330155_L","dataset_id":"neck","labels":[]},{"_id":"4330155_R","patient_id":"4330155_R","dataset_id":"neck","labels":[]},{"_id":"4359572_R","patient_id":"4359572_R","dataset_id":"neck","labels":[]},{"_id":"4363988_R","patient_id":"4363988_R","dataset_id":"neck","labels":[]},{"_id":"4364860_L","patient_id":"4364860_L","dataset_id":"neck","labels":[]},{"_id":"4366434_L","patient_id":"4366434_L","dataset_id":"neck","labels":[]},{"_id":"4387551_L","patient_id":"4387551_L","dataset_id":"neck","labels":[]},{"_id":"4387551_R","patient_id":"4387551_R","dataset_id":"neck","labels":[]},{"_id":"4387554_R","patient_id":"4387554_R","dataset_id":"neck","labels":[]},{"_id":"4389654_R","patient_id":"4389654_R","dataset_id":"neck","labels":[]},{"_id":"4389900_L","patient_id":"4389900_L","dataset_id":"neck","labels":[]},{"_id":"4390223_L","patient_id":"4390223_L","dataset_id":"neck","labels":[]},{"_id":"4392925_L","patient_id":"4392925_L","dataset_id":"neck","labels":[]},{"_id":"4393384_L","patient_id":"4393384_L","dataset_id":"neck","labels":[]},{"_id":"4416799_R","patient_id":"4416799_R","dataset_id":"neck","labels":[]},{"_id":"4424860_L","patient_id":"4424860_L","dataset_id":"neck","labels":[]},{"_id":"4425279_L","patient_id":"4425279_L","dataset_id":"neck","labels":[]},{"_id":"4425423_R","patient_id":"4425423_R","dataset_id":"neck","labels":[]},{"_id":"4439159_R","patient_id":"4439159_R","dataset_id":"neck","labels":[]},{"_id":"4457453_R","patient_id":"4457453_R","dataset_id":"neck","labels":[]},{"_id":"4460799_R","patient_id":"4460799_R","dataset_id":"neck","labels":[]},{"_id":"6121329_L","patient_id":"6121329_L","dataset_id":"neck","labels":[]},{"_id":"6126526_R","patient_id":"6126526_R","dataset_id":"neck","labels":[]},{"_id":"6143079_R","patient_id":"6143079_R","dataset_id":"neck","labels":[]},{"_id":"6293382_R","patient_id":"6293382_R","dataset_id":"neck","labels":[]},{"_id":"6332038_R","patient_id":"6332038_R","dataset_id":"neck","labels":[]},{"_id":"6333100_L","patient_id":"6333100_L","dataset_id":"neck","labels":[]},{"_id":"6333100_R","patient_id":"6333100_R","dataset_id":"neck","labels":[]},{"_id":"6345719_R","patient_id":"6345719_R","dataset_id":"neck","labels":[]},{"_id":"6378589_L","patient_id":"6378589_L","dataset_id":"neck","labels":[]},{"_id":"6379150_L","patient_id":"6379150_L","dataset_id":"neck","labels":[]},{"_id":"6379150_R","patient_id":"6379150_R","dataset_id":"neck","labels":[]}]
+[
+  {
+    "_id": "0094330_L",
+    "patient": "0094330_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0132406_R",
+    "patient": "0132406_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0167966_L",
+    "patient": "0167966_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0216315_L",
+    "patient": "0216315_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0223108_L",
+    "patient": "0223108_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0233867_R",
+    "patient": "0233867_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0234460_R",
+    "patient": "0234460_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0453386_R",
+    "patient": "0453386_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0468967_R",
+    "patient": "0468967_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0486314_L",
+    "patient": "0486314_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0496166_L",
+    "patient": "0496166_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0500348_L",
+    "patient": "0500348_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0511345_L",
+    "patient": "0511345_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0515842_R",
+    "patient": "0515842_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0606745_R",
+    "patient": "0606745_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0640328_L",
+    "patient": "0640328_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0646734_L",
+    "patient": "0646734_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0649574_L",
+    "patient": "0649574_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0663581_L",
+    "patient": "0663581_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0663581_R",
+    "patient": "0663581_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0672279_R",
+    "patient": "0672279_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0681637_L",
+    "patient": "0681637_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0686925_R",
+    "patient": "0686925_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0698895_R",
+    "patient": "0698895_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0704540_L",
+    "patient": "0704540_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0707021_L",
+    "patient": "0707021_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0711411_R",
+    "patient": "0711411_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0712562_R",
+    "patient": "0712562_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0720993_L",
+    "patient": "0720993_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0732668_R",
+    "patient": "0732668_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0744966_L",
+    "patient": "0744966_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0749223_L",
+    "patient": "0749223_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0754753_L",
+    "patient": "0754753_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0757220_L",
+    "patient": "0757220_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0757220_R",
+    "patient": "0757220_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0772311_L",
+    "patient": "0772311_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0774900_R",
+    "patient": "0774900_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0776915_L",
+    "patient": "0776915_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0786967_L",
+    "patient": "0786967_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0790088_L",
+    "patient": "0790088_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0807582_R",
+    "patient": "0807582_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0810457_R",
+    "patient": "0810457_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0812274_R",
+    "patient": "0812274_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0813584_L",
+    "patient": "0813584_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0813584_R",
+    "patient": "0813584_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0816576_L",
+    "patient": "0816576_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0819852_R",
+    "patient": "0819852_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0821911_L",
+    "patient": "0821911_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0829984_L",
+    "patient": "0829984_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0832226_L",
+    "patient": "0832226_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0832226_R",
+    "patient": "0832226_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0840893_R",
+    "patient": "0840893_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0843500_R",
+    "patient": "0843500_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0853778_L",
+    "patient": "0853778_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0857091_L",
+    "patient": "0857091_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0860007_R",
+    "patient": "0860007_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0872230_L",
+    "patient": "0872230_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0876702_L",
+    "patient": "0876702_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0878521_L",
+    "patient": "0878521_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0976744_L",
+    "patient": "0976744_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0976948_R",
+    "patient": "0976948_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0996720_R",
+    "patient": "0996720_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "0998871_R",
+    "patient": "0998871_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1004347_R",
+    "patient": "1004347_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1014835_L",
+    "patient": "1014835_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1020304_R",
+    "patient": "1020304_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1021338_R",
+    "patient": "1021338_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1021400_R",
+    "patient": "1021400_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1027913_L",
+    "patient": "1027913_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1029520_L",
+    "patient": "1029520_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1039958_L",
+    "patient": "1039958_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1040867_L",
+    "patient": "1040867_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1040867_R",
+    "patient": "1040867_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1072005_L",
+    "patient": "1072005_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1093276_L",
+    "patient": "1093276_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1097312_R",
+    "patient": "1097312_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1110465_R",
+    "patient": "1110465_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1118346_L",
+    "patient": "1118346_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1118972_L",
+    "patient": "1118972_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1129987_L",
+    "patient": "1129987_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1136487_L",
+    "patient": "1136487_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1140005_R",
+    "patient": "1140005_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1140747_L",
+    "patient": "1140747_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1142011_L",
+    "patient": "1142011_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1142162_R",
+    "patient": "1142162_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1173902_L",
+    "patient": "1173902_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1173902_R",
+    "patient": "1173902_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1182807_L",
+    "patient": "1182807_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1187128_L",
+    "patient": "1187128_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1189404_L",
+    "patient": "1189404_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1189404_R",
+    "patient": "1189404_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1201293_R",
+    "patient": "1201293_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1202367_L",
+    "patient": "1202367_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1204075_L",
+    "patient": "1204075_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1204353_L",
+    "patient": "1204353_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1225504_R",
+    "patient": "1225504_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1229335_R",
+    "patient": "1229335_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1230487_R",
+    "patient": "1230487_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1258469_L",
+    "patient": "1258469_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1259894_L",
+    "patient": "1259894_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1260859_R",
+    "patient": "1260859_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1270592_L",
+    "patient": "1270592_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1270592_R",
+    "patient": "1270592_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1272262_L",
+    "patient": "1272262_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1273959_L",
+    "patient": "1273959_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1307724_L",
+    "patient": "1307724_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1307724_R",
+    "patient": "1307724_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1313295_L",
+    "patient": "1313295_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "1314359_R",
+    "patient": "1314359_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2019705_L",
+    "patient": "2019705_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2019705_R",
+    "patient": "2019705_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2021824_L",
+    "patient": "2021824_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2026876_L",
+    "patient": "2026876_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2027557_L",
+    "patient": "2027557_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2033564_L",
+    "patient": "2033564_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2033564_R",
+    "patient": "2033564_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2044350_R",
+    "patient": "2044350_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2051755_R",
+    "patient": "2051755_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2055894_R",
+    "patient": "2055894_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2061723_L",
+    "patient": "2061723_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2063484_L",
+    "patient": "2063484_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2065918_R",
+    "patient": "2065918_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2073629_L",
+    "patient": "2073629_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2073648_L",
+    "patient": "2073648_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2102679_L",
+    "patient": "2102679_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2105590_R",
+    "patient": "2105590_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2107459_R",
+    "patient": "2107459_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2113191_R",
+    "patient": "2113191_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2119095_R",
+    "patient": "2119095_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2124269_L",
+    "patient": "2124269_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2130616_L",
+    "patient": "2130616_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2166789_R",
+    "patient": "2166789_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2169838_R",
+    "patient": "2169838_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2174861_R",
+    "patient": "2174861_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2174888_R",
+    "patient": "2174888_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2180859_L",
+    "patient": "2180859_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2181114_R",
+    "patient": "2181114_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2186962_L",
+    "patient": "2186962_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2238058_L",
+    "patient": "2238058_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2238058_R",
+    "patient": "2238058_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2240980_L",
+    "patient": "2240980_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2246829_L",
+    "patient": "2246829_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2425234_L",
+    "patient": "2425234_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2431101_R",
+    "patient": "2431101_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2453864_L",
+    "patient": "2453864_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2455156_L",
+    "patient": "2455156_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2698743_R",
+    "patient": "2698743_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2719135_L",
+    "patient": "2719135_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2724042_L",
+    "patient": "2724042_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2724042_R",
+    "patient": "2724042_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2724193_L",
+    "patient": "2724193_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2730274_R",
+    "patient": "2730274_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2866836_L",
+    "patient": "2866836_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2895982_L",
+    "patient": "2895982_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2904273_L",
+    "patient": "2904273_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2942893_R",
+    "patient": "2942893_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2950051_R",
+    "patient": "2950051_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2951624_L",
+    "patient": "2951624_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2951650_L",
+    "patient": "2951650_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2952617_R",
+    "patient": "2952617_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2962315_L",
+    "patient": "2962315_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2962315_R",
+    "patient": "2962315_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2963208_L",
+    "patient": "2963208_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "2966748_L",
+    "patient": "2966748_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3001614_R",
+    "patient": "3001614_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3005654_R",
+    "patient": "3005654_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3008765_L",
+    "patient": "3008765_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3010370_R",
+    "patient": "3010370_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3015835_R",
+    "patient": "3015835_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3020906_R",
+    "patient": "3020906_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3022885_L",
+    "patient": "3022885_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3024329_L",
+    "patient": "3024329_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3110238_L",
+    "patient": "3110238_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3110238_R",
+    "patient": "3110238_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3111706_R",
+    "patient": "3111706_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3119270_L",
+    "patient": "3119270_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3119281_L",
+    "patient": "3119281_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3130383_R",
+    "patient": "3130383_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3139608_L",
+    "patient": "3139608_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3139608_R",
+    "patient": "3139608_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3225797_R",
+    "patient": "3225797_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3226843_L",
+    "patient": "3226843_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3226843_R",
+    "patient": "3226843_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3227185_R",
+    "patient": "3227185_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3230402_R",
+    "patient": "3230402_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3232164_R",
+    "patient": "3232164_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3233153_R",
+    "patient": "3233153_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3233360_L",
+    "patient": "3233360_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3259249_R",
+    "patient": "3259249_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3259465_R",
+    "patient": "3259465_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3261048_R",
+    "patient": "3261048_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3263639_L",
+    "patient": "3263639_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3263639_R",
+    "patient": "3263639_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3266142_R",
+    "patient": "3266142_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3267477_R",
+    "patient": "3267477_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3267560_L",
+    "patient": "3267560_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3267560_R",
+    "patient": "3267560_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3268446_R",
+    "patient": "3268446_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3289675_L",
+    "patient": "3289675_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3291657_L",
+    "patient": "3291657_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3294018_L",
+    "patient": "3294018_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3294168_R",
+    "patient": "3294168_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3348879_L",
+    "patient": "3348879_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3355595_L",
+    "patient": "3355595_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3365700_L",
+    "patient": "3365700_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3391149_R",
+    "patient": "3391149_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3658465_L",
+    "patient": "3658465_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3660093_L",
+    "patient": "3660093_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3699836_R",
+    "patient": "3699836_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3701516_L",
+    "patient": "3701516_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3702702_R",
+    "patient": "3702702_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3703974_L",
+    "patient": "3703974_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3761928_R",
+    "patient": "3761928_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3762508_L",
+    "patient": "3762508_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3763072_L",
+    "patient": "3763072_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3763489_L",
+    "patient": "3763489_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3801248_L",
+    "patient": "3801248_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3801566_R",
+    "patient": "3801566_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3802964_L",
+    "patient": "3802964_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3811942_R",
+    "patient": "3811942_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3814539_R",
+    "patient": "3814539_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3818384_R",
+    "patient": "3818384_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3819009_R",
+    "patient": "3819009_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3819414_R",
+    "patient": "3819414_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3836612_L",
+    "patient": "3836612_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3836621_R",
+    "patient": "3836621_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3838536_R",
+    "patient": "3838536_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3838770_R",
+    "patient": "3838770_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3844179_L",
+    "patient": "3844179_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3844954_L",
+    "patient": "3844954_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3846886_R",
+    "patient": "3846886_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3858712_R",
+    "patient": "3858712_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3860996_L",
+    "patient": "3860996_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3862086_R",
+    "patient": "3862086_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3902626_L",
+    "patient": "3902626_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3903467_L",
+    "patient": "3903467_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3905085_L",
+    "patient": "3905085_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3905213_L",
+    "patient": "3905213_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3905513_L",
+    "patient": "3905513_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3906873_R",
+    "patient": "3906873_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3906957_L",
+    "patient": "3906957_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3918726_R",
+    "patient": "3918726_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3919165_R",
+    "patient": "3919165_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3920256_R",
+    "patient": "3920256_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3979873_L",
+    "patient": "3979873_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3980071_L",
+    "patient": "3980071_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3980078_L",
+    "patient": "3980078_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3980525_L",
+    "patient": "3980525_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3980875_L",
+    "patient": "3980875_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3981172_L",
+    "patient": "3981172_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3982250_L",
+    "patient": "3982250_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3982250_R",
+    "patient": "3982250_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "3982906_R",
+    "patient": "3982906_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4000370_R",
+    "patient": "4000370_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4001246_L",
+    "patient": "4001246_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4001303_R",
+    "patient": "4001303_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4002186_L",
+    "patient": "4002186_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4031886_L",
+    "patient": "4031886_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4032922_L",
+    "patient": "4032922_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4033157_R",
+    "patient": "4033157_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4036044_R",
+    "patient": "4036044_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4037884_R",
+    "patient": "4037884_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4038406_L",
+    "patient": "4038406_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4038406_R",
+    "patient": "4038406_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4067424_L",
+    "patient": "4067424_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4069934_L",
+    "patient": "4069934_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4069935_L",
+    "patient": "4069935_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4069935_R",
+    "patient": "4069935_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4070440_L",
+    "patient": "4070440_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4070800_L",
+    "patient": "4070800_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4070993_L",
+    "patient": "4070993_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4070993_R",
+    "patient": "4070993_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4071082_L",
+    "patient": "4071082_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4071112_L",
+    "patient": "4071112_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4071112_R",
+    "patient": "4071112_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4071467_L",
+    "patient": "4071467_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4072675_L",
+    "patient": "4072675_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4072675_R",
+    "patient": "4072675_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4097139_L",
+    "patient": "4097139_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4097139_R",
+    "patient": "4097139_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4097346_R",
+    "patient": "4097346_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4097371_L",
+    "patient": "4097371_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4097400_L",
+    "patient": "4097400_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4097400_R",
+    "patient": "4097400_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4098223_R",
+    "patient": "4098223_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4098326_R",
+    "patient": "4098326_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4099801_L",
+    "patient": "4099801_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4101056_R",
+    "patient": "4101056_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4123353_L",
+    "patient": "4123353_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4123353_R",
+    "patient": "4123353_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4124046_L",
+    "patient": "4124046_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4124699_R",
+    "patient": "4124699_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4126099_R",
+    "patient": "4126099_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4126289_L",
+    "patient": "4126289_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4126289_R",
+    "patient": "4126289_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4126529_L",
+    "patient": "4126529_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4137465_L",
+    "patient": "4137465_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4138354_L",
+    "patient": "4138354_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4138373_L",
+    "patient": "4138373_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4138373_R",
+    "patient": "4138373_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4138382_L",
+    "patient": "4138382_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4231898_R",
+    "patient": "4231898_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4232190_L",
+    "patient": "4232190_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4232772_R",
+    "patient": "4232772_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4232786_R",
+    "patient": "4232786_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4232938_L",
+    "patient": "4232938_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4233917_L",
+    "patient": "4233917_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4233917_R",
+    "patient": "4233917_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4234557_R",
+    "patient": "4234557_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4241691_L",
+    "patient": "4241691_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4242526_L",
+    "patient": "4242526_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4243994_R",
+    "patient": "4243994_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4244659_R",
+    "patient": "4244659_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4259725_R",
+    "patient": "4259725_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4261131_L",
+    "patient": "4261131_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4262643_L",
+    "patient": "4262643_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4263080_L",
+    "patient": "4263080_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4263080_R",
+    "patient": "4263080_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4266961_L",
+    "patient": "4266961_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4273132_R",
+    "patient": "4273132_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4286362_R",
+    "patient": "4286362_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4286367_L",
+    "patient": "4286367_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4286654_L",
+    "patient": "4286654_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4290947_L",
+    "patient": "4290947_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4291028_L",
+    "patient": "4291028_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4291839_L",
+    "patient": "4291839_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4327437_L",
+    "patient": "4327437_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4329162_L",
+    "patient": "4329162_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4329308_R",
+    "patient": "4329308_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4330155_L",
+    "patient": "4330155_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4330155_R",
+    "patient": "4330155_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4359572_R",
+    "patient": "4359572_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4363988_R",
+    "patient": "4363988_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4364860_L",
+    "patient": "4364860_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4366434_L",
+    "patient": "4366434_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4387551_L",
+    "patient": "4387551_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4387551_R",
+    "patient": "4387551_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4387554_R",
+    "patient": "4387554_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4389654_R",
+    "patient": "4389654_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4389900_L",
+    "patient": "4389900_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4390223_L",
+    "patient": "4390223_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4392925_L",
+    "patient": "4392925_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4393384_L",
+    "patient": "4393384_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4416799_R",
+    "patient": "4416799_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4424860_L",
+    "patient": "4424860_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4425279_L",
+    "patient": "4425279_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4425423_R",
+    "patient": "4425423_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4439159_R",
+    "patient": "4439159_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4457453_R",
+    "patient": "4457453_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "4460799_R",
+    "patient": "4460799_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "6121329_L",
+    "patient": "6121329_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "6126526_R",
+    "patient": "6126526_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "6143079_R",
+    "patient": "6143079_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "6293382_R",
+    "patient": "6293382_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "6332038_R",
+    "patient": "6332038_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "6333100_L",
+    "patient": "6333100_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "6333100_R",
+    "patient": "6333100_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "6345719_R",
+    "patient": "6345719_R",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "6378589_L",
+    "patient": "6378589_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "6379150_L",
+    "patient": "6379150_L",
+    "dataset_id": "neck",
+    "labels": []
+  },
+  {
+    "_id": "6379150_R",
+    "patient": "6379150_R",
+    "dataset_id": "neck",
+    "labels": []
+  }
+]

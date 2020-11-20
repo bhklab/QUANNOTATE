@@ -8,20 +8,19 @@ import LabelComponent from './LabelComponent/LabelComponent';
 import AnalysisContext from '../../context/analysisContext';
 
 const AnalysisComponent = () => {
-  const [ analysisInfo, setAnalyisInfo ] = useState({ title: 'Loading...', options: [], loaded: false });
+  const [ analysisInfo, setAnalyisInfo ] = useState({ title: 'Loading...', options: [], loaded: false, patient: {} });
   const [ error, setError ] = useState(null)
   // retrieves type parameter from react router
   const { type } = useParams()
-  // gets images from the server and transforms them into a readable state
+  // gets analysis and first patient from the server and transforms them into a readable state
   useEffect(() => {
     const fetchData = async () => {
       try {
         const analysisResponse = await axios.get(`/api/analysis/${type}`)
-        const { analysis } = analysisResponse.data
-        console.log(analysis);
-        const patientResponse = await axios.get(`/api/analysis/patient?dataset_id=${analysis.dataset._id}`)
-        console.log(patientResponse);
-        // setAnalyisInfo({ title, options: [...options, { dataType: "text", text: "Any comments?" }], loaded: true })
+        const { dataset, title, options } = analysisResponse.data;
+        const patientResponse = await axios.get(`/api/analysis/patient?dataset_id=${dataset._id}`);
+        const { patient, _id } = patientResponse.data
+        setAnalyisInfo({ title, options: [...options, { dataType: "text", text: "Any comments?" }], patient: {id: _id, name: patient }, loaded: true })
       } catch (err) {
         console.log(err);
         setError(err)
@@ -47,14 +46,14 @@ const AnalysisComponent = () => {
   }
 
   return (
-    <AnalysisContext.Provider value={{ error, setError }}>
+    <AnalysisContext.Provider value={{ analysisInfo, setAnalyisInfo, error, setError }}>
       <StyledAnalysis>
         <h3>{analysisInfo.title}</h3>
         <div className='analysis-container'>
           <PlayerComponent />
-          {analysisInfo.loaded ? <LabelComponent
+          <LabelComponent
             options={analysisInfo.options}
-          /> : null}
+          />
         </div>
       </StyledAnalysis>
     </AnalysisContext.Provider>
