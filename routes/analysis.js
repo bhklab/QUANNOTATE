@@ -1,4 +1,5 @@
 const Analysis = require('../database/models/analysis');
+const Dataset = require('../database/models/dataset');
 const generateErrorObject = require('../utils/generateErrorObject');
 const path = require('path');
 const fs = require('fs');
@@ -41,8 +42,8 @@ async function getLabelImages(req, res) {
     }
     try {
         // finds dataset value of the requested analysis
-        const { dataset } = await Analysis.findOne({ name: type }).select('dataset');
-        const dirpath = path.join(__dirname, `../images/${dataset}`);
+        const { dataset } = await Analysis.findOne({ name: type }).populate('dataset').select('dataset');
+        const dirpath = path.join(__dirname, `../images/${dataset.name}`);
         // reads all files in the folder
         fs.readdir(dirpath, function (err, filenames) {
             if (err) {

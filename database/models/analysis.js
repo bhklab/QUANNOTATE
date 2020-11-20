@@ -33,7 +33,7 @@ const analysisSchema = new Schema({
             options: { type: Array, required: false }
         }]
     },
-    // createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
 // creates and exports subset model
