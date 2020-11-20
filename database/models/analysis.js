@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// user schema
+// analysis schema
 const analysisSchema = new Schema({
     name: {
         type: String,
@@ -22,10 +22,9 @@ const analysisSchema = new Schema({
         required: true,
         trim: true
     },
-    dataset: {
-        type: String,
-        required: true,
-        trim: true
+    dataset: { 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Dataset'
     },
     options: {
         type: [{
@@ -34,7 +33,7 @@ const analysisSchema = new Schema({
             options: { type: Array, required: false }
         }]
     },
-    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+    // createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
 // creates and exports subset model

@@ -1,0 +1,166 @@
+[
+  {
+    "_id": "ctvp",
+    "name": "ctvp",
+    "dataset": "neck",
+    "title": "Are CTVp contours guideline compliant?",
+    "available": true,
+    "text": "CTVp",
+    "options": [
+      {
+        "text": "Whole nasopharynx",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "Posterior nasal cavity ≥5mm from choana",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "Posterior maxillary sinuses from posterior wall",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "R foramen ovale",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "R foramen rotundum",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "R foramen lacerum",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "R petrous apex",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "R cavernous sinus",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "R pterygoid fossae",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "R parapharyngeal space",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "L foramen ovale",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "L foramen rotundum",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "L foramen lacerum",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "L petrous apex",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "L cavernous sinus",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "L pterygoid fossae",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "L parapharyngeal space",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "Inferior 1/2 of sphenoid sinus",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "Whole sphenoid sinus",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "Anterior 1/3 clivus",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "Whole clivus",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "Check if bad contour",
+        "dataType": "checkbox"
+      }
+    ]
+  },
+  {
+    "_id": "breast",
+    "name": "breast",
+    "dataset": "breast",
+    "title": "Are Breast contours guideline compliant?",
+    "available": true,
+    "text": "Breast",
+    "options": [
+      {
+        "text": "Is there A Contour?",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "Select the appropriate Breast Cancer Staging",
+        "dataType": "dropdown",
+        "options": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "text": "Check if bad image",
+        "dataType": "checkbox"
+      }
+    ]
+  },
+  {
+    "_id": "neck_levels",
+    "name": "neck_levels",
+    "dataset": "neck",
+    "title": "What Neck Levels are Contoured?",
+    "available": true,
+    "text": "Neck Levels",
+    "options": [
+      {
+        "text": "Level I",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "Level II",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "Level III",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "Level IV",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "Level V",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "RP",
+        "dataType": "checkbox"
+      },
+      {
+        "text": "Check if bad image",
+        "dataType": "checkbox"
+      }
+    ]
+  }
+]

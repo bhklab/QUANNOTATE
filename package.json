@@ -8,7 +8,8 @@
     "start": "node app.js",
     "devstart": "nodemon app.js",
     "client": "cd client && npm start",
-    "build": "cd client && npm i && npm run build"
+    "build": "cd client && npm i && npm run build",
+    "seed": "npx seedgoose reseed"
   },
   "keywords": [],
   "author": "",
@@ -26,7 +27,7 @@
   },
   "devDependencies": {
     "eslint": "^6.6.0",
-    "mongoose-seed": "^0.6.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "seedgoose": "^2.0.2"
   }
 }
