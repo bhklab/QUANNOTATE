@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 // Material UI imports
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -9,7 +10,7 @@ import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 // component imports
 import StyledCheckBox from './StyledCheckBox';
-import StyledButton from './StyledButton';
+import StyledButtonContainer from './StyledButtonContainer';
 import useStyles from './Hooks/useStyles';
 
 // prepopulates selection state in the component when options appear/change
@@ -133,7 +134,12 @@ const LabelComponent = (props) => {
   return (
     <div className='option-container'>
       {generateOptions(options)}
-      <StyledButton type='submit' onSubmit={handleSubmit}>Submit Labels</StyledButton>
+      <StyledButtonContainer>
+        <button type='submit' onSubmit={handleSubmit}>Submit Labels</button>
+        <Link to='/'>
+          <button>Return to Dashboard</button>
+        </Link>
+      </StyledButtonContainer>
     </div>
   )
 } 
