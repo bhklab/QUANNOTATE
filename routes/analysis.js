@@ -40,7 +40,7 @@ async function getPatient(req, res) {
         return;
     }
     try {
-        const patient = await Patient.findOne({ dataset_id }).select('patient');
+        const patient = await Patient.findOne({ dataset_id }).select('display_label');
         console.log(patient);
         if (!patient) {
             res.status(400).json({ error: `No patient have been found for ${dataset_id}` });
@@ -66,7 +66,12 @@ async function getLabelImages(req, res) {
     try {
         // finds dataset value of the requested analysis
         const { dataset } = await Analysis.findOne({ name: type }).populate('dataset').select('dataset');
-        const dirpath = path.join(__dirname, `../images/${dataset.name}/${patient_id}`);
+        const { patient } = await Patient.findOne({ _id: patient_id}).select('patient');
+        if (!patient) {
+            res.status(400).json({ error: 'Unknow patient_id' });
+            return;
+        }
+        const dirpath = path.join(__dirname, `../images/${dataset.name}/${patient}`);
         // reads all files in the folder
         fs.readdir(dirpath, function (err, filenames) {
             if (err) {

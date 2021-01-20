@@ -52,7 +52,7 @@ const PlayerComponent = () => {
   }
   // gets images from the server and transforms them into a readble state
   useEffect(() => {
-    axios.get(`/api/analysis/${type}/images?patient_id=${patient.name}`)
+    axios.get(`/api/analysis/${type}/images?patient_id=${patient.id}`)
       .then(res => {
         const responseImages = [];
         // processes image buffers to be rendered on the page
@@ -81,7 +81,7 @@ const PlayerComponent = () => {
         <img alt='CT scan' src={`data:image/png;base64,${images[selectedImage]}`} />
       </div>
       <div className='patients-id'>
-        <p>ID: {patient.name}</p>
+        <p>ID: {patient.label}</p>
       </div>
       <div className="slider">
         <StyledSlider

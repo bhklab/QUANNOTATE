@@ -13,7 +13,7 @@ const createSeedingFile = () => {
         patients.forEach((patient, i) => {
             const dataObj = {
                 _id: patient,
-                display_label: `${analysis}-${i}`,
+                display_label: `${analysis}-${i + 1}`,
                 patient: patient,
                 dataset_id: analysis,
                 labels: []

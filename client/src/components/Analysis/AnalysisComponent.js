@@ -14,19 +14,23 @@ const AnalysisComponent = () => {
   const { type } = useParams()
   // gets analysis and first patient from the server and transforms them into a readable state
   useEffect(() => {
+    // to prevent memory leaks
+    let isSubscribed = true
     const fetchData = async () => {
       try {
         const analysisResponse = await axios.get(`/api/analysis/${type}`)
         const { dataset, title, options } = analysisResponse.data;
         const patientResponse = await axios.get(`/api/analysis/patient?dataset_id=${dataset._id}`);
-        const { patient, _id } = patientResponse.data
-        setAnalyisInfo({ title, options: [...options, { dataType: "text", text: "Any comments?" }], patient: {id: _id, name: patient }, loaded: true })
+        console.log(analysisResponse, patientResponse);
+        const { display_label, _id } = patientResponse.data
+        if (isSubscribed) setAnalyisInfo({ title, options: [...options, { dataType: "text", text: "Any comments?" }], patient: { id: _id, label: display_label }, loaded: true })
       } catch (err) {
         console.log(err);
         setError(err)
       }     
     }
     fetchData()
+    return () => {isSubscribed = false}
   }, [type])
 
   if (error) {
