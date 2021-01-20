@@ -1,4 +1,4 @@
-# LabelIt2 Web Application
+# Q-Annotate Web Application
 
 ## Setup Instructions
 
@@ -6,7 +6,7 @@
 
 ```bash
 git clone git@github.com:bhklab/LabelIt2.git
-cd LabelIt2
+cd Q-Annotate
 ```
 
 - In the project directory, install all server dependencies `npm i`
@@ -28,3 +28,9 @@ cd LabelIt2
 
 - Nodemon
 - Eslint
+
+## Database seeding
+
+- Create seeding files by running respective scripts in the scripts folder
+- Make sure to have a correct MONGODB_URL connection string in the .env file
+- Run `npx seedgoose unseed`/`npx seedgoose seed` to unseed/seed the database
