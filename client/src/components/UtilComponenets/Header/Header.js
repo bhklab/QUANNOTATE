@@ -23,7 +23,7 @@ const Header = () => {
     <StyledHeader>
       <Link to='/'>
         <div className='logo'>
-          <h4>LabelIt</h4>
+          <h4>Q-Annotate</h4>
         </div>
       </Link>
       <div className='account-container'>

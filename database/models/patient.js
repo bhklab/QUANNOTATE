@@ -7,6 +7,10 @@ const patientSchema = new Schema({
         type: String,
         required: true,
     },
+    display_label: {
+        type: String,
+        required: true,
+    },
     dataset_id: { 
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Dataset',
