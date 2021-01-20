@@ -20,8 +20,14 @@ const AnalysisComponent = () => {
       try {
         const analysisResponse = await axios.get(`/api/analysis/${type}`)
         const { dataset, title, options } = analysisResponse.data;
+        options.sort((a, b) => {
+          const sortMap = {
+            checkbox: 0,
+            dropdown: 1
+          }
+          return sortMap[a.dataType] - sortMap[b.dataType]
+        })
         const patientResponse = await axios.get(`/api/analysis/patient?dataset_id=${dataset._id}`);
-        console.log(analysisResponse, patientResponse);
         const { display_label, _id } = patientResponse.data
         if (isSubscribed) setAnalyisInfo({ title, options: [...options, { dataType: "text", text: "Any comments?" }], patient: { id: _id, label: display_label }, loaded: true })
       } catch (err) {

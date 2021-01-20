@@ -52,21 +52,26 @@ const PlayerComponent = () => {
   }
   // gets images from the server and transforms them into a readble state
   useEffect(() => {
+    // prevents memory leaks
+    let isSubsribed = true;
     axios.get(`/api/analysis/${type}/images?patient_id=${patient.id}`)
       .then(res => {
-        const responseImages = [];
-        // processes image buffers to be rendered on the page
-        res.data.forEach(imgBuffer => {
-          const base64 = convertBufferToBase64String(imgBuffer.data);
-          responseImages.push(base64);
-        })
-        setImages(responseImages)
-        setLoading(false);
+        if (isSubsribed) {
+          const responseImages = [];
+          // processes image buffers to be rendered on the page
+          res.data.forEach(imgBuffer => {
+            const base64 = convertBufferToBase64String(imgBuffer.data);
+            responseImages.push(base64);
+          })
+          setImages(responseImages)
+          setLoading(false);
+        }
       })
       .catch(err => {
         console.log(err);
         setError(err)
       })
+    return () => {isSubsribed = false}
   }, [type])
 
   if (loading) {
