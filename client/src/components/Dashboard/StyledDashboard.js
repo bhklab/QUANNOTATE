@@ -10,6 +10,7 @@ const StyledDashboard = styled.div`
 
   .section {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     max-height: 300px;
@@ -23,7 +24,8 @@ const StyledDashboard = styled.div`
     transition: all ease-out 0.5s;
     p {
       font-size: calc(2vw + 10px);
-      color: ${colors.white}
+      color: ${colors.white};
+      margin: 15px 0;
     }
   }
 
@@ -33,6 +35,16 @@ const StyledDashboard = styled.div`
     p {
       color: ${colors.black}
     }
+    img {
+      border: 2px solid ${colors.blue};
+    }
+  }
+  img {
+    max-height: 200px;
+    height: 20vw;
+    max-width: 200px;
+    width: 20vw;
+    border: 2px solid ${colors.white};
   }
 `;
 

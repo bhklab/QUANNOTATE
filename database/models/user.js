@@ -20,8 +20,8 @@ const userSchema = new Schema({
             validator: (value) => validator.isEmail(value),
             message: 'Invalid email'
         }, {
-            validator: (value) => value.match(/@uhn\.ca$/) || value.match(/@uhnresearch\.ca$/),
-            message: 'Only @uhn.ca and @uhnresearch.ca emails are allowed'
+            validator: (value) => value.match(/uhn\.ca$/) || value.match(/uhnresearch\.ca$/),
+            message: 'Only uhn.ca and uhnresearch.ca emails are allowed'
         }]
     },
     password: {

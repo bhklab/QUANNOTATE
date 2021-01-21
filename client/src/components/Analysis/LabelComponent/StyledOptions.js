@@ -8,10 +8,10 @@ const StyledOptions = styled.div`
   }
 
   .MuiFormGroup-root {
-      flex: 0 0 50%;
-      max-height: 67vh;
-      flex-flow: column wrap;
-    }
+    flex: 0 0 50%;
+    max-height: 67vh;
+    flex-flow: column wrap;
+  }
 
   @media only screen and (max-width: 916px) {
     .MuiFormGroup-root {

@@ -10,6 +10,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios.get('/api/analysis')
     .then(res => {
+      console.log(res.data);
       setAnalysisData(res.data)
     })
     .catch(err => {
@@ -23,6 +24,10 @@ const Dashboard = () => {
         return (
           <Link key={i} to={`/analysis/${analysis.name}`}>
             <div className="section">
+              <img 
+                src={require(`../../images/analysis/${analysis.name}.png`)}
+                alt={analysis.text}
+              />
               <p>{analysis.text}</p>
             </div>
           </Link>
