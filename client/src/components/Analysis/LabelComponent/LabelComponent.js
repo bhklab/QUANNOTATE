@@ -49,7 +49,7 @@ const splitOptions = (options) => {
   return [availableOptions.splice(0, splitIndex), availableOptions]
 }
 
-const LabelComponent = (props) => {
+const LabelComponent = () => {
   const { analysisInfo } = useContext(AnalysisContext);
   const { options } = analysisInfo;
   const [ selection, setSelection ] = useState(createSelectionSet(options));
@@ -86,7 +86,7 @@ const LabelComponent = (props) => {
               <FormControlLabel
                 className={classes.label}
                 label={option.text}
-              key={i + indexOffset}
+                key={i + indexOffset}
                 control={
                   <StyledCheckBox
                     checked={selection[i + indexOffset]}

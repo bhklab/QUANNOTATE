@@ -8,7 +8,12 @@ import LabelComponent from './LabelComponent/LabelComponent';
 import AnalysisContext from '../../context/analysisContext';
 
 const AnalysisComponent = () => {
-  const [ analysisInfo, setAnalyisInfo ] = useState({ title: 'Loading...', options: [], loaded: false, patient: {} });
+  const [ analysisInfo, setAnalyisInfo ] = useState({ 
+    title: 'Loading...',
+    options: [],
+    loaded: false,
+    patient: {}
+  });
   const [ error, setError ] = useState(null)
   // retrieves type parameter from react router
   const { type } = useParams()
@@ -19,6 +24,7 @@ const AnalysisComponent = () => {
     const fetchData = async () => {
       try {
         const analysisResponse = await axios.get(`/api/analysis/${type}`)
+        console.log(analysisResponse);
         const { dataset, title, options } = analysisResponse.data;
         options.sort((a, b) => {
           const sortMap = {
@@ -29,7 +35,12 @@ const AnalysisComponent = () => {
         })
         const patientResponse = await axios.get(`/api/analysis/patient?dataset_id=${dataset._id}`);
         const { display_label, _id } = patientResponse.data
-        if (isSubscribed) setAnalyisInfo({ title, options: [...options, { dataType: "text", text: "Any comments?" }], patient: { id: _id, label: display_label }, loaded: true })
+        if (isSubscribed) setAnalyisInfo({ 
+          title,
+          options: [...options, { dataType: "text", text: "Any comments?" }],
+          patient: { id: _id, label: display_label },
+          loaded: true
+        })
       } catch (err) {
         console.log(err);
         setError(err)

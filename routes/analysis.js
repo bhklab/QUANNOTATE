@@ -23,6 +23,7 @@ async function getAnalysisInfo(req, res) {
     }
     try {
         const analysis = await Analysis.findOne({ name: type }).populate('dataset');
+        console.log(analysis);
         if (!analysis) {
             res.status(400).json({ error: `No analysis documents have been found for ${type}`});
             return;

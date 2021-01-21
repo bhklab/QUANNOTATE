@@ -51,13 +51,23 @@ const StyledAnalysis = styled.div`
 
   .scan {
     width: 100%;
-    height: 450px;
+    max-height: 450px;
     border: 2px solid ${colors.blue};
     border-radius: 4px;
+    overflow:hidden;
     img {
       width: 100%;
       height: 100%;
     }
+
+    // div,
+    // img  {
+    //   height: 100% !important;
+    // }
+
+    // &:hover img {
+    //   transform: scale(1.25);
+    // }
   }
 `;
 

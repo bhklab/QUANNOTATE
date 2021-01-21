@@ -7,6 +7,8 @@ import { useParams } from "react-router-dom";
 import StyledSlider from './StyledSlider';
 import useStyles from './Hooks/useStyles';
 import AnalysisContext from '../../../context/analysisContext';
+import ReactImageMagnify from 'react-image-magnify';
+import colors from '../../../styles/colors';
 
 // helper funstions that accepts array buffer and produce byte64 string to be rendered as an image in the browser
 const convertBufferToBase64String = (buffer) => btoa(
@@ -83,7 +85,24 @@ const PlayerComponent = () => {
   return (
     <div className='player-container'>
       <div className="scan">
-        <img alt='CT scan' src={`data:image/png;base64,${images[selectedImage]}`} />
+        <ReactImageMagnify
+          {...{
+            smallImage: {
+              alt: `CT scam ${selectedImage}`,
+              isFluidWidth: true,
+              src: `data:image/png;base64,${images[selectedImage]}`,
+            },
+            largeImage: {
+              src: `data:image/png;base64,${images[selectedImage]}`,
+              width: 700,
+              height: 700
+            },
+            enlargedImagePosition: 'over',
+            enlargedImageStyle: {
+              backgroundColor: colors.dark_grey,
+            }
+          }}
+        />
       </div>
       <div className='patients-id'>
         <p>ID: {patient.label}</p>
