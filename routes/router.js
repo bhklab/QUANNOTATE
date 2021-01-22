@@ -9,7 +9,6 @@ const {
     getPatient,
     registerLabels
 } = require('./analysis');
-const { requireAuthentication } = require('./middleware');
 require('../auth/auth');
 
 // user routes
@@ -19,10 +18,10 @@ router.post('/user/authenticate', authenticateUser);
 router.post('/user/register', registerUser);
 
 // analysis routes (all routes are private)
-router.get('/analysis', requireAuthentication, getAnalysisSummary);
-router.get('/analysis/patient', requireAuthentication, getPatient);
+router.get('/analysis', passport.authenticate('jwt', { session: false }), getAnalysisSummary);
+router.get('/analysis/patient', passport.authenticate('jwt', { session: false }), getPatient);
 router.post('/analysis/patient', passport.authenticate('jwt', { session: false }), registerLabels);
-router.get('/analysis/:type/', requireAuthentication, getAnalysisInfo);
-router.get('/analysis/:type/images', requireAuthentication, getLabelImages);
+router.get('/analysis/:type/', passport.authenticate('jwt', { session: false }), getAnalysisInfo);
+router.get('/analysis/:type/images', passport.authenticate('jwt', { session: false }), getLabelImages);
 
 module.exports = router;

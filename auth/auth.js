@@ -18,7 +18,7 @@ async (token, done) => {
     try {
         return done(null, token);
     } catch (error) {
-        console.log(error);
+        console.log('Error');
         done(error);
     }
 }));

@@ -10,6 +10,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 // component imports
+import AuthContext from '../../../context/authContext';
 import AnalysisContext from '../../../context/analysisContext';
 import StyledCheckBox from './StyledCheckBox';
 import StyledButtonContainer from './StyledButtonContainer';
@@ -52,6 +53,7 @@ const splitOptions = (options) => {
 
 const LabelComponent = () => {
   const { analysisInfo } = useContext(AnalysisContext);
+  const { authState, setAuthState } = useContext(AuthContext);
   const { options } = analysisInfo;
   const [ selection, setSelection ] = useState(createSelectionSet(options));
   const classes = useStyles();
@@ -159,7 +161,9 @@ const LabelComponent = () => {
         console.log(response);
       })
       .catch(function (error) {
-        console.log(error);
+        const { response } = error
+        // redirects user to the login page if the resposne status indicates that user is unauthorized (401)
+        if (response.status === 401) setAuthState({ ...authState, authenticated: false, username: null, email: null}) 
       });
   }
   const [checboxOptions, otherOptions] = splitOptions(options)
