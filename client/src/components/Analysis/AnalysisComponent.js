@@ -9,7 +9,10 @@ import AnalysisContext from '../../context/analysisContext';
 
 const AnalysisComponent = () => {
   const [ analysisInfo, setAnalyisInfo ] = useState({ 
-    title: 'Loading...',
+    analysis: {
+      title: 'Loading...',
+      id: null
+    },
     options: [],
     loaded: false,
     patient: {}
@@ -24,7 +27,6 @@ const AnalysisComponent = () => {
     const fetchData = async () => {
       try {
         const analysisResponse = await axios.get(`/api/analysis/${type}`)
-        console.log(analysisResponse);
         const { dataset, title, options } = analysisResponse.data;
         options.sort((a, b) => {
           const sortMap = {
@@ -36,7 +38,10 @@ const AnalysisComponent = () => {
         const patientResponse = await axios.get(`/api/analysis/patient?dataset_id=${dataset._id}`);
         const { display_label, _id } = patientResponse.data
         if (isSubscribed) setAnalyisInfo({ 
-          title,
+          analysis: {
+            title,
+            id: analysisResponse.data._id
+          },
           options: [...options, { dataType: "text", text: "Any comments?" }],
           patient: { id: _id, label: display_label },
           loaded: true
@@ -66,14 +71,16 @@ const AnalysisComponent = () => {
     )
   }
 
+  const { analysis, options } = analysisInfo;
+
   return (
     <AnalysisContext.Provider value={{ analysisInfo, setAnalyisInfo, error, setError }}>
       <StyledAnalysis>
-        <h3>{analysisInfo.title}</h3>
+        <h3>{analysis.title}</h3>
         <div className='analysis-container'>
           <PlayerComponent />
           <LabelComponent
-            options={analysisInfo.options}
+            options={options}
           />
         </div>
       </StyledAnalysis>

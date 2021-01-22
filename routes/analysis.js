@@ -109,6 +109,7 @@ async function getLabelImages(req, res) {
 }
 
 function registerLabels(req, res) {
+    console.log(req);
     res.status(200).json({ message: 'Labels have been registered'});
 }
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 // Material UI imports
 import FormGroup from '@material-ui/core/FormGroup';
@@ -148,6 +149,18 @@ const LabelComponent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // submit logic goes here
+    const { analysis } = analysisInfo;
+    console.log(analysis);
+    axios.post('/api/analysis/patient', {
+      analysisId: analysis.id,
+      value: []
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
   const [checboxOptions, otherOptions] = splitOptions(options)
 
@@ -162,7 +175,7 @@ const LabelComponent = () => {
         </div>
       </StyledOptions>
       <StyledButtonContainer>
-        <button type='submit' onSubmit={handleSubmit}>Submit Labels</button>
+        <button type='button' onClick={handleSubmit}>Submit Labels</button>
         <Link to='/'>
           <button>Return to Dashboard</button>
         </Link>
