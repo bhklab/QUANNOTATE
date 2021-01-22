@@ -23,7 +23,6 @@ async function getAnalysisInfo(req, res) {
     }
     try {
         const analysis = await Analysis.findOne({ name: type }).populate('dataset');
-        console.log(analysis);
         if (!analysis) {
             res.status(400).json({ error: `No analysis documents have been found for ${type}`});
             return;
@@ -42,7 +41,6 @@ async function getPatient(req, res) {
     }
     try {
         const patient = await Patient.findOne({ dataset_id }).select('display_label');
-        console.log(patient);
         if (!patient) {
             res.status(400).json({ error: `No patient have been found for ${dataset_id}` });
             return;

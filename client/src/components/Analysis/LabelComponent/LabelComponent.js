@@ -155,7 +155,7 @@ const LabelComponent = () => {
     console.log(analysis);
     axios.post('/api/analysis/patient', {
       analysisId: analysis.id,
-      value: []
+      values: []
     })
       .then(function (response) {
         console.log(response);

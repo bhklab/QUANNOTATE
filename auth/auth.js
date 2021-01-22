@@ -10,7 +10,6 @@ passport.use(new JWTstrategy({
         if (req && req.cookies && req.cookies.token) {
             token = req.cookies.token;
         }
-        console.log(token);
         return token;
     }
 },

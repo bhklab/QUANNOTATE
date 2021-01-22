@@ -21,12 +21,12 @@ function authenticateUser(req, res) {
                 res.status(400).json({ error: generateErrorObject('There is no user with this email address', 'email')});
                 return;
             }
-            const { username } = user;
+            const { username, _id } = user;
             // check if user provided correct provided
             user.isPasswordMatch(password).then(result => {
                 if (result) {
                     //expiresIn is being set in seconds
-                    const jwtToken = jwt.sign({ username, email }, process.env.JWT_KEY, { expiresIn: expirationTime });
+                    const jwtToken = jwt.sign({ username, email, id: _id }, process.env.JWT_KEY, { expiresIn: expirationTime });
                     // maxAge is being set in milliseconds
                     res.cookie('token', jwtToken, { maxAge: expirationTime * 1000, httpOnly: true }).json({ message: 'You are logged in', authenticated: true, username, email });
                 } else {
@@ -66,14 +66,15 @@ function registerUser(req, res) {
                     password
                 });
                 // attempts to save new user
-                newUser.save(function (err) {
+                newUser.save(function (err, savedUser) {
                     if (err) {
                         console.log(err);
                         res.status(400).json({ error: err });
                         return;
                     }
+                    const id = savedUser._id;
                     //expiresIn is being set in seconds
-                    const jwtToken = jwt.sign({ username, email }, process.env.JWT_KEY, { expiresIn: expirationTime });
+                    const jwtToken = jwt.sign({ username, email, id }, process.env.JWT_KEY, { expiresIn: expirationTime });
                     // maxAge is being set in milliseconds
                     res.cookie('token', jwtToken, { maxAge: expirationTime * 1000, httpOnly: true }).json({ message: 'User saved', authenticated: true, username, email });
                 });
