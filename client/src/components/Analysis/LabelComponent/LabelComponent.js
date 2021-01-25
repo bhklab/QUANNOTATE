@@ -20,6 +20,7 @@ import useStyles from './Hooks/useStyles';
 // prepopulates selection state in the component when options appear/change
 const createSelectionSet = (options) => {
   const selectionSet = {}
+  console.log(options);
   options.forEach((option, index) => {
     switch (option.dataType) {
       case 'checkbox':
@@ -82,6 +83,7 @@ const LabelComponent = () => {
   // creates jsx to render label options
   // uses indexOffset argument because it's needed to split selection options into two categories
   const generateOptions = (options, indexOffset) => {
+    console.log(options);
     const output = options.map((option, i) => {
       switch (option.dataType) {
         case 'checkbox':
@@ -103,7 +105,7 @@ const LabelComponent = () => {
               <FormControl 
                 variant="outlined" 
                 className={classes.formControl}
-              key={i + indexOffset}
+                key={i + indexOffset}
               >
                 <InputLabel>{option.text}</InputLabel>
                 <Select

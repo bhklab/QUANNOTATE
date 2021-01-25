@@ -8,90 +8,112 @@
     "text": "CTVp",
     "options": [
       {
+        "id": "ctvp-1",
         "text": "Whole nasopharynx",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-2",
         "text": "Posterior nasal cavity ≥5mm from choana",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-3",
         "text": "Posterior maxillary sinuses from posterior wall",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-4",
         "text": "R foramen ovale",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-5",
         "text": "R foramen rotundum",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-6",
         "text": "R foramen lacerum",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-7",
         "text": "R petrous apex",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-8",
         "text": "R cavernous sinus",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-9",
         "text": "R pterygoid fossae",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-10",
         "text": "R parapharyngeal space",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-11",
         "text": "L foramen ovale",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-12",
         "text": "L foramen rotundum",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-13",
         "text": "L foramen lacerum",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-14",
         "text": "L petrous apex",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-15",
         "text": "L cavernous sinus",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-16",
         "text": "L pterygoid fossae",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-17",
         "text": "L parapharyngeal space",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-18",
         "text": "Inferior 1/2 of sphenoid sinus",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-19",
         "text": "Whole sphenoid sinus",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-20",
         "text": "Anterior 1/3 clivus",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-21",
         "text": "Whole clivus",
         "dataType": "checkbox"
       },
       {
+        "id": "ctvp-22",
         "text": "Check if bad contour",
         "dataType": "checkbox"
       }
@@ -106,10 +128,12 @@
     "text": "Breast",
     "options": [
       {
+        "id": "breast-1",
         "text": "Is there A Contour?",
         "dataType": "checkbox"
       },
       {
+        "id": "breast-2",
         "text": "Select the appropriate Breast Cancer Staging",
         "dataType": "dropdown",
         "options": [
@@ -120,6 +144,7 @@
         ]
       },
       {
+        "id": "breast-3",
         "text": "Check if bad image",
         "dataType": "checkbox"
       }
@@ -134,30 +159,37 @@
     "text": "Neck Levels",
     "options": [
       {
+        "id": "neck_levels-1",
         "text": "Level I",
         "dataType": "checkbox"
       },
       {
+        "id": "neck_levels-2",
         "text": "Level II",
         "dataType": "checkbox"
       },
       {
+        "id": "neck_levels-3",
         "text": "Level III",
         "dataType": "checkbox"
       },
       {
+        "id": "neck_levels-4",
         "text": "Level IV",
         "dataType": "checkbox"
       },
       {
+        "id": "neck_levels-5",
         "text": "Level V",
         "dataType": "checkbox"
       },
       {
+        "id": "neck_levels-6",
         "text": "RP",
         "dataType": "checkbox"
       },
       {
+        "id": "neck_levels-7",
         "text": "Check if bad image",
         "dataType": "checkbox"
       }
