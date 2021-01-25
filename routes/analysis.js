@@ -106,9 +106,20 @@ async function getLabelImages(req, res) {
     }
 }
 
-function registerLabels(req, res) {
-    console.log(req);
-    res.status(200).json({ message: 'Labels have been registered'});
+async function registerLabels(req, res) {
+    const { analysisId, values, patientId } = req.body;
+    if (!analysisId || !values || !patientId ) {
+        res.status(400).json({ error: 'Request must contain analysisId, patientId, values' });
+        return;
+    }
+    const { id } = req.user;
+    try {
+        await Patient.update({ _id: patientId }, {$push: {labels: {user: id, analysis: analysisId, values}}});
+        res.status(200).json({ message: 'Labels have been registered' });
+    } catch(e) {
+        console.log(e);
+        res.status(500).json({ message: 'Error saving labels' });
+    }
 }
 
 module.exports = {

@@ -20,17 +20,17 @@ import useStyles from './Hooks/useStyles';
 // prepopulates selection state in the component when options appear/change
 const createSelectionSet = (options) => {
   const selectionSet = {}
-  console.log(options);
   options.forEach((option, index) => {
-    switch (option.dataType) {
+    const { dataType, id } = option;
+    switch (dataType) {
       case 'checkbox':
-        selectionSet[index] = false;
+        selectionSet[id] = false;
         break
       case 'dropdown':
-        selectionSet[index] = option.options[0];
+        selectionSet[id] = option.options[0];
         break;
       case 'text':
-        selectionSet[index] = ''
+        selectionSet[id] = ''
         break;
       default:
         return null;
@@ -63,17 +63,17 @@ const LabelComponent = () => {
   }, [options])
 
   // handles user selection
-  const updateLabel = (e, dataType, index) => {
+  const updateLabel = (e, dataType, id) => {
     const { value } = e.target 
     switch (dataType) {
       case 'checkbox':
-        setSelection({ ...selection, [index]: !selection[index]});
+        setSelection({ ...selection, [id]: !selection[id]});
         break
       case 'dropdown':
-        setSelection({ ...selection, [index]: value})
+        setSelection({ ...selection, [id]: value})
         break;
       case 'text':
-        setSelection({ ...selection, [index]: value})
+        setSelection({ ...selection, [id]: value})
         break;
       default:
         break;
@@ -83,9 +83,9 @@ const LabelComponent = () => {
   // creates jsx to render label options
   // uses indexOffset argument because it's needed to split selection options into two categories
   const generateOptions = (options, indexOffset) => {
-    console.log(options);
     const output = options.map((option, i) => {
-      switch (option.dataType) {
+      const { dataType, id } = option
+      switch (dataType) {
         case 'checkbox':
           return (
               <FormControlLabel
@@ -94,8 +94,8 @@ const LabelComponent = () => {
                 key={i + indexOffset}
                 control={
                   <StyledCheckBox
-                    checked={selection[i + indexOffset]}
-                    onChange={(e) => updateLabel(e, option.dataType, i + indexOffset)} 
+                    checked={selection[id]}
+                    onChange={(e) => updateLabel(e, option.dataType, id)} 
                     name={option.text}
                   />
                 }
@@ -109,8 +109,8 @@ const LabelComponent = () => {
               >
                 <InputLabel>{option.text}</InputLabel>
                 <Select
-                value={selection[i + indexOffset]}
-                onChange={(e) => updateLabel(e, option.dataType, i + indexOffset)} 
+                value={selection[id]}
+                onChange={(e) => updateLabel(e, option.dataType, id)} 
                   label={option.text}
                 >
                   {option.options.map((suboption, index) => {
@@ -133,8 +133,8 @@ const LabelComponent = () => {
               id="comments-field"
               multiline={true}
               label={ option.text }
-              value={selection[i + indexOffset]}
-              onChange={(e) => updateLabel(e, option.dataType, i + indexOffset)}
+              value={selection[id]}
+              onChange={(e) => updateLabel(e, option.dataType, id)}
               key={i + indexOffset}
             />
           )
@@ -153,14 +153,15 @@ const LabelComponent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // submit logic goes here
-    const { analysis } = analysisInfo;
-    console.log(analysis);
+    const { analysis, patient } = analysisInfo;
     axios.post('/api/analysis/patient', {
       analysisId: analysis.id,
-      values: []
+      patientId: patient.id,
+      values: selection
     })
       .then(function (response) {
         console.log(response);
+        // follow-up logix goes here
       })
       .catch(function (error) {
         const { response } = error

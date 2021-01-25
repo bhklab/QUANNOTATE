@@ -28,7 +28,7 @@ const patientSchema = new Schema({
                 ref: 'Analysis',
                 required: true
             },
-            values: { type: Array, default: [] }
+            values: { type: Object, required: true }
         }]
     }
 });

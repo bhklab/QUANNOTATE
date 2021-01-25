@@ -42,7 +42,7 @@ const AnalysisComponent = () => {
             title,
             id: analysisResponse.data._id
           },
-          options: [...options, { dataType: "text", text: "Any comments?" }],
+          options: [...options, { dataType: "text", text: "Any comments?", id: "comment" }],
           patient: { id: _id, label: display_label },
           loaded: true
         })
@@ -72,7 +72,7 @@ const AnalysisComponent = () => {
   }
 
   const { analysis, options } = analysisInfo;
-
+  
   return (
     <AnalysisContext.Provider value={{ analysisInfo, setAnalyisInfo, error, setError }}>
       <StyledAnalysis>
