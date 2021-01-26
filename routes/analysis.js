@@ -34,14 +34,19 @@ async function getAnalysisInfo(req, res) {
 }
 
 async function getPatient(req, res) {
-    const { dataset_id } = req.query;
+    const { datasetId, analysisId } = req.query;
     const { id } = req.user;
-    if (!dataset_id) {
-        res.status(400).json({ error: 'Request is missing "dataset_id" query parameter' });
+    // sends bad request error if API call doesn't have datasetId or analysisId 
+    if (!datasetId || !analysisId) {
+        const missingParameter = !datasetId ? 'datasetId' : 'analysisId';
+        res.status(400).json({ error: `Request is missing ${missingParameter} query parameter` });
         return;
     }
     try {
-        const patient = await Patient.findOne({ dataset_id, 'labels.user': {'$ne': id}  }).select('display_label');
+        // chooses patient that have matching dataset_id but no labels that are matching both user and analysis ids
+        const patient = await Patient.findOne({
+            $or: [{ dataset_id: datasetId, 'labels.user': { '$ne': id } }, { dataset_id: datasetId, 'labels.analysis': { '$ne': analysisId } }] 
+        }).select('display_label');
         if (!patient) {
             res.status(200).json({ message: 'There are no patients left to label in this analysis' });
             return;

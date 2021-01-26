@@ -28,6 +28,7 @@ const AnalysisComponent = () => {
     const fetchData = async () => {
       try {
         const analysisResponse = await axios.get(`/api/analysis/${type}`)
+        console.log(analysisResponse);
         const { dataset, title, options } = analysisResponse.data;
         options.sort((a, b) => {
           const sortMap = {
@@ -36,7 +37,7 @@ const AnalysisComponent = () => {
           }
           return sortMap[a.dataType] - sortMap[b.dataType]
         })
-        const patientResponse = await axios.get(`/api/analysis/patient?dataset_id=${dataset._id}`);
+        const patientResponse = await axios.get(`/api/analysis/patient?datasetId=${dataset._id}&analysisId=${analysisResponse.data._id}`);
         const { display_label, _id, message } = patientResponse.data
         if (isSubscribed) {
           // display only the message if there is any
