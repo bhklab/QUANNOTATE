@@ -36,7 +36,7 @@ const StyledDashboard = styled.div`
       color: ${colors.black}
     }
     img {
-      border: 2px solid ${colors.black};
+      border: none;
     }
   }
   img {

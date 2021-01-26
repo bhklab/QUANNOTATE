@@ -1,7 +1,7 @@
 /* eslint-disable default-case */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from 'react-router-dom';
 import StyledAnalysis from './StyledAnalysis';
 import PlayerComponent from './PlayerComponent/PlayerComponent';
 import LabelComponent from './LabelComponent/LabelComponent';
@@ -15,7 +15,8 @@ const AnalysisComponent = () => {
     },
     options: [],
     loaded: false,
-    patient: {}
+    patient: {},
+    message: ''
   });
   const [ error, setError ] = useState(null)
   // retrieves type parameter from react router
@@ -36,16 +37,28 @@ const AnalysisComponent = () => {
           return sortMap[a.dataType] - sortMap[b.dataType]
         })
         const patientResponse = await axios.get(`/api/analysis/patient?dataset_id=${dataset._id}`);
-        const { display_label, _id } = patientResponse.data
-        if (isSubscribed) setAnalyisInfo({ 
-          analysis: {
-            title,
-            id: analysisResponse.data._id
-          },
-          options: [...options, { dataType: "text", text: "Any comments?", id: "comment" }],
-          patient: { id: _id, label: display_label },
-          loaded: true
-        })
+        const { display_label, _id, message } = patientResponse.data
+        if (isSubscribed) {
+          // display only the message if there is any
+          if (message) {
+            setAnalyisInfo({
+              ...analysisInfo,
+              loaded: true,
+              message
+            })
+          } else {
+            // otherwise sets analysis and patient info and renders child components
+            setAnalyisInfo({
+              analysis: {
+                title,
+                id: analysisResponse.data._id
+              },
+              options: [...options, { dataType: "text", text: "Any comments?", id: "comment" }],
+              patient: { id: _id, label: display_label },
+              loaded: true
+            })
+          }
+        } 
       } catch (err) {
         console.log(err);
         setError(err)
@@ -63,6 +76,8 @@ const AnalysisComponent = () => {
     )
   }
 
+  const { analysis, options, message } = analysisInfo;
+
   if (!analysisInfo.loaded) {
     return (
       <StyledAnalysis>
@@ -70,9 +85,18 @@ const AnalysisComponent = () => {
       </StyledAnalysis>
     )
   }
-
-  const { analysis, options } = analysisInfo;
   
+  if (message) {
+    return (
+      <StyledAnalysis>
+        <h3>{message}</h3>
+        <Link to='/'>
+          <button>Return to Dashboard</button>
+        </Link>
+      </StyledAnalysis>
+    )
+  }
+
   return (
     <AnalysisContext.Provider value={{ analysisInfo, setAnalyisInfo, error, setError }}>
       <StyledAnalysis>
