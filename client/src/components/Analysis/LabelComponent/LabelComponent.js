@@ -53,13 +53,16 @@ const splitOptions = (options) => {
 }
 
 const LabelComponent = () => {
-  const { analysisInfo } = useContext(AnalysisContext);
+  const { analysisInfo, setAnalyisInfo } = useContext(AnalysisContext);
   const { authState, setAuthState } = useContext(AuthContext);
   const { options } = analysisInfo;
   const [ selection, setSelection ] = useState(createSelectionSet(options));
+  const [ errorPopup, setErrorPopup ] = useState();
   const classes = useStyles();
   useEffect(() => {
+    if (errorPopup) setErrorPopup('')
     setSelection(createSelectionSet(options))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options])
 
   // handles user selection
@@ -162,11 +165,16 @@ const LabelComponent = () => {
       .then(function (response) {
         console.log(response);
         // follow-up logix goes here
+        setAnalyisInfo({ ...analysisInfo, loaded: false})
       })
       .catch(function (error) {
         const { response } = error
-        // redirects user to the login page if the resposne status indicates that user is unauthorized (401)
-        if (response.status === 401) setAuthState({ ...authState, authenticated: false, username: null, email: null}) 
+        // redirects user to the login page if the response status indicates that user is unauthorized (401)
+        if (response.status === 401) {
+          setAuthState({ ...authState, authenticated: false, username: null, email: null }) 
+        } else {
+          setErrorPopup("Labels haven't been submitted, please try again")
+        }
       });
   }
   const [checboxOptions, otherOptions] = splitOptions(options)
@@ -187,6 +195,7 @@ const LabelComponent = () => {
           <button>Return to Dashboard</button>
         </Link>
       </StyledButtonContainer>
+      {errorPopup ? <p className='error-popup'>{errorPopup}</p> : null}
     </div>
   )
 } 

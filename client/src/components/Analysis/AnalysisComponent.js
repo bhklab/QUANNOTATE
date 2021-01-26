@@ -28,7 +28,6 @@ const AnalysisComponent = () => {
     const fetchData = async () => {
       try {
         const analysisResponse = await axios.get(`/api/analysis/${type}`)
-        console.log(analysisResponse);
         const { dataset, title, options } = analysisResponse.data;
         options.sort((a, b) => {
           const sortMap = {
@@ -65,9 +64,22 @@ const AnalysisComponent = () => {
         setError(err)
       }     
     }
-    fetchData()
+    // execute this hook only if loaded set to false
+    if (!analysisInfo.loaded) {
+      setAnalyisInfo({
+        analysis: {
+          title: 'Loading...',
+          id: null
+        },
+        options: [],
+        loaded: false,
+        patient: {},
+        message: ''})
+      fetchData()
+    }
     return () => {isSubscribed = false}
-  }, [type])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [type, analysisInfo.loaded])
 
   if (error) {
     return (
