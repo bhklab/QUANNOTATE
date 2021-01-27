@@ -27,13 +27,23 @@ const analysisSchema = new Schema({
         ref: 'Dataset',
         required: true,
     },
+    windowing: {
+        type: Boolean,
+        required: true,
+    },
+    windowingOption: {
+        type: [{
+            type: String, required: true,
+        }]
+    },
     options: {
         type: [{
             id: { type: String, required: true, trim: true },
             text: { type: String, required: true, trim: true },
             dataType: { type: String, enum: ['checkbox', 'dropdown', 'text'], required: true, trim: true },
             options: { type: Array, required: false }
-        }]
+        }],
+        required: true
     },
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });

@@ -6,6 +6,7 @@
     "title": "Are CTVp contours guideline compliant?",
     "available": true,
     "text": "CTVp",
+    "windowing": false,
     "options": [
       {
         "id": "ctvp-1",
@@ -126,6 +127,7 @@
     "title": "Are Breast contours guideline compliant?",
     "available": true,
     "text": "Breast",
+    "windowing": false,
     "options": [
       {
         "id": "breast-1",
@@ -154,9 +156,10 @@
     "_id": "neck_levels",
     "name": "neck_levels",
     "dataset": "neck",
-    "title": "What Neck Levels are Contoured?",
+    "title": "Is this OAR contour clinically acceptable?",
     "available": true,
     "text": "Neck Levels",
+    "windowing": false,
     "options": [
       {
         "id": "neck_levels-1",
@@ -190,6 +193,47 @@
       },
       {
         "id": "neck_levels-7",
+        "text": "Check if bad image",
+        "dataType": "checkbox"
+      }
+    ]
+  },
+  {
+    "_id": "aituring",
+    "name": "aituring",
+    "dataset": "turing",
+    "title": "Is this OAR contour clinically acceptable?",
+    "available": true,
+    "text": "Turing Test",
+    "windowing": true,
+    "windowingOption": [
+      "bone",
+      "lung",
+      "soft"
+    ],
+    "options": [
+      {
+        "id": "aituring-1",
+        "text": "Is the contour clinically acceptable?",
+        "dataType": "dropdown",
+        "options": [
+          "Require them to be corrected; There are large, obvious, errors",
+          "Require them to be corrected; There are minor errors that need a small amount of editing",
+          "Accept them as they are; There are minor errors but these are clinically not significant",
+          "Accept them as they are; The contours are very precise"
+        ]
+      },
+      {
+        "id": "aituring-2",
+        "text": "Who delineated this contour?",
+        "dataType": "dropdown",
+        "options": [
+          "Human",
+          "AI"
+        ]
+      },
+      {
+        "id": "aituring-3",
         "text": "Check if bad image",
         "dataType": "checkbox"
       }
