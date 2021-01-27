@@ -9,7 +9,8 @@
     "devstart": "nodemon app.js",
     "client": "cd client && npm start",
     "build": "cd client && npm i && npm run build",
-    "seed": "npx seedgoose reseed"
+    "seed": "npx seedgoose reseed",
+    "patient": "node ./scripts/patient.js"
   },
   "keywords": [],
   "author": "",

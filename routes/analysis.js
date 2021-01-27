@@ -70,7 +70,8 @@ async function getLabelImages(req, res) {
     }
     try {
         // finds dataset value of the requested analysis
-        const { dataset } = await Analysis.findOne({ name: type }).populate('dataset').select('dataset');
+        const { dataset, windowing } = await Analysis.findOne({ name: type }).populate('dataset').select('dataset, windowing');
+        console.log('Windowing', windowing);
         const { patient } = await Patient.findOne({ _id: patient_id}).select('patient');
         if (!patient) {
             res.status(400).json({ error: 'Unknow patient_id' });

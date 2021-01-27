@@ -2,12 +2,12 @@ const { readdirSync, writeFile } = require('fs');
 
 // reads content of the folder and generate json of patients data
 const createSeedingFile = () => {
-    const analyses = readdirSync('../images', { withFileTypes: true })
+    const analyses = readdirSync('./images', { withFileTypes: true })
         .filter(dirent => dirent.isDirectory())
         .map(dirent => dirent.name);
     const processedData = [];
     analyses.forEach(analysis => {
-        const patients = readdirSync(`../images/${analysis}`, { withFileTypes: true })
+        const patients = readdirSync(`./images/${analysis}`, { withFileTypes: true })
             .filter(dirent => dirent.isDirectory())
             .map(dirent => dirent.name);
         patients.forEach((patient, i) => {

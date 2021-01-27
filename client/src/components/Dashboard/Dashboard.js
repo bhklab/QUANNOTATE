@@ -32,9 +32,9 @@ const Dashboard = () => {
           </Link>
         )
       })}
-      <div className="section">
+      {/* <div className="section">
         <p>Coming Soon...</p>
-      </div>
+      </div> */}
     </StyledDashboard>
   ) : null
 }
