@@ -206,7 +206,7 @@
     "available": true,
     "text": "Turing Test",
     "windowing": true,
-    "windowingOption": [
+    "windowingOptions": [
       "bone",
       "lung",
       "soft"

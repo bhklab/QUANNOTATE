@@ -31,7 +31,7 @@ const analysisSchema = new Schema({
         type: Boolean,
         required: true,
     },
-    windowingOption: {
+    windowingOptions: {
         type: [{
             type: String, required: true,
         }]

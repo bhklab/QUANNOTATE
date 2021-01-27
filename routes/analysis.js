@@ -71,7 +71,6 @@ async function getLabelImages(req, res) {
     try {
         // finds dataset value of the requested analysis
         const { dataset, windowing } = await Analysis.findOne({ name: type }).populate('dataset').select('dataset, windowing');
-        console.log('Windowing', windowing);
         const { patient } = await Patient.findOne({ _id: patient_id}).select('patient');
         if (!patient) {
             res.status(400).json({ error: 'Unknow patient_id' });
@@ -79,7 +78,7 @@ async function getLabelImages(req, res) {
         }
         const dirpath = path.join(__dirname, `../images/${dataset.name}/${patient}`);
         // reads all files in the folder
-        fs.readdir(dirpath, function (err, filenames) {
+        const files = fs.readdir(dirpath, function (err, filenames) {
             if (err) {
                 console.log('error ', err);
                 res.status(500).json({ error: generateErrorObject(`Analysis type ${type} doesn't exist`, 'generic') });
@@ -96,17 +95,17 @@ async function getLabelImages(req, res) {
                 return filename1.localeCompare(filename2);
             });
             // creates an array of promises
-            const files = filenames.map(function (filename) {
+            return filenames.map(function (filename) {
                 const filepath = `${dirpath}/${filename}`;
                 return readFile(filepath);
             });
-            // sends reponse once all images has been read
-            Promise.all(files).then(images => {
-                res.status(200).send(images);
-            }).catch(error => {
-                console.log(error);
-                res.status(400).json({ message: 'Error retrieving CT scans' });
-            });
+        });
+        // sends reponse once all images has been read
+        Promise.all(files).then(images => {
+            res.status(200).json({ images, windowing });
+        }).catch(error => {
+            console.log(error);
+            res.status(400).json({ message: 'Error retrieving CT scans' });
         });
     } catch {
         res.status(400).json({ message: 'Something went wrong' });

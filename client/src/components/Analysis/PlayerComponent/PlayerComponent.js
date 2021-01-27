@@ -60,12 +60,13 @@ const PlayerComponent = () => {
       .then(res => {
         if (isSubsribed) {
           const responseImages = [];
+          const { images, windowing } = res.data
           // processes image buffers to be rendered on the page
-          res.data.forEach(imgBuffer => {
+          if (!windowing) images.forEach(imgBuffer => {
             const base64 = convertBufferToBase64String(imgBuffer.data);
             responseImages.push(base64);
+            setImages({ default: responseImages })
           })
-          setImages(responseImages)
           setLoading(false);
         }
       })
@@ -90,10 +91,10 @@ const PlayerComponent = () => {
             smallImage: {
               alt: `CT scam ${selectedImage}`,
               isFluidWidth: true,
-              src: `data:image/png;base64,${images[selectedImage]}`,
+              src: `data:image/png;base64,${images.default[selectedImage]}`,
             },
             largeImage: {
-              src: `data:image/png;base64,${images[selectedImage]}`,
+              src: `data:image/png;base64,${images.default[selectedImage]}`,
               width: 700,
               height: 700
             },
