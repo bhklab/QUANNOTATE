@@ -21,7 +21,7 @@ const PlayerComponent = () => {
   const { patient } = analysisInfo;
   // retrieves type parameter from react router
   const { type } = useParams()
-  const [ images, setImages ] = useState(null)
+  const [ { images, accessor } , setImages ] = useState({ images: null, accessor: null})
   const [ loading, setLoading ] = useState(true)
   const [ selectedImage, setSelectedImage ] = useState(0);
   const [ playing, setPlaying ] = useState(false);
@@ -66,12 +66,24 @@ const PlayerComponent = () => {
             images.default.forEach(imgBuffer => {
               const base64 = convertBufferToBase64String(imgBuffer.data);
               responseImages.push(base64);
-              setImages({ default: responseImages })
+              // images are getting added to the default collection if no windowing
+              setImages({ images: { default: responseImages }, accessor: 'default' })
             })
           } else {
-            Object.entries(images).forEach(collection => {
-              console.log(collection);
+            const imageObj = {}
+            let newAccessor
+            Object.entries(images).forEach((collection, i) => {
+              // picks first collection name as an accessor 
+              if (i === 0 ) newAccessor = collection[0]
+              imageObj[collection[0]] = []
+              // process images in each collection
+              collection[1].forEach(imgBuffer => {
+                const base64 = convertBufferToBase64String(imgBuffer.data);
+                imageObj[collection[0]].push(base64);
+                // setImages({ default: responseImages })
+              })
             })
+            setImages({ images: imageObj, accessor: newAccessor })
           }
           setLoading(false);
         }
@@ -97,10 +109,10 @@ const PlayerComponent = () => {
             smallImage: {
               alt: `CT scam ${selectedImage}`,
               isFluidWidth: true,
-              src: `data:image/png;base64,${images.default[selectedImage]}`,
+              src: `data:image/png;base64,${images[accessor][selectedImage]}`,
             },
             largeImage: {
-              src: `data:image/png;base64,${images.default[selectedImage]}`,
+              src: `data:image/png;base64,${images[accessor][selectedImage]}`,
               width: 700,
               height: 700
             },

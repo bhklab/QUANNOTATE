@@ -80,26 +80,26 @@ async function getLabelImages(req, res) {
             res.status(400).json({ error: 'Unknow patient_id' });
             return;
         }
+        // setting directories to read images from
         const dirpath = path.join(__dirname, `../images/${dataset.name}/${patient}`);
         const readFolders = windowing ? windowingOptions : [dirpath];
-        
+        // response data
         let errorMessage;
         const fileObject = {};
-        
+        // reading multiple folders
         async.eachSeries(readFolders, function(dir, callback) {
             let readDirectory = windowing ? `${dirpath}/${dir}` : dir;
-
+            // read individual folders (tissue or patient depending if windowing is enabled)
             fs.readdir(readDirectory, function (err, filenames) {
                 if (err) errorMessage = err;
                 const sortedFiles = sortFiles(filenames);
-
                 const files = sortedFiles.map(function (filename) {
                     const filepath = `${readDirectory}/${filename}`;
                     return readFile(filepath);
                 });
-
                 Promise.all(files).then(images => {
                     windowing ? fileObject[dir] = images : fileObject.default = images;
+                    // runs next folder after all promises have been returned
                     callback();
                 }).catch(error => {
                     errorMessage = error;
@@ -109,11 +109,12 @@ async function getLabelImages(req, res) {
             if (err) {
                 errorMessage = err;
             }
+            // sends an error if any errors occured
             if (errorMessage) {
                 console.log(errorMessage);
                 res.status(500).json({ message: 'Something went wrong' });
+                return;
             }
-            console.log({ images: fileObject, windowing });
             res.status(200).json({ images: fileObject, windowing });
         });
     } catch {
