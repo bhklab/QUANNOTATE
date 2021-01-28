@@ -1,8 +1,12 @@
-const { Analysis, Patient } = require('../database/models/index');
-const generateErrorObject = require('../utils/generateErrorObject');
 const path = require('path');
+const async = require('async');
 const fs = require('fs');
 const util = require('util');
+
+const { Analysis, Patient } = require('../database/models/index');
+const generateErrorObject = require('../utils/generateErrorObject');
+const sortFiles = require('../utils/sortFiles');
+
 const readFile = util.promisify(fs.readFile);
 
 async function getAnalysisSummary(req, res) {
@@ -70,45 +74,50 @@ async function getLabelImages(req, res) {
     }
     try {
         // finds dataset value of the requested analysis
-        const { dataset, windowing } = await Analysis.findOne({ name: type }).populate('dataset').select('dataset, windowing');
+        const { dataset, windowing, windowingOptions } = await Analysis.findOne({ name: type }).populate('dataset').    select('dataset windowing windowingOptions');
         const { patient } = await Patient.findOne({ _id: patient_id}).select('patient');
         if (!patient) {
             res.status(400).json({ error: 'Unknow patient_id' });
             return;
         }
         const dirpath = path.join(__dirname, `../images/${dataset.name}/${patient}`);
-        // reads all files in the folder
-        const files = fs.readdir(dirpath, function (err, filenames) {
+        const readFolders = windowing ? windowingOptions : [dirpath];
+        
+        let errorMessage;
+        const fileObject = {};
+        
+        async.eachSeries(readFolders, function(dir, callback) {
+            let readDirectory = windowing ? `${dirpath}/${dir}` : dir;
+
+            fs.readdir(readDirectory, function (err, filenames) {
+                if (err) errorMessage = err;
+                const sortedFiles = sortFiles(filenames);
+
+                const files = sortedFiles.map(function (filename) {
+                    const filepath = `${readDirectory}/${filename}`;
+                    return readFile(filepath);
+                });
+
+                Promise.all(files).then(images => {
+                    windowing ? fileObject[dir] = images : fileObject.default = images;
+                    callback();
+                }).catch(error => {
+                    errorMessage = error;
+                });
+            });
+        }, function (err) {
             if (err) {
-                console.log('error ', err);
-                res.status(500).json({ error: generateErrorObject(`Analysis type ${type} doesn't exist`, 'generic') });
-                return;
+                errorMessage = err;
             }
-            // Sorts filename strings numerically instead of alphabetically
-            // for numerical filenames to keep consistent order of images
-            filenames.sort((file1, file2) => {
-                const filename1 = file1.split('.').shift();
-                const filename2 = file2.split('.').shift();
-                if (!isNaN(filename1) && !isNaN(filename2)) {
-                    return parseInt(filename1, 10) - parseInt(filename2, 10);
-                }
-                return filename1.localeCompare(filename2);
-            });
-            // creates an array of promises
-            return filenames.map(function (filename) {
-                const filepath = `${dirpath}/${filename}`;
-                return readFile(filepath);
-            });
-        });
-        // sends reponse once all images has been read
-        Promise.all(files).then(images => {
-            res.status(200).json({ images, windowing });
-        }).catch(error => {
-            console.log(error);
-            res.status(400).json({ message: 'Error retrieving CT scans' });
+            if (errorMessage) {
+                console.log(errorMessage);
+                res.status(500).json({ message: 'Something went wrong' });
+            }
+            console.log({ images: fileObject, windowing });
+            res.status(200).json({ images: fileObject, windowing });
         });
     } catch {
-        res.status(400).json({ message: 'Something went wrong' });
+        res.status(500).json({ message: 'Something went wrong' });
     }
 }
 

@@ -62,11 +62,17 @@ const PlayerComponent = () => {
           const responseImages = [];
           const { images, windowing } = res.data
           // processes image buffers to be rendered on the page
-          if (!windowing) images.forEach(imgBuffer => {
-            const base64 = convertBufferToBase64String(imgBuffer.data);
-            responseImages.push(base64);
-            setImages({ default: responseImages })
-          })
+          if (!windowing) {
+            images.default.forEach(imgBuffer => {
+              const base64 = convertBufferToBase64String(imgBuffer.data);
+              responseImages.push(base64);
+              setImages({ default: responseImages })
+            })
+          } else {
+            Object.entries(images).forEach(collection => {
+              console.log(collection);
+            })
+          }
           setLoading(false);
         }
       })
