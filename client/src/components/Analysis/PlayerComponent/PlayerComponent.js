@@ -21,8 +21,14 @@ const PlayerComponent = () => {
   const { patient } = analysisInfo;
   // retrieves type parameter from react router
   const { type } = useParams()
-  const [ { images, accessor } , setImages ] = useState({ images: null, accessor: null})
-  const [ loading, setLoading ] = useState(true)
+  const [ state , setState ] = useState({ 
+    images: null,
+    accessor: null,
+    loading: true,
+    windowing: false,
+    windowOptions: []
+  })
+  const { images, accessor, loading, windowing, windowOptions } = state;
   const [ selectedImage, setSelectedImage ] = useState(0);
   const [ playing, setPlaying ] = useState(false);
   const classes = useStyles();
@@ -39,7 +45,7 @@ const PlayerComponent = () => {
   }
   // function that plays ct scans by updating components state
   const playImages = () => {
-    if (selectedImage + 1 === images.length) {
+    if (selectedImage + 1 === images[accessor].length) {
       setPlaying(false)
       play = setTimeout(
         () => {
@@ -59,33 +65,45 @@ const PlayerComponent = () => {
     axios.get(`/api/analysis/${type}/images?patient_id=${patient.id}`)
       .then(res => {
         if (isSubsribed) {
-          const responseImages = [];
           const { images, windowing } = res.data
           // processes image buffers to be rendered on the page
           if (!windowing) {
+            const responseImages = [];
             images.default.forEach(imgBuffer => {
               const base64 = convertBufferToBase64String(imgBuffer.data);
               responseImages.push(base64);
               // images are getting added to the default collection if no windowing
-              setImages({ images: { default: responseImages }, accessor: 'default' })
+            })
+            setState({
+              images: { default: responseImages },
+              accessor: 'default',
+              loading: false,
+              windowing,
+              windowOptions: []
             })
           } else {
             const imageObj = {}
+            const windows = []
             let newAccessor
             Object.entries(images).forEach((collection, i) => {
               // picks first collection name as an accessor 
               if (i === 0 ) newAccessor = collection[0]
+              windows.push(collection[0])
               imageObj[collection[0]] = []
               // process images in each collection
               collection[1].forEach(imgBuffer => {
                 const base64 = convertBufferToBase64String(imgBuffer.data);
                 imageObj[collection[0]].push(base64);
-                // setImages({ default: responseImages })
               })
             })
-            setImages({ images: imageObj, accessor: newAccessor })
+            setState({ 
+              images: imageObj,
+              accessor: newAccessor,
+              loading: false,
+              windowing,
+              windowOptions: windows
+            })
           }
-          setLoading(false);
         }
       })
       .catch(err => {
@@ -123,6 +141,13 @@ const PlayerComponent = () => {
           }}
         />
       </div>
+      {windowing ? (
+        <div className='windows'>
+          {windowOptions.map(window => (
+            <p onClick={() => setState({...state, accessor: window})}>{window}</p>
+          ))}
+        </div>
+      ) : null}
       <div className='patients-id'>
         <p>ID: {patient.label}</p>
       </div>
@@ -130,7 +155,7 @@ const PlayerComponent = () => {
         <StyledSlider
           value={selectedImage + 1}
           min={1}
-          max={images.length}
+          max={images[accessor].length}
           valueLabelDisplay="auto"
           onChange={(e, value) => handleSliderChange(value)}
         />

@@ -44,6 +44,31 @@ const StyledAnalysis = styled.div`
     align-items: flex-start;
   }
 
+  .windows {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 10px 0;
+
+    p {
+      margin: 0 0 0 10px;
+      padding: 5px 10px;
+      border: 2px solid ${colors.blue};
+      font-size: 1rem;
+      transition: all 0.25s ease-in;
+
+      &:hover {
+        background-color: ${colors.blue};
+        color: ${colors.black};
+        cursor: pointer;
+      }
+    }
+
+    p:nth-child(1) {
+      margin: 0;
+    }
+  }
+
   .option-container {
     flex-grow: 1;
     margin-left: 2vw;
