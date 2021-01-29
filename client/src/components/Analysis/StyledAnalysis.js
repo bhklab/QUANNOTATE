@@ -74,6 +74,7 @@ const StyledAnalysis = styled.div`
     margin-left: 2vw;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
 
   .slider {
@@ -81,12 +82,16 @@ const StyledAnalysis = styled.div`
     width: 100%;
   }
 
-  .patients-id p {
-    background-color: ${colors.blue};
-    padding: 5px;
-    border-radius: 4px;
-    display:inline-block;
-    font-size: 1rem;
+  .patients-id {
+    margin-top: 10px;
+    
+    p {
+      background-color: ${colors.blue};
+      padding: 5px;
+      border-radius: 4px;
+      display:inline-block;
+      font-size: 1rem;
+    } 
   } 
 
   .scan {
@@ -104,6 +109,36 @@ const StyledAnalysis = styled.div`
   .error-popup {
     padding-left: 2px;
     color: ${colors.pink}
+  }
+
+  .study {
+    width: 50%;
+    min-width: 280px;
+    max-width: 450px;
+    margin-bottom: 15px;
+
+    p {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+  }
+  .progress-ui {
+    margin: 15px 0;
+    width: 100%;
+    height: 15px;
+    background-color: ${colors.white};
+    border: 1px solid ${colors.blue};
+    p {
+      text-align: center;
+      font-size: 1rem;
+      color: ${colors.black}
+    }
+
+    .bar {
+      background-color: ${colors.blue};
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 

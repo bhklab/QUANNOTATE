@@ -15,7 +15,7 @@ import AnalysisContext from '../../../context/analysisContext';
 import StyledCheckBox from './StyledCheckBox';
 import StyledButtonContainer from './StyledButtonContainer';
 import StyledOptions from './StyledOptions';
-import useStyles from './Hooks/useStyles';
+import useStyles from '../Hooks/useSelectStyles';
 
 // prepopulates selection state in the component when options appear/change
 const createSelectionSet = (options) => {
@@ -53,7 +53,7 @@ const splitOptions = (options) => {
 }
 
 const LabelComponent = () => {
-  const { analysisInfo, setAnalyisInfo } = useContext(AnalysisContext);
+  const { analysisInfo, setAnalysisInfo } = useContext(AnalysisContext);
   const { authState, setAuthState } = useContext(AuthContext);
   const { options } = analysisInfo;
   const [ selection, setSelection ] = useState(createSelectionSet(options));
@@ -165,12 +165,13 @@ const LabelComponent = () => {
       .then(function (response) {
         console.log(response);
         // follow-up logix goes here
-        setAnalyisInfo({ ...analysisInfo, loaded: false})
+        setAnalysisInfo({ ...analysisInfo, loaded: false})
       })
       .catch(function (error) {
+        console.log(error);
         const { response } = error
         // redirects user to the login page if the response status indicates that user is unauthorized (401)
-        if (response.status === 401) {
+        if (response && response.status === 401) {
           setAuthState({ ...authState, authenticated: false, username: null, email: null }) 
         } else {
           setErrorPopup("Labels haven't been submitted, please try again")

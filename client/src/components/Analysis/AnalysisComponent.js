@@ -1,13 +1,15 @@
 /* eslint-disable default-case */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import StyledAnalysis from './StyledAnalysis';
 import PlayerComponent from './PlayerComponent/PlayerComponent';
 import LabelComponent from './LabelComponent/LabelComponent';
 import AnalysisContext from '../../context/analysisContext';
+import AuthContext from '../../context/authContext';
 
 const AnalysisComponent = () => {
+  const { authState, setAuthState } = useContext(AuthContext);
   const [ analysisInfo, setAnalysisInfo ] = useState({ 
     analysis: {
       title: 'Loading...',
@@ -64,8 +66,13 @@ const AnalysisComponent = () => {
           }
         } 
       } catch (err) {
-        console.log(err);
-        setError(err)
+        const { response } = error
+        // redirects user to the login page if the response status indicates that user is unauthorized (401)
+        if (response.status === 401) {
+          setAuthState({ ...authState, authenticated: false, username: null, email: null })
+        } else {
+          setError(err)
+        }
       }     
     }
     // execute this hook only if loaded set to false
@@ -119,10 +126,21 @@ const AnalysisComponent = () => {
     )
   }
 
+  const percentage = (currentPatient / patientCount) * 100
+
   return (
     <AnalysisContext.Provider value={{ analysisInfo, setAnalysisInfo, error, setError }}>
       <StyledAnalysis>
         <h3>{analysis.title}</h3>
+        <div className='study'>
+          <p>Case: {currentPatient}/{patientCount}</p>
+          <div className="progress-ui">
+            <div className="bar" style={{ width: `${percentage}%` }}></div>
+          </div>
+          {type === 'aituring' ? (
+            <p>OAR: Parotid_L (example)</p>
+          ) : null}
+        </div>
         <div className='analysis-container'>
           <PlayerComponent />
           <LabelComponent
