@@ -51,11 +51,14 @@ async function getPatient(req, res) {
         const patient = await Patient.findOne({
             $or: [{ dataset_id: datasetId, 'labels.user': { '$ne': id } }, { dataset_id: datasetId, 'labels.analysis': { '$ne': analysisId } }] 
         }).select('display_label');
+        const patientCount = await Patient.countDocuments({ dataset_id: datasetId });
         if (!patient) {
             res.status(200).json({ message: 'There are no patients left to label in this analysis' });
             return;
         }
-        res.status(200).json(patient);
+        // transforming Mongoose result document into plain object and adds patientCount
+        const response = { ...patient.toObject(), patientCount};
+        res.status(200).json(response);
     } catch {
         res.status(500).json({ error: generateErrorObject('Couldn\'t retrieve patient data', 'generic') });
     }

@@ -5,6 +5,11 @@ const useStyles = makeStyles((theme) => ({
   controls: {
     display: 'flex',
     marginLeft: 10,
+    '& div': {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center'
+    },
     '& div > svg': {
       color: colors.blue,
       "&:hover": {

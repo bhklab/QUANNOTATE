@@ -8,7 +8,7 @@ import LabelComponent from './LabelComponent/LabelComponent';
 import AnalysisContext from '../../context/analysisContext';
 
 const AnalysisComponent = () => {
-  const [ analysisInfo, setAnalyisInfo ] = useState({ 
+  const [ analysisInfo, setAnalysisInfo ] = useState({ 
     analysis: {
       title: 'Loading...',
       id: null
@@ -16,7 +16,9 @@ const AnalysisComponent = () => {
     options: [],
     loaded: false,
     patient: {},
-    message: ''
+    message: '',
+    patientCount: null,
+    currentPatient: null
   });
   const [ error, setError ] = useState(null)
   // retrieves type parameter from react router
@@ -37,25 +39,27 @@ const AnalysisComponent = () => {
           return sortMap[a.dataType] - sortMap[b.dataType]
         })
         const patientResponse = await axios.get(`/api/analysis/patient?datasetId=${dataset._id}&analysisId=${analysisResponse.data._id}`);
-        const { display_label, _id, message } = patientResponse.data
+        const { display_label, _id, message, patientCount } = patientResponse.data
         if (isSubscribed) {
           // display only the message if there is any
           if (message) {
-            setAnalyisInfo({
+            setAnalysisInfo({
               ...analysisInfo,
               loaded: true,
               message
             })
           } else {
             // otherwise sets analysis and patient info and renders child components
-            setAnalyisInfo({
+            setAnalysisInfo({
               analysis: {
                 title,
                 id: analysisResponse.data._id
               },
               options: [...options, { dataType: "text", text: "Any comments?", id: "comment" }],
               patient: { id: _id, label: display_label },
-              loaded: true
+              loaded: true,
+              patientCount,
+              currentPatient: parseInt(display_label.split('-')[1], 10)
             })
           }
         } 
@@ -66,7 +70,7 @@ const AnalysisComponent = () => {
     }
     // execute this hook only if loaded set to false
     if (!analysisInfo.loaded) {
-      setAnalyisInfo({
+      setAnalysisInfo({
         analysis: {
           title: 'Loading...',
           id: null
@@ -74,7 +78,10 @@ const AnalysisComponent = () => {
         options: [],
         loaded: false,
         patient: {},
-        message: ''})
+        message: '',
+        patientCount: null,
+        currentPatient: null},
+        )
       fetchData()
     }
     return () => {isSubscribed = false}
@@ -89,7 +96,9 @@ const AnalysisComponent = () => {
     )
   }
 
-  const { analysis, options, message } = analysisInfo;
+  const { analysis, options, message, currentPatient, patientCount } = analysisInfo;
+
+  console.log(currentPatient, patientCount);
 
   if (!analysisInfo.loaded) {
     return (
@@ -111,7 +120,7 @@ const AnalysisComponent = () => {
   }
 
   return (
-    <AnalysisContext.Provider value={{ analysisInfo, setAnalyisInfo, error, setError }}>
+    <AnalysisContext.Provider value={{ analysisInfo, setAnalysisInfo, error, setError }}>
       <StyledAnalysis>
         <h3>{analysis.title}</h3>
         <div className='analysis-container'>
