@@ -43,13 +43,12 @@ const AnalysisGroup = () => {
 
   return (
     <StyledAnalysisGroup>
-      <h3>{groupTitle}</h3>
+      <h2>{groupTitle}</h2>
       <div className='subgroups'>
         {subgroups.map((subgroup, i) => {
           return (
-            <div className='subgroup'>
-              <Link key={i} to={`/analysis/aituring`}>Select</Link>
-              <h3>{subgroup}</h3>
+            <div key={i} className='subgroup'>
+              <p><Link to={`/analysis/aituring`}>Select</Link> {subgroup}</p>
             </div>
           )
         })}
