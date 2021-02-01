@@ -5,7 +5,7 @@ import StyledDashboard from './StyledDashboard';
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
-  const [ analysisData, setAnalysisData ] = useState([]); 
+  const [ analysisData, setAnalysisData ] = useState([]);
 
   useEffect(() => {
     axios.get('/api/analysis')

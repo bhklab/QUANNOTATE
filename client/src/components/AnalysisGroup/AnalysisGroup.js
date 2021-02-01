@@ -1,45 +1,61 @@
 /* eslint-disable default-case */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import StyledDashboard from './StyledDashboard';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import AuthContext from '../../context/authContext';
+import StyledAnalysisGroup from './StyledAnalysisGroup.';
 
 const AnalysisGroup = () => {
-  const [analysisData, setAnalysisData] = useState([]);
-
+  const { authState, setAuthState } = useContext(AuthContext);
+  const [ groupData, setGroupData ] = useState({ groupTitle: 'Loading...', subgroups: []});
+  const [ error, setError ] = useState(false)
+  const { type } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const analysisResponse = await axios.get(`/api/analysis/${type}`)
-        console.log(analysisResponse);
+        const { groupTitle, subgroups } = analysisResponse.data;
+        setGroupData({ groupTitle, subgroups })
       } catch(err) {
-        console.log(err);
+        const { response } = err
+        // redirects user to the login page if the response status indicates that user is unauthorized (401)
+        if (response.status === 401) {
+          setAuthState({ ...authState, authenticated: false, username: null, email: null })
+        } else {
+          setError(true)
+        }
       }
     }
     fetchData();
-  }, [])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [type])
 
-  return analysisData.length > 0 ? (
-    <StyledDashboard>
-      {analysisData.map((analysis, i) => {
-        return (
-          <Link key={i} to={!analysis.group ? `/analysis/${analysis.name}` : `/group/${analysis.name}`}>
-            <div className="section">
-              <img
-                src={require(`../../images/analysis/${analysis.name}.png`)}
-                alt={analysis.text}
-              />
-              <p>{analysis.text}</p>
+  const { groupTitle, subgroups } = groupData
+
+  if (error) {
+    return (
+      <StyledAnalysisGroup>
+        <h3>An error occured, please try again later</h3>
+      </StyledAnalysisGroup>
+    )
+  }
+
+  return (
+    <StyledAnalysisGroup>
+      <h3>{groupTitle}</h3>
+      <div className='subgroups'>
+        {subgroups.map((subgroup, i) => {
+          return (
+            <div className='subgroup'>
+              <Link key={i} to={`/analysis/aituring`}>Select</Link>
+              <h3>{subgroup}</h3>
             </div>
-          </Link>
-        )
-      })}
-      {/* <div className="section">
-        <p>Coming Soon...</p>
-      </div> */}
-    </StyledDashboard>
-  ) : null
+          )
+        })}
+      </div>
+    </StyledAnalysisGroup>
+  )
 }
 
 export default AnalysisGroup;

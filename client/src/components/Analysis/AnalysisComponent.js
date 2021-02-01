@@ -104,9 +104,7 @@ const AnalysisComponent = () => {
   }
 
   const { analysis, options, message, currentPatient, patientCount } = analysisInfo;
-
-  console.log(currentPatient, patientCount);
-
+  
   if (!analysisInfo.loaded) {
     return (
       <StyledAnalysis>

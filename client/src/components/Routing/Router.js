@@ -6,10 +6,12 @@ import CustomRoute from './CustomRoute';
 import Login from '../Login/Login'
 import Signup from '../Signup/Signup'
 import Dashboard from '../Dashboard/Dashboard';
-import AnalysisComponent from '../Analysis/AnalysisComponent'
+import AnalysisComponent from '../Analysis/AnalysisComponent';
+import AnalysisGroup from '../AnalysisGroup/AnalysisGroup';
 import Header from '../UtilComponenets/Header/Header';
 import Footer from '../UtilComponenets/Footer/Footer';
 import AuthContext from '../../context/authContext';
+import AnalysisContext from '../../context/analysisContext';
 
 
 const Router = () => {
@@ -38,6 +40,7 @@ const Router = () => {
                 <CustomRoute exact path="/" privateRoute={true} component={Dashboard} />
                 <CustomRoute exact path='/login' privateRoute={false} component={Login} />
                 <CustomRoute exact path='/signup' privateRoute={false} component={Signup} />
+                <CustomRoute exact path='/group/:type' privateRoute={true} component={AnalysisGroup} />
                 <CustomRoute path='/analysis/:type' privateRoute={true} component={AnalysisComponent} />
               </Switch>
           </div>
