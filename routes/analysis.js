@@ -11,7 +11,7 @@ const readFile = util.promisify(fs.readFile);
 
 async function getAnalysisSummary(req, res) {
     try {
-        const allAnalyses = await Analysis.find().select('name text');
+        const allAnalyses = await Analysis.find().select('name text group subgroups');
         res.status(200).json(allAnalyses);
     } catch (err) {
         console.log(err);

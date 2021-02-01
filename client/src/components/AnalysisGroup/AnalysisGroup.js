@@ -4,17 +4,20 @@ import axios from 'axios';
 import StyledDashboard from './StyledDashboard';
 import { Link } from 'react-router-dom';
 
-const Dashboard = () => {
-  const [ analysisData, setAnalysisData ] = useState([]); 
+const AnalysisGroup = () => {
+  const [analysisData, setAnalysisData] = useState([]);
+
 
   useEffect(() => {
-    axios.get('/api/analysis')
-    .then(res => {
-      setAnalysisData(res.data)
-    })
-    .catch(err => {
-      console.log(err);
-    })
+    const fetchData = async () => {
+      try {
+        const analysisResponse = await axios.get(`/api/analysis/${type}`)
+        console.log(analysisResponse);
+      } catch(err) {
+        console.log(err);
+      }
+    }
+    fetchData();
   }, [])
 
   return analysisData.length > 0 ? (
@@ -23,7 +26,7 @@ const Dashboard = () => {
         return (
           <Link key={i} to={!analysis.group ? `/analysis/${analysis.name}` : `/group/${analysis.name}`}>
             <div className="section">
-              <img 
+              <img
                 src={require(`../../images/analysis/${analysis.name}.png`)}
                 alt={analysis.text}
               />
@@ -39,4 +42,4 @@ const Dashboard = () => {
   ) : null
 }
 
-export default Dashboard;
+export default AnalysisGroup;

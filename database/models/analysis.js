@@ -27,6 +27,20 @@ const analysisSchema = new Schema({
         ref: 'Dataset',
         required: true,
     },
+    group: {
+        type: Boolean,
+        required: false
+    },
+    groupTitle: {
+        type: String,
+        required: false
+    },
+    subgroups: {
+        type: [{
+            type: String, required: true,
+        }],
+        required: false
+    },
     windowing: {
         type: Boolean,
         required: true,
