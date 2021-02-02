@@ -11,7 +11,6 @@ import AnalysisGroup from '../AnalysisGroup/AnalysisGroup';
 import Header from '../UtilComponenets/Header/Header';
 import Footer from '../UtilComponenets/Footer/Footer';
 import AuthContext from '../../context/authContext';
-import AnalysisContext from '../../context/analysisContext';
 
 
 const Router = () => {
@@ -41,7 +40,7 @@ const Router = () => {
                 <CustomRoute exact path='/login' privateRoute={false} component={Login} />
                 <CustomRoute exact path='/signup' privateRoute={false} component={Signup} />
                 <CustomRoute exact path='/group/:type' privateRoute={true} component={AnalysisGroup} />
-                <CustomRoute path='/analysis/:type' privateRoute={true} component={AnalysisComponent} />
+                <CustomRoute path='/analysis/:type/:group?' privateRoute={true} component={AnalysisComponent} />
               </Switch>
           </div>
         </main>

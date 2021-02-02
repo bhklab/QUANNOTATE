@@ -47,7 +47,8 @@ const analysisSchema = new Schema({
     },
     windowingOptions: {
         type: [{
-            type: String, required: true,
+            label: { type: String, required: true },
+            value: { type: String, required: true }
         }]
     },
     options: {

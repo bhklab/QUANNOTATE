@@ -48,7 +48,7 @@ const AnalysisGroup = () => {
         {subgroups.map((subgroup, i) => {
           return (
             <div key={i} className='subgroup'>
-              <p><Link to={`/analysis/aituring`}>Select</Link> {subgroup}</p>
+              <p><Link to={`/analysis/${type}/${subgroup}`}>Select</Link> {subgroup}</p>
             </div>
           )
         })}

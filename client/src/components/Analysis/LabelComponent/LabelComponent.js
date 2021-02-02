@@ -112,8 +112,8 @@ const LabelComponent = () => {
               >
                 <InputLabel>{option.text}</InputLabel>
                 <Select
-                value={selection[id]}
-                onChange={(e) => updateLabel(e, option.dataType, id)} 
+                  value={selection[id]}
+                  onChange={(e) => updateLabel(e, option.dataType, id)} 
                   label={option.text}
                 >
                   {option.options.map((suboption, index) => {
@@ -163,7 +163,6 @@ const LabelComponent = () => {
       values: selection
     })
       .then(function (response) {
-        console.log(response);
         // follow-up logix goes here
         setAnalysisInfo({ ...analysisInfo, loaded: false})
       })

@@ -82,7 +82,7 @@ const PlayerComponent = () => {
             })
             setState({
               images: { default: responseImages },
-              accessor: 'default',
+              accessor: "default",
               loading: false,
               windowing,
               windowOptions: []
@@ -91,15 +91,16 @@ const PlayerComponent = () => {
             const imageObj = {}
             const windows = []
             let newAccessor
-            Object.entries(images).forEach((collection, i) => {
-              // picks first collection name as an accessor 
-              if (i === 0 ) newAccessor = collection[0]
-              windows.push(collection[0])
-              imageObj[collection[0]] = []
+            Object.values(images).forEach((collection, i) => {
+              // picks first collection name as an accessor
+              const { value, label } = collection
+              if (i === 0 ) newAccessor = value
+              windows.push({ value, label })
+              imageObj[collection.value] = []
               // process images in each collection
-              collection[1].forEach(imgBuffer => {
+              collection.images.forEach(imgBuffer => {
                 const base64 = convertBufferToBase64String(imgBuffer.data);
-                imageObj[collection[0]].push(base64);
+                imageObj[collection.value].push(base64);
               })
             })
             setState({ 
@@ -149,9 +150,6 @@ const PlayerComponent = () => {
       </div>
       {windowing ? (
         <div className='windows'>
-          {/* {windowOptions.map(window => (
-            <p onClick={() => setState({...state, accessor: window})}>{window}</p>
-          ))} */}
           <FormControl
             variant="outlined"
             className={selectClasses.formControl}
@@ -159,16 +157,20 @@ const PlayerComponent = () => {
             <InputLabel>CT Window</InputLabel>
             <Select
               value={accessor}
-              onChange={(e) => setState({ ...state, accessor: e.target.value })}
-              label={accessor}
+              label="CT Window"
+              onChange={(e) => {
+                console.log(e);
+                setState({ ...state, accessor: e.target.value })
+              }}
             >
               {windowOptions.map((suboption, index) => {
+                const { value, label } = suboption
                 return (
                   <MenuItem
                     key={index}
-                    value={suboption}
+                    value={value}
                   >
-                    {suboption}
+                    {label}
                   </MenuItem>
                 )
               })}

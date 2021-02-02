@@ -85,10 +85,17 @@ async function getLabelImages(req, res) {
         }
         // setting directories to read images from
         const dirpath = path.join(__dirname, `../images/${dataset.name}/${patient}`);
-        const readFolders = windowing ? windowingOptions : [dirpath];
+        const readFolders = windowing ? windowingOptions.map(el => el.value) : [dirpath];
         // response data
         let errorMessage;
         const fileObject = {};
+        const windowingObj = {};
+        windowingOptions.forEach(el => {
+            const { value, label } = el;
+            windowingObj[el.value] = {
+                label, value 
+            };
+        });
         // reading multiple folders
         async.eachSeries(readFolders, function(dir, callback) {
             let readDirectory = windowing ? `${dirpath}/${dir}` : dir;
@@ -101,10 +108,12 @@ async function getLabelImages(req, res) {
                     return readFile(filepath);
                 });
                 Promise.all(files).then(images => {
-                    windowing ? fileObject[dir] = images : fileObject.default = images;
+                    const { value, label } = windowingObj[dir];
+                    windowing ? fileObject[dir] = { images, value, label } : fileObject.default = { images };
                     // runs next folder after all promises have been returned
                     callback();
                 }).catch(error => {
+                    console.log(error);
                     errorMessage = error;
                 });
             });
@@ -133,7 +142,7 @@ async function registerLabels(req, res) {
     }
     const { id } = req.user;
     try {
-        await Patient.update({ _id: patientId }, {$push: {labels: {user: id, analysis: analysisId, values}}});
+        await Patient.updateOne({ _id: patientId }, {$push: {labels: {user: id, analysis: analysisId, values}}});
         res.status(200).json({ message: 'Labels have been registered' });
     } catch(e) {
         console.log(e);

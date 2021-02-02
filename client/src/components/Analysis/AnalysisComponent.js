@@ -24,7 +24,7 @@ const AnalysisComponent = () => {
   });
   const [ error, setError ] = useState(null)
   // retrieves type parameter from react router
-  const { type } = useParams()
+  const { type, group } = useParams()
   // gets analysis and first patient from the server and transforms them into a readable state
   useEffect(() => {
     // to prevent memory leaks
@@ -104,7 +104,7 @@ const AnalysisComponent = () => {
   }
 
   const { analysis, options, message, currentPatient, patientCount } = analysisInfo;
-  
+
   if (!analysisInfo.loaded) {
     return (
       <StyledAnalysis>
@@ -136,7 +136,7 @@ const AnalysisComponent = () => {
             <div className="bar" style={{ width: `${percentage}%` }}></div>
           </div>
           {type === 'aituring' ? (
-            <p>OAR: Parotid_L (example)</p>
+            <p>OAR: {group} (example)</p>
           ) : null}
         </div>
         <div className='analysis-container'>

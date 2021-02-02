@@ -219,9 +219,18 @@
       "Brachial plexus"
     ],
     "windowingOptions": [
-      "bone",
-      "lung",
-      "soft"
+      {
+        "label": "Bone",
+        "value": "bone"
+      },
+      {
+        "label": "Lung",
+        "value": "lung"
+      },
+      {
+        "label": "Soft Tissue",
+        "value": "soft"
+      }
     ],
     "options": [
       {
@@ -229,10 +238,10 @@
         "text": "Is the contour clinically acceptable?",
         "dataType": "dropdown",
         "options": [
-          "Require them to be corrected; There are large, obvious, errors",
-          "Require them to be corrected; There are minor errors that need a small amount of editing",
-          "Accept them as they are; There are minor errors but these are clinically not significant",
-          "Accept them as they are; The contours are very precise"
+          "Major editing required",
+          "Minor editing required",
+          "Acceptable with minor errors",
+          "Acceptable as it is"
         ]
       },
       {
@@ -241,7 +250,7 @@
         "dataType": "dropdown",
         "options": [
           "Human",
-          "AI"
+          "Computer"
         ]
       },
       {
