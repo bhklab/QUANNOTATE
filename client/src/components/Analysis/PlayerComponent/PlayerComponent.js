@@ -10,7 +10,6 @@ import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded';
 import PauseRoundedIcon from '@material-ui/icons/PauseRounded';
 import StyledSlider from './StyledSlider';
 import useStyles from './Hooks/useStyles';
-import useSelectStyles from '../Hooks/useSelectStyles';
 import AnalysisContext from '../../../context/analysisContext';
 import ReactImageMagnify from 'react-image-magnify';
 import colors from '../../../styles/colors';
@@ -37,7 +36,6 @@ const PlayerComponent = () => {
   const [ selectedImage, setSelectedImage ] = useState(0);
   const [ playing, setPlaying ] = useState(false);
   const classes = useStyles();
-  const selectClasses = useSelectStyles();
   let play
   // functions that is triggered when user uses slider to select a particular scan
   const handleSliderChange = (value) => {
@@ -75,7 +73,7 @@ const PlayerComponent = () => {
           // processes image buffers to be rendered on the page
           if (!windowing) {
             const responseImages = [];
-            images.default.forEach(imgBuffer => {
+            images.default.images.forEach(imgBuffer => {
               const base64 = convertBufferToBase64String(imgBuffer.data);
               responseImages.push(base64);
               // images are getting added to the default collection if no windowing
@@ -114,8 +112,10 @@ const PlayerComponent = () => {
         }
       })
       .catch(err => {
-        console.log(err);
-        setError(err)
+        if (isSubsribed) {
+          console.log(err);
+          setError(err)
+        } 
       })
     return () => {isSubsribed = false}
   }, [type])
@@ -152,16 +152,13 @@ const PlayerComponent = () => {
         <div className='windows'>
           <FormControl
             variant="outlined"
-            className={selectClasses.formControl}
+            className={classes.formControl}
           >
             <InputLabel>CT Window</InputLabel>
             <Select
               value={accessor}
               label="CT Window"
-              onChange={(e) => {
-                console.log(e);
-                setState({ ...state, accessor: e.target.value })
-              }}
+              onChange={(e) => setState({ ...state, accessor: e.target.value })}
             >
               {windowOptions.map((suboption, index) => {
                 const { value, label } = suboption

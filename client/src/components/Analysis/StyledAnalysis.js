@@ -48,7 +48,7 @@ const StyledAnalysis = styled.div`
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 0 0;
 
     p {
       margin: 0 0 0 10px;
@@ -74,7 +74,6 @@ const StyledAnalysis = styled.div`
     margin-left: 2vw;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
   }
 
   .slider {
@@ -126,8 +125,8 @@ const StyledAnalysis = styled.div`
     margin: 15px 0;
     width: 100%;
     height: 15px;
-    background-color: ${colors.white};
-    border: 1px solid ${colors.blue};
+    background-color: ${colors.grey};
+    // border: 1px solid ${colors.blue};
     p {
       text-align: center;
       font-size: 1rem;

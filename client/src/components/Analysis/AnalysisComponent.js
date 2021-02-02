@@ -66,12 +66,14 @@ const AnalysisComponent = () => {
           }
         } 
       } catch (err) {
-        const { response } = error
-        // redirects user to the login page if the response status indicates that user is unauthorized (401)
-        if (response.status === 401) {
-          setAuthState({ ...authState, authenticated: false, username: null, email: null })
-        } else {
-          setError(err)
+        if (isSubscribed) {
+          const { response } = error
+          // redirects user to the login page if the response status indicates that user is unauthorized (401)
+          if (response.status === 401) {
+            setAuthState({ ...authState, authenticated: false, username: null, email: null })
+          } else {
+            setError(err)
+          }
         }
       }     
     }

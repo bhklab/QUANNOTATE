@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 // Material UI imports
@@ -15,7 +15,7 @@ import AnalysisContext from '../../../context/analysisContext';
 import StyledCheckBox from './StyledCheckBox';
 import StyledButtonContainer from './StyledButtonContainer';
 import StyledOptions from './StyledOptions';
-import useStyles from '../Hooks/useSelectStyles';
+import useStyles from './Hooks/useStyles';
 
 // prepopulates selection state in the component when options appear/change
 const createSelectionSet = (options) => {
@@ -59,6 +59,15 @@ const LabelComponent = () => {
   const [ selection, setSelection ] = useState(createSelectionSet(options));
   const [ errorPopup, setErrorPopup ] = useState();
   const classes = useStyles();
+  const isSubscribed = useRef(true);
+
+  useEffect(() => {
+    return () => {
+      // memory leak prevention on label submission
+      isSubscribed.current = false;
+    }
+  }, []);
+
   useEffect(() => {
     if (errorPopup) setErrorPopup('')
     setSelection(createSelectionSet(options))
@@ -163,17 +172,17 @@ const LabelComponent = () => {
       values: selection
     })
       .then(function (response) {
-        // follow-up logix goes here
-        setAnalysisInfo({ ...analysisInfo, loaded: false})
+        if (isSubscribed) setAnalysisInfo({ ...analysisInfo, loaded: false})
       })
       .catch(function (error) {
-        console.log(error);
-        const { response } = error
-        // redirects user to the login page if the response status indicates that user is unauthorized (401)
-        if (response && response.status === 401) {
-          setAuthState({ ...authState, authenticated: false, username: null, email: null }) 
-        } else {
-          setErrorPopup("Labels haven't been submitted, please try again")
+        if (isSubscribed) {
+          const { response } = error
+          // redirects user to the login page if the response status indicates that user is unauthorized (401)
+          if (response && response.status === 401) {
+            setAuthState({ ...authState, authenticated: false, username: null, email: null }) 
+          } else {
+            setErrorPopup("Labels haven't been submitted, please try again")
+          }
         }
       });
   }

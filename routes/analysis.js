@@ -108,8 +108,12 @@ async function getLabelImages(req, res) {
                     return readFile(filepath);
                 });
                 Promise.all(files).then(images => {
-                    const { value, label } = windowingObj[dir];
-                    windowing ? fileObject[dir] = { images, value, label } : fileObject.default = { images };
+                    if (windowing) {
+                        const { value, label } = windowingObj[dir];
+                        fileObject[dir] = { images, value, label };
+                    } else {
+                        fileObject.default = { images };
+                    } 
                     // runs next folder after all promises have been returned
                     callback();
                 }).catch(error => {

@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
-import colors from '../../../styles/colors';
+import colors from '../../../../styles/colors';
 
-const useSelectStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
   label: {
     color: colors.white,
     transition: 'all 0.25s ease-in',
@@ -86,4 +86,4 @@ const useSelectStyles = makeStyles((theme) => ({
   }
 }));
 
-export default useSelectStyles;
+export default useStyles;
