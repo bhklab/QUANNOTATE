@@ -25,6 +25,7 @@ const StyledDashboard = styled.div`
     p {
       font-size: calc(2vw + 10px);
       color: ${colors.white};
+      margin: 1vh 0 0;
     }
   }
 
