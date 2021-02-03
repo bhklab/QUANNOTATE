@@ -79,10 +79,11 @@ const StyledAnalysis = styled.div`
   .slider {
     display: flex;
     width: 100%;
+    padding-left: 5px;
   }
 
   .patients-id {
-    margin-top: 10px;
+    margin-bottom: 10px;
     
     p {
       background-color: ${colors.blue};
@@ -126,7 +127,7 @@ const StyledAnalysis = styled.div`
     width: 100%;
     height: 15px;
     background-color: ${colors.grey};
-    // border: 1px solid ${colors.blue};
+
     p {
       text-align: center;
       font-size: 1rem;

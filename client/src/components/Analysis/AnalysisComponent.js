@@ -1,10 +1,14 @@
 /* eslint-disable default-case */
+// import libraries
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
+import axios from 'axios';
+// import custom components
 import StyledAnalysis from './StyledAnalysis';
 import PlayerComponent from './PlayerComponent/PlayerComponent';
 import LabelComponent from './LabelComponent/LabelComponent';
+import LoadingComponent from '../UtilComponenets/Loading/LoadingComponent';
+// import custom hooks
 import AnalysisContext from '../../context/analysisContext';
 import AuthContext from '../../context/authContext';
 
@@ -31,8 +35,10 @@ const AnalysisComponent = () => {
     let isSubscribed = true
     const fetchData = async () => {
       try {
+        // analysis fetch request
         const analysisResponse = await axios.get(`/api/analysis/${type}`)
         const { dataset, title, options } = analysisResponse.data;
+        // custom sort to put checkbox options at the top
         options.sort((a, b) => {
           const sortMap = {
             checkbox: 0,
@@ -40,6 +46,7 @@ const AnalysisComponent = () => {
           }
           return sortMap[a.dataType] - sortMap[b.dataType]
         })
+        // patient fetch request
         const patientResponse = await axios.get(`/api/analysis/patient?datasetId=${dataset._id}&analysisId=${analysisResponse.data._id}`);
         const { display_label, _id, message, patientCount } = patientResponse.data
         if (isSubscribed) {
@@ -77,7 +84,7 @@ const AnalysisComponent = () => {
         }
       }     
     }
-    // execute this hook only if loaded set to false
+    // execute this hook only if loaded set to false, connects to previous label submission
     if (!analysisInfo.loaded) {
       setAnalysisInfo({
         analysis: {
@@ -110,7 +117,9 @@ const AnalysisComponent = () => {
   if (!analysisInfo.loaded) {
     return (
       <StyledAnalysis>
-        <h3>Loading...</h3>
+        <LoadingComponent
+          loading={true}
+        />
       </StyledAnalysis>
     )
   }

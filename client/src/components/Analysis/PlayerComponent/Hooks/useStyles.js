@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     width: '100%',
     marginBottom: 10,
-    marginTop: 10,
     maxWidth: 300,
     textAlign: 'left',
     '& label': {

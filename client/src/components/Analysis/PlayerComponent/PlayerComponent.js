@@ -1,20 +1,25 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+// imports libraries
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
+import ReactImageMagnify from 'react-image-magnify';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded';
 import PauseRoundedIcon from '@material-ui/icons/PauseRounded';
+// imports components
 import StyledSlider from './StyledSlider';
+import LoadingComponent from '../../UtilComponenets/Loading/LoadingComponent';
+// import custom hooks
 import useStyles from './Hooks/useStyles';
 import AnalysisContext from '../../../context/analysisContext';
-import ReactImageMagnify from 'react-image-magnify';
+// import styles
 import colors from '../../../styles/colors';
 
-// helper funstions that accepts array buffer and produce byte64 string to be rendered as an image in the browser
+// helper function that accepts array buffer and produce byte64 string to be rendered as an image in the browser
 const convertBufferToBase64String = (buffer) => btoa(
   new Uint8Array(buffer)
     .reduce((data, byte) => data + String.fromCharCode(byte), '')
@@ -121,13 +126,22 @@ const PlayerComponent = () => {
   }, [type])
 
   if (loading) {
-    return (<div>Loading images...</div>)
+    return (
+      <div className='player-container'>
+        <LoadingComponent
+          loading={true}
+        />
+      </div>
+    )
   }
   
   if (playing) playImages()
   
   return (
     <div className='player-container'>
+      <div className='patients-id'>
+        <p>ID: {patient.label}</p>
+      </div>
       <div className="scan">
         <ReactImageMagnify
           {...{
@@ -147,6 +161,27 @@ const PlayerComponent = () => {
             }
           }}
         />
+      </div>
+      <div className="slider">
+        <StyledSlider
+          value={selectedImage + 1}
+          min={1}
+          max={images[accessor].length}
+          valueLabelDisplay="auto"
+          onChange={(e, value) => handleSliderChange(value)}
+        />
+        <div className={classes.controls}>
+          <div className={playing ? 'playing' : null}>
+            <PlayArrowRoundedIcon
+              onClick={() => setPlaying(true)}
+            />
+          </div>
+          <div>
+            <PauseRoundedIcon
+              onClick={() => setPlaying(false)}
+            />
+          </div>
+        </div>
       </div>
       {windowing ? (
         <div className='windows'>
@@ -175,30 +210,6 @@ const PlayerComponent = () => {
           </FormControl>
         </div>
       ) : null}
-      <div className='patients-id'>
-        <p>ID: {patient.label}</p>
-      </div>
-      <div className="slider">
-        <StyledSlider
-          value={selectedImage + 1}
-          min={1}
-          max={images[accessor].length}
-          valueLabelDisplay="auto"
-          onChange={(e, value) => handleSliderChange(value)}
-        />
-        <div className={classes.controls}>
-          <div className={playing ? 'playing' : null}>
-            <PlayArrowRoundedIcon
-              onClick={() => setPlaying(true)}
-            />
-          </div>
-          <div>
-            <PauseRoundedIcon
-              onClick={() => setPlaying(false)}
-            />
-          </div>
-        </div>
-      </div>
     </div>
   )
 }
