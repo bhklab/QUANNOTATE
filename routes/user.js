@@ -1,6 +1,22 @@
 const jwt = require('jsonwebtoken');
 const { User } = require('../database/models/index');
 const generateErrorObject = require('../utils/generateErrorObject');
+const nodemailer = require('nodemailer');
+const emailId = process.env.EMAIL_ID;
+const emailPassword = process.env.EMAIL_ID;
+
+
+/*
+    Here we are configuring our SMTP Server details.
+    STMP is mail server which is responsible for sending and recieving email.
+*/
+const smtpTransport = nodemailer.createTransport('SMTP', {
+    service: 'Gmail',
+    auth: {
+        user: emailId,
+        pass: emailPassword
+    }
+});
 
 // sets expiration time for jwt tokens and cookies
 const expirationTime = 60 * 60; // 1 hour
@@ -63,7 +79,8 @@ function registerUser(req, res) {
                 const newUser = new User({
                     username,
                     email,
-                    password
+                    password,
+                    verified: false
                 });
                 // attempts to save new user
                 newUser.save(function (err, savedUser) {

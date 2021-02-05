@@ -43,6 +43,13 @@ const userSchema = new Schema({
             },
         ],
     },
+    // field that shows whether user account was verified
+    verified: {
+        type: Boolean,
+        required: true,
+        default: false
+    }
+
 },
 {
     timestamps: true,
