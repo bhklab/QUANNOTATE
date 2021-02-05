@@ -133,7 +133,8 @@ async function getLabelImages(req, res) {
             }
             res.status(200).json({ images: fileObject, windowing });
         });
-    } catch {
+    } catch(e) {
+        console.log(e);
         res.status(500).json({ message: 'Something went wrong' });
     }
 }

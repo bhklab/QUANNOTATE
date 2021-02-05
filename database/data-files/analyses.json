@@ -210,12 +210,17 @@
     "groupTitle": "Turing Test for Auto-segmented Organs at Risk",
     "subgroups": [
       "Eyeballs",
+      "Lens",
       "Optic nerves",
       "Optic chiasm",
       "Brainstem",
+      "Spinal cord",
       "Parotid glands",
       "Acoustics",
       "Mandible",
+      "Lips",
+      "Larynx",
+      "Esophagus",
       "Brachial plexus"
     ],
     "windowingOptions": [
@@ -238,10 +243,10 @@
         "text": "Is the contour clinically acceptable?",
         "dataType": "dropdown",
         "options": [
-          "Major editing required",
-          "Minor editing required",
+          "Acceptable as it is",
           "Acceptable with minor errors",
-          "Acceptable as it is"
+          "Minor editing required",
+          "Major editing required"
         ]
       },
       {

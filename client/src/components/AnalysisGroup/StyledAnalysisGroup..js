@@ -39,7 +39,7 @@ const StyledAnalysisGroup = styled.div`
   }
 
   .subgroup {
-    padding: 15px 0;
+    padding: 0 0 15px;
     // display: inline-block;
     width: max-content;
     margin: 0 25px;
