@@ -112,11 +112,6 @@
         "id": "ctvp-21",
         "text": "Whole clivus",
         "dataType": "checkbox"
-      },
-      {
-        "id": "ctvp-22",
-        "text": "Check if bad contour",
-        "dataType": "checkbox"
       }
     ]
   },
@@ -144,11 +139,6 @@
           3,
           4
         ]
-      },
-      {
-        "id": "breast-3",
-        "text": "Check if bad image",
-        "dataType": "checkbox"
       }
     ]
   },
@@ -189,11 +179,6 @@
       {
         "id": "neck_levels-6",
         "text": "RP",
-        "dataType": "checkbox"
-      },
-      {
-        "id": "neck_levels-7",
-        "text": "Check if bad image",
         "dataType": "checkbox"
       }
     ]
@@ -257,11 +242,6 @@
           "Human",
           "Computer"
         ]
-      },
-      {
-        "id": "aituring-3",
-        "text": "Check if bad image",
-        "dataType": "checkbox"
       }
     ]
   }

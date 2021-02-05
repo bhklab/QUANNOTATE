@@ -83,7 +83,7 @@ const StyledAnalysis = styled.div`
   }
 
   .patients-id {
-    margin-bottom: 10px;
+    margin-right: 10px;
     
     p {
       background-color: ${colors.blue};
@@ -122,6 +122,13 @@ const StyledAnalysis = styled.div`
       font-weight: 700;
     }
   }
+
+  .image-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
   .progress-ui {
     margin: 15px 0;
     width: 100%;

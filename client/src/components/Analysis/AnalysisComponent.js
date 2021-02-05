@@ -24,7 +24,8 @@ const AnalysisComponent = () => {
     patient: {},
     message: '',
     patientCount: null,
-    currentPatient: null
+    currentPatient: null,
+    badImage: false
   });
   const [ error, setError ] = useState(null)
   // retrieves type parameter from react router
@@ -60,6 +61,7 @@ const AnalysisComponent = () => {
           } else {
             // otherwise sets analysis and patient info and renders child components
             setAnalysisInfo({
+              ...analysisInfo,
               analysis: {
                 title,
                 id: analysisResponse.data._id
@@ -68,7 +70,8 @@ const AnalysisComponent = () => {
               patient: { id: _id, label: display_label },
               loaded: true,
               patientCount,
-              currentPatient: parseInt(display_label.split('-')[1], 10)
+              currentPatient: parseInt(display_label.split('-')[1], 10),
+              badImage: false
             })
           }
         } 
@@ -87,6 +90,7 @@ const AnalysisComponent = () => {
     // execute this hook only if loaded set to false, connects to previous label submission
     if (!analysisInfo.loaded) {
       setAnalysisInfo({
+        ...analysisInfo,
         analysis: {
           title: 'Loading...',
           id: null
@@ -96,8 +100,9 @@ const AnalysisComponent = () => {
         patient: {},
         message: '',
         patientCount: null,
-        currentPatient: null},
-        )
+        currentPatient: null,
+        badImage: false
+      })
       fetchData()
     }
     return () => {isSubscribed = false}

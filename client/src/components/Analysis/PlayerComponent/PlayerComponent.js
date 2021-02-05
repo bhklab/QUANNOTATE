@@ -10,8 +10,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded';
 import PauseRoundedIcon from '@material-ui/icons/PauseRounded';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 // imports components
 import StyledSlider from './StyledSlider';
+import StyledCheckBox from '../StyledCheckBox';
 import LoadingComponent from '../../UtilComponenets/Loading/LoadingComponent';
 // import custom hooks
 import useStyles from './Hooks/useStyles';
@@ -26,7 +28,7 @@ const convertBufferToBase64String = (buffer) => btoa(
 );
 
 const PlayerComponent = () => {
-  const { analysisInfo, setError } = useContext(AnalysisContext);
+  const { analysisInfo, setAnalysisInfo, setError } = useContext(AnalysisContext);
   const { patient } = analysisInfo;
   // retrieves type parameter from react router
   const { type } = useParams()
@@ -139,8 +141,20 @@ const PlayerComponent = () => {
   
   return (
     <div className='player-container'>
-      <div className='patients-id'>
-        <p>ID: {patient.label}</p>
+      <div className='image-header'> 
+        <div className='patients-id'>
+          <p>ID: {patient.label}</p>
+        </div>
+        <FormControlLabel
+          label="Check if bad image"
+          control={
+            <StyledCheckBox
+              checked={analysisInfo.badImage}
+              onChange={() => setAnalysisInfo({...analysisInfo, badImage: !analysisInfo.badImage})}
+              name="Check if bad image"
+            />
+          }
+        />
       </div>
       <div className="scan">
         <ReactImageMagnify

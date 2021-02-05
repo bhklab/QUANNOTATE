@@ -12,7 +12,7 @@ import TextField from '@material-ui/core/TextField';
 // component imports
 import AuthContext from '../../../context/authContext';
 import AnalysisContext from '../../../context/analysisContext';
-import StyledCheckBox from './StyledCheckBox';
+import StyledCheckBox from '../StyledCheckBox';
 import StyledButtonContainer from './StyledButtonContainer';
 import StyledOptions from './StyledOptions';
 import useStyles from './Hooks/useStyles';
@@ -163,18 +163,20 @@ const LabelComponent = () => {
 
   // sends user labels to the server
   const handleSubmit = (e) => {
+    const { badImage } = analysisInfo
     e.preventDefault();
     // submit logic goes here
     const { analysis, patient } = analysisInfo;
     axios.post('/api/analysis/patient', {
       analysisId: analysis.id,
       patientId: patient.id,
-      values: selection
+      // adding badImage field
+      values: {...selection, badImage }
     })
-      .then(function (response) {
+      .then((response) => {
         if (isSubscribed) setAnalysisInfo({ ...analysisInfo, loaded: false})
       })
-      .catch(function (error) {
+      .catch((error) => {
         if (isSubscribed) {
           const { response } = error
           // redirects user to the login page if the response status indicates that user is unauthorized (401)
