@@ -1,18 +1,22 @@
 import { createGlobalStyle } from 'styled-components';
 import colors from './colors';
+import transitions from './transitions';
 import backgroundImg from '../images/background.png';
 
 
 const GlobalStyles = createGlobalStyle`
     * {
         box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+    }
+    h1, h2, h3, h4, h5 {
+        font-family: 'Lato', sans-serif;
     }
     a {
         text-decoration: none;
         color: black;
-        font-family: 'Raleway', sans-serif;
         &:hover {
-        cursor: pointer !important;
+          cursor: pointer !important;
         }
     }
     ul {
@@ -72,6 +76,21 @@ const GlobalStyles = createGlobalStyle`
     }
     h1 {
       color: ${colors.blue};
+    }
+
+    .std-button-1 {
+      margin-top: 15px;
+      align-self: start;
+      font-size: 1rem;
+      padding: 10px 5px;
+      border-radius: 4px;
+      border: 2px solid ${colors.blue};
+      transition: ${transitions.main};
+      color: ${colors.white};
+      &:hover {
+        background-color: ${colors.blue};
+        color: ${colors.black}
+      }
     }
 `;
 

@@ -9,15 +9,24 @@ const EmailVerification = (props) => {
 
   // retrieves type parameter from react router
   let location = useLocation();
-  const parsed = queryString.parse(location.search);
-  console.log(parsed);
+  const { email } = queryString.parse(location.search);
 
-  if (parsed.email) {
+  const resendEmail = () => {
+    // resend verification email logic goes here
+    console.log('Email resent');
+  }
+
+  if (email) {
     return (
       <StyledVerification>
-        <h2>Thank you for registering your account</h2>
-        <h3>An email was sent to {parsed.email}. Please verify your account</h3>
-        <Link className='std-button' to='/login'>Login</Link>
+        <div className='internal-container'>
+          <h3>Thank you for registering your account</h3>
+          <p className="text">An email was sent to <span className='email'>{email}</span></p>
+          <p className="text">Please verify your account. No email? <span onClick={resendEmail} className='resend'>Resend</span></p>
+          <div className="button-container">
+            <Link className='std-button-1' to='/login'>Login</Link>
+          </div>
+        </div>
       </StyledVerification>
     )
   }
