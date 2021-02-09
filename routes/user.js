@@ -97,9 +97,9 @@ function registerUser(req, res) {
                     rand = Math.floor((Math.random() * 100) + 54);
                     const host = req.get('host');
                     const link = 'http://' + host + '/verify?id=' + rand;
-                    
+
                     const mailOptions = {
-                        to: 'deventorum@gmail.com',
+                        to: 'email@gmail.com',
                         subject: 'Please confirm your Email account',
                         html: 'Hello,<br> Please Click on the link to verify your email.<br><a href=' + link + '>Click here to verify</a>'
                     };

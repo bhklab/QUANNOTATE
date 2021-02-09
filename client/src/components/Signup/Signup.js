@@ -97,7 +97,7 @@ const Signup = () => {
 
   return (
     <>
-      <h1>LabelIt</h1>
+      <h1>QUANNOTATE</h1>
       <StyledForm
         className={classes.root}
         onSubmit={handleSubmit}
