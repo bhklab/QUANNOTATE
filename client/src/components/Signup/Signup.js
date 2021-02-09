@@ -108,7 +108,7 @@ const Signup = () => {
           type="text"
           variant="outlined"
           value={username}
-          error={error && error.username}
+          error={error && error.hasOwnProperty('username')}
           helperText={(error && error.username && error.username.message) && error.username.message}
           onChange={e => handleInput(e, 'username')}
         />
@@ -118,7 +118,7 @@ const Signup = () => {
           type="email"
           variant="outlined"
           value={email}
-          error={error && error.email}
+          error={error && error.hasOwnProperty('email')}
           helperText={(error && error.email && error.email.message) && error.email.message}
           onChange={e => handleInput(e, 'email')}
         />
@@ -128,7 +128,7 @@ const Signup = () => {
           type="password"
           variant="outlined"
           value={password}
-          error={error && error.password}
+          error={error && error.hasOwnProperty('password')}
           helperText={(error && error.password && error.password.message) && error.password.message}
           onChange={e => handleInput(e, 'password')}
         />
@@ -138,7 +138,7 @@ const Signup = () => {
           type="password"
           variant="outlined"
           value={passwordConfirm}
-          error={error && error.passwordConfirm}
+          error={error && error.hasOwnProperty('passwordConfirm')}
           helperText={(error && error.passwordConfirm && error.passwordConfirm.message) && error.passwordConfirm.message}
           onChange={e => handleInput(e, 'passwordConfirm')}
         />

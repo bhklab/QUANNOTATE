@@ -10,13 +10,14 @@ const emailPassword = process.env.EMAIL_ID;
     Here we are configuring our SMTP Server details.
     STMP is mail server which is responsible for sending and recieving email.
 */
-const smtpTransport = nodemailer.createTransport('SMTP', {
+const smtpTransport = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
         user: emailId,
         pass: emailPassword
     }
 });
+let rand;
 
 // sets expiration time for jwt tokens and cookies
 const expirationTime = 60 * 60; // 1 hour
@@ -93,6 +94,27 @@ function registerUser(req, res) {
                     //expiresIn is being set in seconds
                     const jwtToken = jwt.sign({ username, email, id }, process.env.JWT_KEY, { expiresIn: expirationTime });
                     // maxAge is being set in milliseconds
+                    rand = Math.floor((Math.random() * 100) + 54);
+                    const host = req.get('host');
+                    const link = 'http://' + host + '/verify?id=' + rand;
+                    
+                    const mailOptions = {
+                        to: 'deventorum@gmail.com',
+                        subject: 'Please confirm your Email account',
+                        html: 'Hello,<br> Please Click on the link to verify your email.<br><a href=' + link + '>Click here to verify</a>'
+                    };
+
+                    console.log(mailOptions);
+                    smtpTransport.sendMail(mailOptions, function (error, response) {
+                        if (error) {
+                            console.log(error);
+                            res.end('error');
+                        } else {
+                            console.log('Message sent: ' + response.message);
+                            res.end('sent');
+                        }
+                    });
+
                     res.cookie('token', jwtToken, { maxAge: expirationTime * 1000, httpOnly: true }).json({ message: 'User saved', authenticated: true, username, email });
                 });
             }
@@ -130,9 +152,16 @@ function logoutUser(req, res) {
     res.cookie('token', '', { expires: new Date() }).status(200).json({message: 'User successfully logged out'});
 }
 
+function verifyUserEmail(req, res) {
+    console.log(req);
+    console.log('Here');
+    res.status(200).send('OK');
+}
+
 module.exports = {
     registerUser,
     authenticateUser,
     checkToken,
-    logoutUser
+    logoutUser,
+    verifyUserEmail
 };
