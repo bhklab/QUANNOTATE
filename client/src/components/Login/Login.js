@@ -62,7 +62,7 @@ const Login = () => {
           type="email"
           variant="outlined"
           value={email}
-          error={error && error.email}
+          error={error && error.hasOwnProperty('email')}
           helperText={(error && error.email && error.email.message) && error.email.message}
           onChange={e => handleInputChange(e, 'email')}
         />
@@ -72,7 +72,7 @@ const Login = () => {
           type="password"
           variant="outlined"
           value={password}
-          error={error && error.password}
+          error={error && error.hasOwnProperty('password')}
           helperText={(error && error.password && error.password.message) && error.password.message}
           onChange={e => handleInputChange(e, 'password')}
         />

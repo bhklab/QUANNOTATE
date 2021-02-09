@@ -1,23 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { User } = require('../database/models/index');
 const generateErrorObject = require('../utils/generateErrorObject');
-const nodemailer = require('nodemailer');
-const emailId = process.env.EMAIL_ID;
-const emailPassword = process.env.EMAIL_ID;
-
-
-/*
-    Here we are configuring our SMTP Server details.
-    STMP is mail server which is responsible for sending and recieving email.
-*/
-const smtpTransport = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-        user: emailId,
-        pass: emailPassword
-    }
-});
-let rand;
+const { sendVerificationEmail } = require('../mailer/mailer');
 
 // sets expiration time for jwt tokens and cookies
 const expirationTime = 60 * 60; // 1 hour
@@ -66,16 +50,19 @@ function registerUser(req, res) {
         const { user } = req.body;
         if (!user) {
             res.status(400).json({ error: generateErrorObject('User information is missing', 'generic') });
+            return;
         }
         const { username, password, email } = user;
         if (!username || !password || !email) {
             res.status(400).json({ error: generateErrorObject('Some fields are missing', 'generic') });
+            return;
         }
         // checks if user with this email address was already created
         User.findOne({email}).then((user) => {
             if (user) {
                 const message = 'User with this email is already registered';
-                return res.status(400).json({ error: generateErrorObject(message, 'email') });
+                res.status(400).json({ error: generateErrorObject(message, 'email') });
+                return; 
             } else {
                 const newUser = new User({
                     username,
@@ -84,38 +71,24 @@ function registerUser(req, res) {
                     verified: false
                 });
                 // attempts to save new user
-                newUser.save(function (err, savedUser) {
+                newUser.save(async function (err, savedUser) {
                     if (err) {
                         console.log(err);
-                        res.status(400).json({ error: err });
+                        res.status(500).json({ error: generateErrorObject('Something went wrong', 'generic') });
                         return;
                     }
-                    const id = savedUser._id;
-                    //expiresIn is being set in seconds
-                    const jwtToken = jwt.sign({ username, email, id }, process.env.JWT_KEY, { expiresIn: expirationTime });
-                    // maxAge is being set in milliseconds
-                    rand = Math.floor((Math.random() * 100) + 54);
-                    const host = req.get('host');
-                    const link = 'http://' + host + '/verify?id=' + rand;
-
-                    const mailOptions = {
-                        to: 'email@gmail.com',
-                        subject: 'Please confirm your Email account',
-                        html: 'Hello,<br> Please Click on the link to verify your email.<br><a href=' + link + '>Click here to verify</a>'
-                    };
-
-                    console.log(mailOptions);
-                    smtpTransport.sendMail(mailOptions, function (error, response) {
-                        if (error) {
-                            console.log(error);
-                            res.end('error');
-                        } else {
-                            console.log('Message sent: ' + response.message);
-                            res.end('sent');
-                        }
-                    });
-
-                    res.cookie('token', jwtToken, { maxAge: expirationTime * 1000, httpOnly: true }).json({ message: 'User saved', authenticated: true, username, email });
+                    try {
+                        await sendVerificationEmail(email);
+                        res.status(200).json({ message: `Email was sent to ${email}. Please verify your account.` });
+                    } catch(error) {
+                        console.log(error);
+                        res.status(500).json({ error: generateErrorObject('Something went wrong', 'generic') });
+                    }
+                    // const id = savedUser._id;
+                    // //expiresIn is being set in seconds
+                    // const jwtToken = jwt.sign({ username, email, id }, process.env.JWT_KEY, { expiresIn: expirationTime });   
+                    // // maxAge is being set in milliseconds
+                    // res.cookie('token', jwtToken, { maxAge: expirationTime * 1000, httpOnly: true }).json({ message: 'User saved', authenticated: true, username, email });
                 });
             }
         });
