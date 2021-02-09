@@ -6,6 +6,7 @@ import CustomRoute from './CustomRoute';
 import Login from '../Login/Login'
 import Signup from '../Signup/Signup'
 import Dashboard from '../Dashboard/Dashboard';
+import EmailVerification from '../EmailVerification/EmailVerification'
 import AnalysisComponent from '../Analysis/AnalysisComponent';
 import AnalysisGroup from '../AnalysisGroup/AnalysisGroup';
 import Header from '../UtilComponenets/Header/Header';
@@ -37,8 +38,9 @@ const Router = () => {
           <div className='wrapper'>
               <Switch>
                 <CustomRoute exact path="/" privateRoute={true} component={Dashboard} />
-                <CustomRoute exact path='/login' privateRoute={false} component={Login} />
                 <CustomRoute exact path='/signup' privateRoute={false} component={Signup} />
+                <CustomRoute path='/verify' privateRoute={false} component={EmailVerification} />
+                <CustomRoute exact path='/login' privateRoute={false} component={Login} />
                 <CustomRoute exact path='/group/:type' privateRoute={true} component={AnalysisGroup} />
                 <CustomRoute path='/analysis/:type/:group?' privateRoute={true} component={AnalysisComponent} />
               </Switch>
