@@ -20,7 +20,7 @@ require('../auth/auth');
 // user routes
 router.get('/user/checkToken', checkToken);
 router.get('/user/logout', logoutUser);
-router.get('/user/verify/:token', verifyUserEmail);
+router.get('/user/verify', verifyUserEmail);
 router.post('/user/authenticate', authenticateUser);
 router.post('/user/register', registerUser);
 

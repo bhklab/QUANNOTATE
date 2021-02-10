@@ -72,7 +72,7 @@ function registerUser(req, res) {
                 });
                 // attempts to save new user
                 newUser.save(async function (err, savedUser) {
-                    const { urlString } = savedUser;
+                    const { urlString, _id } = savedUser;
                     if (err) {
                         console.log(err);
                         res.status(500).json({ error: generateErrorObject('Something went wrong', 'generic') });
@@ -82,7 +82,8 @@ function registerUser(req, res) {
                         const { host } = req.headers;
                         const { protocol } = req;
                         console.log(protocol, host);
-                        await sendVerificationEmail(email, urlString);
+                        const link = `${protocol}://${host}/api/user/verify?token=${urlString}&user=${_id}`;
+                        await sendVerificationEmail(email, link);
                         res.status(200).json({ message: `Email was sent to ${email}. Please verify your account.` });
                     } catch(error) {
                         console.log(error);
@@ -130,9 +131,10 @@ function logoutUser(req, res) {
 }
 
 function verifyUserEmail(req, res) {
-    const { token } = req.params; 
+    const { token, user } = req.query; 
     console.log(token);
-    res.status(200).send('OK');
+    console.log(user);
+    res.redirect('/login');
 }
 
 module.exports = {
