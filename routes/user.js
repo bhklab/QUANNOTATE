@@ -72,13 +72,17 @@ function registerUser(req, res) {
                 });
                 // attempts to save new user
                 newUser.save(async function (err, savedUser) {
+                    const { urlString } = savedUser;
                     if (err) {
                         console.log(err);
                         res.status(500).json({ error: generateErrorObject('Something went wrong', 'generic') });
                         return;
                     }
                     try {
-                        await sendVerificationEmail(email);
+                        const { host } = req.headers;
+                        const { protocol } = req;
+                        console.log(protocol, host);
+                        await sendVerificationEmail(email, urlString);
                         res.status(200).json({ message: `Email was sent to ${email}. Please verify your account.` });
                     } catch(error) {
                         console.log(error);
@@ -126,8 +130,8 @@ function logoutUser(req, res) {
 }
 
 function verifyUserEmail(req, res) {
-    console.log(req);
-    console.log('Here');
+    const { token } = req.params; 
+    console.log(token);
     res.status(200).send('OK');
 }
 

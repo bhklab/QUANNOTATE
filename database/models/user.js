@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
+const cryptoRandomString = require('crypto-random-string');
 const Schema = mongoose.Schema;
 
 // user schema
@@ -50,6 +51,10 @@ const userSchema = new Schema({
         type: Boolean,
         required: true,
         default: false
+    },
+    // used to verify user account
+    urlString: {
+        type: String
     }
 
 },
@@ -74,6 +79,8 @@ userSchema.pre('save', function (next) {
         const salt = bcrypt.genSaltSync(12);
         user.password = bcrypt.hashSync(user.password, salt);
     }
+    // creates random string
+    user.urlString = cryptoRandomString({ length: 128, type: 'url-safe' }); 
     next();
 });
 

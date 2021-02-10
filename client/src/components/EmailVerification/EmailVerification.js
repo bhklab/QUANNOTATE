@@ -6,11 +6,9 @@ import StyledVerification from './StyledVerification'
 
 
 const EmailVerification = (props) => {
-
   // retrieves type parameter from react router
   let location = useLocation();
   const { email } = queryString.parse(location.search);
-
   const resendEmail = () => {
     // resend verification email logic goes here
     console.log('Email resent');
