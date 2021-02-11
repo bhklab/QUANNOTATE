@@ -6,7 +6,8 @@ const {
     authenticateUser,
     checkToken,
     logoutUser,
-    verifyUserEmail
+    verifyUserEmail,
+    resendActivationLink
 } = require('./user');
 const { 
     getLabelImages,
@@ -22,7 +23,8 @@ router.get('/user/checkToken', checkToken);
 router.get('/user/logout', logoutUser);
 router.get('/user/verify', verifyUserEmail);
 router.post('/user/authenticate', authenticateUser);
-router.post('/user/register', registerUser);
+router.post('/user/account/register', registerUser);
+router.post('/user/account/activate', resendActivationLink);
 
 // analysis routes (all routes are private)
 router.get('/analysis', passport.authenticate('jwt', { session: false }), getAnalysisSummary);

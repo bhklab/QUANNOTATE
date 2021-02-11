@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import colors from '../../../styles/colors';
+import transitions from '../../../styles/transitions';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -47,6 +48,20 @@ const StyledForm = styled.form`
     text-align: left;
     color: red;
     width: 100%;
+  }
+  .email-resend {
+    color: ${colors.white};
+    align-self: start;
+    padding: 0 14px;
+    margin: 0 0 10px;
+  }
+  .resend-btn {
+    color: ${colors.blue};
+    transition: ${transitions.main};
+    cursor: pointer;
+    &:hover {
+      color: ${colors.purple};
+    }
   }
 `;
 

@@ -81,7 +81,7 @@ const Signup = () => {
       password,
       email
     }
-    axios.post(`/api/user/register`, ({ user }))
+    axios.post(`/api/user/account/register`, ({ user }))
       .then((res) => {
         const { username, email, id } = res.data
         // redirects user to notification page if api request was successful and adds new user information to the context

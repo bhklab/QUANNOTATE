@@ -23,9 +23,14 @@ function authenticateUser(req, res) {
                 res.status(400).json({ error: generateErrorObject('There is no user with this email address', 'email')});
                 return;
             }
-            const { username, _id } = user;
+            const { username, _id, verified } = user;
+            
             // check if user provided correct provided
             user.isPasswordMatch(password).then(result => {
+                if (!verified) {
+                    res.status(400).json({ error: generateErrorObject('unverified', 'email') });
+                    return;
+                }
                 if (result) {
                     //expiresIn is being set in seconds
                     const jwtToken = jwt.sign({ username, email, id: _id }, process.env.JWT_KEY, { expiresIn: expirationTime });
@@ -161,10 +166,15 @@ async function verifyUserEmail(req, res) {
     }
 }
 
+async function resendActivationLink(req, res) {
+
+}
+
 module.exports = {
     registerUser,
     authenticateUser,
     checkToken,
     logoutUser,
-    verifyUserEmail
+    verifyUserEmail,
+    resendActivationLink
 };

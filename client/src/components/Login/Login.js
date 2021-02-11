@@ -40,18 +40,37 @@ const Login = () => {
         setAuthState({ ...authState, email, username, authenticated })
       })
       .catch(err => {
-        console.log(err);
-        if (err.response.data.error && err.response.data.error.errors) {
-          setError(err.response.data.error.errors)
+        const { error } = err.response.data;
+        console.log(error);
+        if (error && error.message === 'unverified') {
+          setError({ email: { message: "Your account hasn't been verified" }, resendBox: true, emailSent: false })
+        } else if (error && error.errors) {
+          setError(error.errors)
         } else {
           setError({ generic: { message: 'Something went wrong' } })
         }
       })
   }
+
+  const resendEmail = () => {
+    console.log('Sending request for a new email');
+    const newErrorState = { ...error, emailSent: true }
+    setError(newErrorState)
+  }
+
+  // creates a UI element if email address user provided haven't yet been verified
+  const generateResendBox = () => {
+    if (error && error.resendBox) {
+      return !error.emailSent ? (
+          <p className='email-resend'>Haven't received our email? <span onClick={resendEmail} className='resend-btn'>Resend</span></p>
+        ) : (<p className='email-resend'>Email is on its way</p>)
+    }
+    return null
+  }
+
   return (
     <>
       <h1>QUANNOTATE</h1>
-      <p>QUANNOTATE description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus ultrices leo. Cras scelerisque lorem nec blandit gravida. Nunc molestie suscipit dui at fermentum. Vestibulum vel risus interdum, laoreet diam at, rutrum nibh. Nullam in metus a ipsum tincidunt egestas. Cras et accumsan nisi. Vestibulum faucibus lorem vitae mi pellentesque tristique.</p>
       <StyledForm
         className={classes.root}
         onSubmit={handleSubmit}
@@ -66,6 +85,8 @@ const Login = () => {
           helperText={(error && error.email && error.email.message) && error.email.message}
           onChange={e => handleInputChange(e, 'email')}
         />
+        {/* Creates a special box that would allow user to request activation link to be sent to them */}
+        {generateResendBox()}
         <CustomTextField
           required
           label="Password"
@@ -76,7 +97,9 @@ const Login = () => {
           helperText={(error && error.password && error.password.message) && error.password.message}
           onChange={e => handleInputChange(e, 'password')}
         />
-        {(error && error.generic && error.generic.message) ? (<p className='error-message'>{error.generic.message}</p>) : null}
+        {(error && error.generic && error.generic.message) ? (
+          <p className='error-message'>{error.generic.message}</p>
+        ) : null}
         <div className='button-container'>
           <Link to='/signup'>Forgot password?</Link>
         </div>
