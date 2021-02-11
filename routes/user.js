@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const cryptoRandomString = require('crypto-random-string');
 const { User } = require('../database/models/index');
 const generateErrorObject = require('../utils/generateErrorObject');
 const { sendVerificationEmail } = require('../mailer/mailer');
@@ -64,11 +65,13 @@ function registerUser(req, res) {
                 res.status(400).json({ error: generateErrorObject(message, 'email') });
                 return; 
             } else {
+                // creates random string
                 const newUser = new User({
                     username,
                     email,
                     password,
-                    verified: false
+                    verified: false,
+                    urlString: cryptoRandomString({ length: 128, type: 'url-safe' })
                 });
                 // attempts to save new user
                 newUser.save(async function (err, savedUser) {
@@ -81,7 +84,6 @@ function registerUser(req, res) {
                     try {
                         const { host } = req.headers;
                         const { protocol } = req;
-                        console.log(protocol, host);
                         const link = `${protocol}://${host}/api/user/verify?token=${urlString}&user=${_id}`;
                         await sendVerificationEmail(email, link);
                         res.status(200).json({ message: `Email was sent to ${email}. Please verify your account.` });
@@ -127,14 +129,34 @@ function checkToken(req, res) {
 }
 
 function logoutUser(req, res) {
-    res.cookie('token', '', { expires: new Date() }).status(200).json({message: 'User successfully logged out'});
+    res.cookie('token', '', { expires: new Date() }).status(200).json({ message: 'User successfully logged out' });
 }
 
-function verifyUserEmail(req, res) {
-    const { token, user } = req.query; 
-    console.log(token);
-    console.log(user);
-    res.redirect('/login');
+async function verifyUserEmail(req, res) {
+    const { token, user } = req.query;
+    if (!token || !user) {
+        res.status(401).json({ error: generateErrorObject('Token or user query parameter is missing in the query', 'generic') });
+        return;
+    }
+    try {
+        const userToVerify = await User.findOne({ _id: user });
+        console.log(userToVerify);
+        if (!userToVerify) {
+            res.status(400).json({ error: generateErrorObject('User account is not registered', 'generic') });
+            return;
+        }
+        if (userToVerify.urlString === token) {
+            userToVerify.urlString = undefined;
+            userToVerify.verified = true;
+            await userToVerify.save();
+            res.redirect('/notification');
+        } else {
+            res.status(401);
+        }
+    } catch(e) {
+        console.log(e);
+        res.status(500).json({ error: generateErrorObject('Something went wrong', 'generic') });
+    }
 }
 
 module.exports = {

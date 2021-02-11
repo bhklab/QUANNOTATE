@@ -9,7 +9,7 @@ const sendVerificationEmail = async (email, url) => {
                 <p style="font-size: 24px; color: #f1f8fc; text-align: center;">
                     Thank you for creating Quannotate account
                 </p>
-                <p style="font-size: 15px; color: #f1f8fc; text-align: center;">
+                <p style="font-size: 18px; color: #f1f8fc; text-align: center;">
                     Please verify your account by clicking this 
                     <a
                         style="text-decoration: none; color: #84c3ff;"
