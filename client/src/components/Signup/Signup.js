@@ -82,10 +82,11 @@ const Signup = () => {
       email
     }
     axios.post(`/api/user/register`, ({ user }))
-      .then(res => {
-        history.push(`/verify?email=${email}`);
-        // const { username, authenticated, email } = res.data 
-        // setAuthState({ ...authState, email, username, authenticated })
+      .then((res) => {
+        const { username, email, id } = res.data
+        // redirects user to notification page if api request was successful and adds new user information to the context
+        setAuthState({ ...authState, username, email, id })
+        history.push(`/notification/registered/${id}`);
       })
       .catch(err => {
         console.log(err);

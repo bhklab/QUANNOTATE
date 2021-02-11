@@ -75,7 +75,7 @@ function registerUser(req, res) {
                 });
                 // attempts to save new user
                 newUser.save(async function (err, savedUser) {
-                    const { urlString, _id } = savedUser;
+                    const { urlString, _id, username, email } = savedUser;
                     if (err) {
                         console.log(err);
                         res.status(500).json({ error: generateErrorObject('Something went wrong', 'generic') });
@@ -86,7 +86,7 @@ function registerUser(req, res) {
                         const { protocol } = req;
                         const link = `${protocol}://${host}/api/user/verify?token=${urlString}&user=${_id}`;
                         await sendVerificationEmail(email, link);
-                        res.status(200).json({ message: `Email was sent to ${email}. Please verify your account.` });
+                        res.status(200).json({ message: `Email was sent to ${email}. Please verify your account.`, username, email, id: _id });
                     } catch(error) {
                         console.log(error);
                         res.status(500).json({ error: generateErrorObject('Something went wrong', 'generic') });
@@ -146,12 +146,14 @@ async function verifyUserEmail(req, res) {
             return;
         }
         if (userToVerify.urlString === token) {
+            // removing hash string and changes user status to verified
             userToVerify.urlString = undefined;
             userToVerify.verified = true;
             await userToVerify.save();
-            res.redirect('/notification');
+            res.redirect('/notification/verified');
         } else {
-            res.status(401);
+            // user tries to use verification link after his account was verified and thjere is no verification link
+            res.redirect('/notification/error/expired');
         }
     } catch(e) {
         console.log(e);

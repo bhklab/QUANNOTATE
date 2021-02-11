@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import colors from '../../styles/colors';
 import transitions from '../../styles/transitions';
 
-const StyledVerification = styled.div`
+const StyledNotification = styled.div`
   height: 80vh;
   .internal-container {
     padding: 0 60px 60px;
@@ -12,12 +12,15 @@ const StyledVerification = styled.div`
     box-shadow: 0 1px 5px 2px ${colors.white};
     
   }
-  h3 {
-    color: ${colors.white};
+  h3, h4 {
     margin: 0;
     padding: 15px 0;
+  }
+  h3 {
+    color: ${colors.white};
     font-size: 28px;
   }
+
   .text {
     margin-top: 0;
     font-size: 15px;
@@ -39,8 +42,11 @@ const StyledVerification = styled.div`
 
   .button-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+  }
+  .notification {
+    width: 100%;
   }
 `;
 
-export default StyledVerification;
+export default StyledNotification;

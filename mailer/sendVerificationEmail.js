@@ -54,7 +54,6 @@ const sendVerificationEmail = async (email, url) => {
         subject: 'Please Verify Your Quannotate Account',
         html,
     };
-
     try {
         await sgMail.send(msg);
         return;

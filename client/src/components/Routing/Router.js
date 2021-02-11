@@ -6,7 +6,7 @@ import CustomRoute from './CustomRoute';
 import Login from '../Login/Login'
 import Signup from '../Signup/Signup'
 import Dashboard from '../Dashboard/Dashboard';
-import EmailVerification from '../EmailVerification/EmailVerification'
+import Notification from '../Notification/Notification'
 import AnalysisComponent from '../Analysis/AnalysisComponent';
 import AnalysisGroup from '../AnalysisGroup/AnalysisGroup';
 import Header from '../UtilComponenets/Header/Header';
@@ -15,7 +15,13 @@ import AuthContext from '../../context/authContext';
 
 
 const Router = () => {
-  const [authState, setAuthState] = useState({ authenticated: false, username: null, email: null, isAuthChecked: false })
+  const [authState, setAuthState] = useState({ 
+    authenticated: false,
+    username: null,
+    email: null,
+    isAuthChecked: false,
+    id: null
+  })
   // checks if client is already logged in
   useEffect(() => {
     axios.get('/api/user/checkToken', { withCredentials: true })
@@ -39,7 +45,8 @@ const Router = () => {
               <Switch>
                 <CustomRoute exact path="/" privateRoute={true} component={Dashboard} />
                 <CustomRoute exact path='/signup' privateRoute={false} component={Signup} />
-                <CustomRoute path='/verify' privateRoute={false} component={EmailVerification} />
+                {/* subtype is an optional parameter */}
+                <CustomRoute path='/notification/:type/:subtype?' privateRoute={false} component={Notification} />
                 <CustomRoute exact path='/login' privateRoute={false} component={Login} />
                 <CustomRoute exact path='/group/:type' privateRoute={true} component={AnalysisGroup} />
                 <CustomRoute path='/analysis/:type/:group?' privateRoute={true} component={AnalysisComponent} />
