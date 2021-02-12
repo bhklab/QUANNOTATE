@@ -1,7 +1,10 @@
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const sendVerificationEmail = async (email, url) => {
+const sendVerificationEmail = async (req, id, token, email) => {
+    const { host } = req.headers;
+    const { protocol } = req;
+    const link = `${protocol}://${host}/api/user/verify?token=${token}&user=${id}`;
     // using purely inline css because a lot of email clients removing style tags from html emails 
     const html = `
         <div style="width: 100%; height: 100%; background-color: #383838;">
@@ -13,7 +16,7 @@ const sendVerificationEmail = async (email, url) => {
                     Please verify your account by clicking this 
                     <a
                         style="text-decoration: none; color: #84c3ff;"
-                        href="${url}"
+                        href="${link}"
                     >
                         link
                     </a>

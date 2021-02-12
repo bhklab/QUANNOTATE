@@ -86,7 +86,7 @@ const Signup = () => {
         const { username, email, id } = res.data
         // redirects user to notification page if api request was successful and adds new user information to the context
         setAuthState({ ...authState, username, email, id })
-        history.push(`/notification/registered/${id}`);
+        history.push(`/notification/registered/${email}`);
       })
       .catch(err => {
         console.log(err);

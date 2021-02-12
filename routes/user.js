@@ -87,20 +87,12 @@ function registerUser(req, res) {
                         return;
                     }
                     try {
-                        const { host } = req.headers;
-                        const { protocol } = req;
-                        const link = `${protocol}://${host}/api/user/verify?token=${urlString}&user=${_id}`;
-                        await sendVerificationEmail(email, link);
+                        await sendVerificationEmail(req, _id, urlString, email);
                         res.status(200).json({ message: `Email was sent to ${email}. Please verify your account.`, username, email, id: _id });
                     } catch(error) {
                         console.log(error);
                         res.status(500).json({ error: generateErrorObject('Something went wrong', 'generic') });
                     }
-                    // const id = savedUser._id;
-                    // //expiresIn is being set in seconds
-                    // const jwtToken = jwt.sign({ username, email, id }, process.env.JWT_KEY, { expiresIn: expirationTime });   
-                    // // maxAge is being set in milliseconds
-                    // res.cookie('token', jwtToken, { maxAge: expirationTime * 1000, httpOnly: true }).json({ message: 'User saved', authenticated: true, username, email });
                 });
             }
         });
@@ -147,7 +139,7 @@ async function verifyUserEmail(req, res) {
         const userToVerify = await User.findOne({ _id: user });
         console.log(userToVerify);
         if (!userToVerify) {
-            res.status(400).json({ error: generateErrorObject('User account is not registered', 'generic') });
+            res.redirect('/notification/error/no-user');
             return;
         }
         if (userToVerify.urlString === token) {
@@ -157,17 +149,35 @@ async function verifyUserEmail(req, res) {
             await userToVerify.save();
             res.redirect('/notification/verified');
         } else {
-            // user tries to use verification link after his account was verified and thjere is no verification link
+            // user tries to use verification link after his account was verified and there is no verification link
             res.redirect('/notification/error/expired');
         }
-    } catch(e) {
-        console.log(e);
+    } catch(err) {
+        console.log(err);
         res.status(500).json({ error: generateErrorObject('Something went wrong', 'generic') });
     }
 }
 
 async function resendActivationLink(req, res) {
-
+    try {
+        const { email } = req.body;
+        if (!email) {
+            res.status(400).json({ error: generateErrorObject('User email is missing', 'generic') });
+            return;
+        }
+        const user = await User.findOne({ email });
+        if (!user) {
+            res.status(400).json({ error: generateErrorObject('There is no user with this email address', 'email') });
+            return;
+        }
+        const { urlString, _id, username } = user;
+        // calls a mailer function
+        await sendVerificationEmail(req, _id, urlString, email);
+        res.status(200).json({ message: `Email was sent to ${email}. Please verify your account.`, username, email, id: _id });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: generateErrorObject('Something went wrong', 'generic') });
+    }
 }
 
 module.exports = {

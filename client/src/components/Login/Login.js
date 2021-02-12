@@ -43,7 +43,7 @@ const Login = () => {
         const { error } = err.response.data;
         console.log(error);
         if (error && error.message === 'unverified') {
-          setError({ email: { message: "Your account hasn't been verified" }, resendBox: true, emailSent: false })
+          setError({ email: { message: "Your haven't verified your UHN email yet" }, resendBox: true, emailSent: false })
         } else if (error && error.errors) {
           setError(error.errors)
         } else {
@@ -54,8 +54,9 @@ const Login = () => {
 
   const resendEmail = () => {
     console.log('Sending request for a new email');
-    const newErrorState = { ...error, emailSent: true }
-    setError(newErrorState)
+    setError({ ...error, emailSent: true })
+    // sends request for another verification link
+    axios.post(`/api/user/account/activate`, { email })
   }
 
   // creates a UI element if email address user provided haven't yet been verified
