@@ -25,6 +25,7 @@ router.get('/user/verify', verifyUserEmail);
 router.post('/user/authenticate', authenticateUser);
 router.post('/user/account/register', registerUser);
 router.post('/user/account/activate', resendActivationLink);
+// router.post('/user/account/recover', sendPasswordResetLink);
 
 // analysis routes (all routes are private)
 router.get('/analysis', passport.authenticate('jwt', { session: false }), getAnalysisSummary);

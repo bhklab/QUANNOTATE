@@ -3,9 +3,9 @@ const async = require('async');
 const fs = require('fs');
 const util = require('util');
 
-const { Analysis, Patient } = require('../database/models/index');
-const generateErrorObject = require('../utils/generateErrorObject');
-const sortFiles = require('../utils/sortFiles');
+const { Analysis, Patient } = require('../../database/models/index');
+const generateErrorObject = require('../../utils/generateErrorObject');
+const sortFiles = require('../../utils/sortFiles');
 
 const readFile = util.promisify(fs.readFile);
 
@@ -84,7 +84,7 @@ async function getLabelImages(req, res) {
             return;
         }
         // setting directories to read images from
-        const dirpath = path.join(__dirname, `../images/${dataset.name}/${patient}`);
+        const dirpath = path.join(__dirname, `../../images/${dataset.name}/${patient}`);
         const readFolders = windowing ? windowingOptions.map(el => el.value) : [dirpath];
         // response data
         let errorMessage;

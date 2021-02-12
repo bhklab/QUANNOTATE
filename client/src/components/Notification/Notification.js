@@ -1,6 +1,6 @@
 /* eslint-disable default-case */
 import React, { useState } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 // import queryString from 'query-string';
 import StyledNotification from './StyledNotification'

@@ -53,7 +53,6 @@ const Login = () => {
   }
 
   const resendEmail = () => {
-    console.log('Sending request for a new email');
     setError({ ...error, emailSent: true })
     // sends request for another verification link
     axios.post(`/api/user/account/activate`, { email })
