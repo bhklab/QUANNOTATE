@@ -9,7 +9,6 @@ async function verifyUserEmail(req, res) {
     }
     try {
         const userToVerify = await User.findOne({ _id: user });
-        console.log(userToVerify);
         if (!userToVerify) {
             res.redirect('/notification/error/no-user');
             return;

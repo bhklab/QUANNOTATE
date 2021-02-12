@@ -32,13 +32,13 @@ function registerUser(req, res) {
                 });
                 // attempts to save new user
                 newUser.save(async function (err, savedUser) {
-                    const { urlString, _id, username, email } = savedUser;
                     if (err) {
                         console.log(err);
-                        res.status(500).json({ error: generateErrorObject('Something went wrong', 'generic') });
+                        res.status(400).json({ error: err });
                         return;
                     }
                     try {
+                        const { urlString, _id, username, email } = savedUser;
                         await sendVerificationEmail(req, _id, urlString, email);
                         res.status(200).json({ message: `Email was sent to ${email}. Please verify your account.`, username, email, id: _id });
                     } catch (error) {
