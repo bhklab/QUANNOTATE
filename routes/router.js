@@ -8,14 +8,14 @@ const {
     logoutUser,
     verifyUserEmail,
     resendActivationLink
-} = require('./user');
+} = require('./user/index.js');
 const { 
     getLabelImages,
     getAnalysisSummary,
     getAnalysisInfo,
     getPatient,
     registerLabels
-} = require('./analysis');
+} = require('./analysis/index.js');
 require('../auth/auth');
 
 // user routes
