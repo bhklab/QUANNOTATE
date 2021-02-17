@@ -240,7 +240,8 @@
         "dataType": "dropdown",
         "options": [
           "Human",
-          "Computer"
+          "Computer",
+          "I don't know"
         ]
       }
     ]
