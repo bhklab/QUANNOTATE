@@ -1,12 +1,12 @@
-# Q-Annotate Web Application
+# QUANNOTATE Web Application
 
 ## Setup Instructions
 
 - Clone the repo
 
 ```bash
-git clone git@github.com:bhklab/LabelIt2.git
-cd Q-Annotate
+git clone git@github.com:bhklab/QUANNOTATE.git
+cd QUANNOTATE
 ```
 
 - In the project directory, install all server dependencies `npm i`
